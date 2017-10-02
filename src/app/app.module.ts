@@ -87,6 +87,7 @@ import { EditTeamComponent } from './admin/edit-team/edit-team.component';
 
 import './add-rxjs-operators';
 import { ArticlesService } from './articles/shared/articles.service';
+import {RankingHistoryComponent } from './stats/ranking-History-chart/ranking-history-chart.component';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -126,8 +127,7 @@ type StoreType = {
     GamesComponent,
     NewGameComponent,
     EditGameComponent,
-    LeagueTablePageComponent,
-    // Ng2Summernote,    
+    LeagueTablePageComponent,        
     NextGameComponent,
     PlayersCarouselComponent,
     LeagueTableSmallComponent,
@@ -139,7 +139,7 @@ type StoreType = {
     NewTeamComponent,
     LeagueTableComponent,
     PlayerDetailsSmallComponent,
-    // UPLOAD_DIRECTIVES,
+    RankingHistoryComponent,    
     EditTeamComponent],
   imports: [ // import Angular's modules
     BrowserModule,

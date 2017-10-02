@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { SummernoteComponent } from '../../summernote.component';
 import { Game } from '../shared/game.model';
 import { GamesService } from '../shared/games.service';
 import { Team } from '../../teams/shared/team.model';

@@ -57,9 +57,6 @@
     <input class="form-control" placeholder="Clubs précédents" [(ngModel)]='player.previousClubs' type="text">
 </div>
 <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>
-<div class="alert alert-success" *ngIf="successfull">
-    Joueur {{player.firstName}} {{player.lastName}} has been successfully saved!
-</div>
 <div>
     <button (click)="goBack()" class="btn btn-default ">Back</button>
     <button (click)="savePlayer() " type="submit " class="btn btn-success ">Save</button>

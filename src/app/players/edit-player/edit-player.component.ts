@@ -15,7 +15,7 @@ export class EditPlayerComponent implements OnInit {
 
     public player: Player;
     public errorMessage: string;
-    private sub: any;
+    private sub: any;    
 
     constructor(private playersService: PlayersService, private route: ActivatedRoute) {
         this.player = new Player();
