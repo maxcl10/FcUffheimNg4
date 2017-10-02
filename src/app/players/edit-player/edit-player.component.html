@@ -17,7 +17,8 @@
             <option value="Gardien">Gardien</option>
             <option value="Defenseur">Defenseur</option>
             <option value="Milieu">Milieu</option>
-            <option value="Attaquant">Attaquant</option>            
+            <option value="Attaquant">Attaquant</option>    
+            <option value="Entraineur">Entraineur</option>           
         </select>
 </div>
 <div class="form-group ">
@@ -53,7 +54,7 @@
     <input class="form-control" placeholder="Numéro préféré" [(ngModel)]='player.favoriteNumber' type="text">
 </div>
 <div class="form-group ">
-    <label>Club précédents</label>
+    <label>Clubs précédents</label>
     <input class="form-control" placeholder="Clubs précédents" [(ngModel)]='player.previousClubs' type="text">
 </div>
 <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>

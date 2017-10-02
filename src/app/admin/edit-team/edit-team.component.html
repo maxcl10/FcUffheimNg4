@@ -1,16 +1,16 @@
 <div>
     {{errorMessage}}
 </div>
-<div *ngIf="players != null">
+<div *ngIf="teamPlayers != null">
     <div class='wrapper'>
         <div class="row">
             <div class='col-md-4' >
                 <h4>Joueurs</h4>
-               <div  *ngFor="let player of players" (click)="add(player)"> {{player.firstName}} {{player.lastName}}</div>
+               <div  *ngFor="let player of poolPlayers" (click)="add(player)"> {{player.firstName}} {{player.lastName}}</div>
             </div>
             <div class='col-md-4' >
                 <h4>Equipe</h4>
-                    <div  *ngFor="let player of firstTeamPlayers" (click)="remove(player)" > {{player.firstName}} {{player.lastName}}</div>
+                    <div  *ngFor="let player of teamPlayers" (click)="remove(player)" > {{player.firstName}} {{player.lastName}}</div>
             </div>
             <!--<div class='container col-md-4' [dragula]='"player-bag"'>
                     <div  *ngFor="let player of secondTeamPlayers"> {{player.firstName}} {{player.lastName}}</div>

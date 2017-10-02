@@ -14,11 +14,21 @@ import { TeamsService } from '../../teams/shared/teams.service';
 export class EditTeamComponent implements OnInit {
 
     @Input()
-    public players: Player[];
+    set allPlayers(players: Player[]){
+
+                this.teamService.getPlayers(this.teamId).subscribe(
+            (teamPlayers) => {
+                this.teamPlayers = teamPlayers;                
+                this.poolPlayers = this.arr_diff(players, teamPlayers);               
+            },
+            (error) => this.errorMessage = <any>error);
+        }
+
+               
 
     public teamId: string;
-    public firstTeamPlayers: Player[];
-    public secondTeamPlayers: Player[];
+    public poolPlayers: Player[];  
+    public teamPlayers: Player[];  
     public errorMessage: string;
 
     constructor(private teamService: TeamsService) {
@@ -30,12 +40,7 @@ export class EditTeamComponent implements OnInit {
 
     public ngOnInit() {
 
-        this.teamService.getPlayers(this.teamId).subscribe(
-            (players) => {
-                this.firstTeamPlayers = players;
-                this.players = this.arr_diff(this.players, this.firstTeamPlayers);
-            },
-            (error) => this.errorMessage = <any>error);
+        
     }
 
     private arr_diff(a1: Player[], a2: Player[]): Player[] {
@@ -46,17 +51,18 @@ export class EditTeamComponent implements OnInit {
                     buffer.push(element);
                 }
             });
-        }
+        }      
         return buffer;
+      
     };
 
     public add(player: Player) {
         this.teamService.addPlayerInTeam(player.id, this.teamId).subscribe(
             (res) => {
                 if (res === true) {
-                    this.firstTeamPlayers.push(player);
-                    let index = this.players.indexOf(player);
-                    this.players.splice(index, 1);
+                    this.teamPlayers.push(player);
+                    let index = this.poolPlayers.indexOf(player);
+                    this.poolPlayers.splice(index, 1);
                 }
             },
             (error) => this.errorMessage = <any>error);
@@ -66,9 +72,9 @@ export class EditTeamComponent implements OnInit {
         this.teamService.removePlayerFromTeam(player.id, this.teamId).subscribe(
             (res) => {
                 if (res === true) {
-                    this.players.push(player);
-                    let index = this.firstTeamPlayers.indexOf(player);
-                    this.firstTeamPlayers.splice(index, 1);
+                    this.poolPlayers.push(player);
+                    let index = this.teamPlayers.indexOf(player);
+                    this.teamPlayers.splice(index, 1);
                 }
             }
         );

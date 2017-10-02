@@ -20,6 +20,7 @@ export class TeamComponent implements OnInit {
   public defenderPlayers: Player[] = [];
   public midfieldPlayers: Player[] = [];
   public attackerPlayers: Player[] = [];
+  public coaches: Player[] = [];
 
   public players: Player[];
   public errorMessage: string;
@@ -38,6 +39,7 @@ export class TeamComponent implements OnInit {
       this.defenderPlayers = [];
       this.midfieldPlayers = [];
       this.attackerPlayers = [];
+      this.coaches = [];
 
       let id = params['id'];
       this.teamService.getPlayers(id).subscribe(
@@ -53,6 +55,8 @@ export class TeamComponent implements OnInit {
               this.defenderPlayers.push(element);
             } else if (element.position === 'Attaquant') {
               this.attackerPlayers.push(element);
+            } else if (element.position === 'Entraineur') {
+              this.coaches.push(element);
             }
           });
         }
