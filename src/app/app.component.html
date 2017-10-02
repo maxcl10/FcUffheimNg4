@@ -1,20 +1,179 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!-- Website Header -->
+<div style="background-color: #FFF">
+    <div class="container">
+        <div class="header">
+            <img id="logofcu" src="../assets/img/logos/Uffheim/uffheim_120x120.png">
+            <div class="header-title siteTitle">
+                <div class="hidden-xs">
+                    <div class="fb-like  pull-right" data-href="http://fcuffheim.azurewebsites.net/" data-layout="button_count" data-action="like"
+                        data-size="large" data-show-faces="true" data-share="true"></div>
+                    <h1>Football Club Uffheim</h1>
+                    <span class="subHeader">Site officiel</span>
+                </div>
+                <div class="visible-xs">
+                    <h1>F.C Uffheim</h1>
+                    <div class="fb-like pull-right" style="margin-bottom: 5px; margin-right: 10px" data-href="http://fcuffheim.azurewebsites.net/"
+                        data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
+                    <span>Site officiel</span>
+                </div>
 
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav id="nav" class="navbar navbar-default container-fluid">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+    </div>
+    <div class="navbar-collapse collapse js-navbar-collapse">
+        <div class="container">
+            <ul class="nav navbar-nav menuTitle ">
+                <li> <a href="" [routerLink]="['home']">Accueil</a></li>
+                <li class="dropdown dropdown-lg">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Equipes <b class="caret"></b></a>
+                    <ul class="dropdown-menu dropdown-menu-lg row">
+                        <li class="col-sm-4">
+                            <ul>
+                                <li class="dropdown-header">Equipe 1</li>
+                                <li><a href="" [routerLink]="['team', 'b8bc86da-9eea-4820-a5d5-c9f57b3b7d80']">Effectif</a></li>
+                                <li><a href="" [routerLink]="['league-table']">Classement</a></li>
+                                <li><a href="" [routerLink]="['games']">Calendrier</a></li>
+                                <!--<li class="divider"></li>
+                                <li class="dropdown-header">LAFA</li>-->
+                            </ul>
+                        </li>
+                        <li class="col-sm-4">
+                            <ul>
+                                <li class="dropdown-header">Equipe 2</li>
+                                <li><a href="" [routerLink]="['team', '3707ef89-38c6-4f94-bc97-98238eaef435']">Effectif</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">lafa</li>
+                                <li><a href="https://lafa.fff.fr/competitions/?id=339015&poule=5&phase=1&type=ch&tab=ranking"
+                                        target="_blank">Classement</a></li>
+                                <li><a href="https://lafa.fff.fr/competitions/?journee=&date=&equipe=9796-2&opposant=&place=&sens=&id=339015&poule=5&phase=1&tab=advanced_search&type=ch"
+                                        target="_blank">Calendrier</a></li>
+                                <!--<li><a href="#">Button toolbar</a></li>
+							<li><a href="#">Sizing</a></li>
+							<li><a href="#">Nesting</a></li>
+							<li><a href="#">Vertical variation</a></li>
+							<li class="divider"></li>
+							<li class="dropdown-header">Button dropdowns</li>
+							<li><a href="#">Single button dropdowns</a></li>-->
+                            </ul>
+                        </li>
+                        <li class="col-sm-4">
+                            <ul>
+                                <li class="dropdown-header">Equipe 3</li>
+                                <li><a href="" [routerLink]="['team', '733388db-893d-4062-86e7-52c767c41db8']">Effectif</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">lafa</li>
+                                <li><a href="https://lafa.fff.fr/competitions/?id=339017&poule=7&phase=1&type=ch&tab=ranking"
+                                        target="_blank">Classement</a></li>
+                                <li><a href="https://lafa.fff.fr/competitions/?journee=&date=&equipe=9796-3&opposant=&place=&sens=&id=339017&poule=7&phase=1&tab=advanced_search&type=ch"
+                                        target="_blank">Calendrier</a></li>
+                                <!--<li><a href="#">Basic example</a></li>
+							<li><a href="#">Sizing</a></li>
+							<li><a href="#">Checkboxes and radio addons</a></li>
+							<li class="divider"></li>
+							<li class="dropdown-header">Navs</li>
+							<li><a href="#">Tabs</a></li>
+							<li><a href="#">Pills</a></li>
+							<li><a href="#">Justified</a></li>-->
+                            </ul>
+                        </li>
+                    </ul>
+
+                </li>
+                <!--<li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Equipes <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li *ngFor="let team of teams; let i = index"><a href="" [routerLink]="['team', team.id]">Equipe {{i+1}}</a></li>
+                    </ul>
+                </li>-->
+                <li> <a href="" [routerLink]="['league-table']">Classement</a></li>
+                <li> <a href="" [routerLink]="['games']">Calendrier</a></li>
+                <li> <a href="" [routerLink]="['club']">Club</a></li>
+                <li> <a href="" [routerLink]="['sponsors']">Partenaires</a></li>
+                <li> <a href="" [routerLink]="['contact']">Contact</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--Body-->
+<div class="container body-content">
+    <div style="margin-left: -15px; margin-right: -5px">
+        <div class="col-md-8 col-sm-9">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="col-md-4 col-sm-3 hidden-xs ">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><a href="" [routerLink]="['games']">Prochains match</a></h4>
+                </div>
+                <div class="panel-body">
+                    <next-game></next-game>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><a href="" [routerLink]="['league-table']">Classement</a></h4>
+                </div>
+                <div class="panel-body">
+                    <league-table-small> </league-table-small>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><a href="" [routerLink]="['games']">Dernier match</a></h4>
+                </div>
+                <div class="panel-body">
+                    <last-game></last-game>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Présentation joueur</h4>
+                </div>
+                <div class="panel-body">
+                    <players-carousel></players-carousel>
+                </div>
+            </div>
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Forme</h4>
+                </div>
+                <div class="panel-body">
+                    <games-pie-chart></games-pie-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Footer-->
+<footer class="footer" style="margin-top: 20px">
+    <div class="container">
+        <div style="margin-top: 10px">
+            <a href="" [routerLink]="['admin']">Admin</a>
+            <span class="pull-right">
+         @Copyright <a href="mailto:maxime.matter@hotmail.fr?subject=FCU WebSite">Marez</a>
+        </span>
+            <br/>
+            <img src="../../assets/img/sponsors/Logo-Credit-Agricole.png" style="height:50px">
+            <img src="../../assets/img/sponsors/pro&cie.png" style="height:50px">
+        </div>
+    </div>
+</footer>
