@@ -24,9 +24,11 @@
     "angular2-tinymce": "^2.1.2",
     "animate.css": "^3.5.2",
     "bootstrap": "^3.3.7",
+    "chart.js": "^2.7.0",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
+    "ng2-charts": "^1.6.0",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },

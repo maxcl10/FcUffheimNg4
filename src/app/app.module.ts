@@ -17,6 +17,7 @@ import { SeoService } from './shared/services/seo.service';
 //  import { TinymceModule } from 'ng2-tinymce-alt';
 import { TinymceModule } from 'angular2-tinymce';
 
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 //  import { Ng2Summernote } from 'ng2-summernote/ng2-summernote';
   // import { TinymceComponent } from 'ng2-tinymce';
 
@@ -141,16 +142,13 @@ type StoreType = {
     PlayerDetailsSmallComponent,
     RankingHistoryComponent,    
     EditTeamComponent],
-  imports: [ // import Angular's modules
+  imports: [ // import Angular's modules  
     BrowserModule,
-    BrowserModule,
-    /*ChartsModule,*/
+    ChartsModule,
     TinymceModule,
     FormsModule,
     HttpModule,
-    CommonModule,
-    // CKEditorModule,
-    /* DragulaModule,    */
+    CommonModule,  
     RouterModule.forRoot(ROUTES, { useHash: false, preloadingStrategy: PreloadAllModules })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection

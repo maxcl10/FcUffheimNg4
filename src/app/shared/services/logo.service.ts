@@ -88,7 +88,7 @@ export class LogoService {
                 return baseUrl + 'Merxheim/merxheim_' + size + 'x' + size + '.png';
             case 'Altkirch F.C.':
             case 'Altkirch A.S.':
-                return baseUrl + 'Altkirch/altkirch_' + size + 'x' + size + '.png';
+                return baseUrl + 'Altkirch/new_altkirch_' + size + 'x' + size + '.png';
             case 'Hagenbach EHB2016':
                 return baseUrl + 'Hagenbach/hagenbach_' + size + 'x' + size + '.png';
             case 'Helfrantzkirch ASCCO ':
