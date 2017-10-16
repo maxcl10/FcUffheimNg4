@@ -92,6 +92,8 @@ import {RankingHistoryComponent } from './stats/ranking-History-chart/ranking-hi
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
+import { LastFiveGamesComponent } from './stats/last-five-games/last-five-games.component';
+import { StrikersComponent } from './stats/strikers/strikers.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -141,7 +143,9 @@ type StoreType = {
     LeagueTableComponent,
     PlayerDetailsSmallComponent,
     RankingHistoryComponent,    
-    EditTeamComponent],
+    EditTeamComponent,
+    LastFiveGamesComponent,
+    StrikersComponent],
   imports: [ // import Angular's modules  
     BrowserModule,
     ChartsModule,
