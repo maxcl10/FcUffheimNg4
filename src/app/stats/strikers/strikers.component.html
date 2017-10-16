@@ -1,8 +1,25 @@
-<p>
-  strikers
-</p>
-<ul>
-  <li>
-    
+<table class="table">
+  <tr>
+    <td></td>
+    <td title="Total">Tot</td>
+    <td title="Championnat">Champ</td>
+    <td title="Coupe de France">CdF</td>
+    <td title="Coupe d'Alsace">CdA</td>
+  </tr>
+  <tr *ngFor="let stat of strickersStats">  
+    <td>
+     {{stat.player}}
+    </td>
+    <td>
+      <b>{{stat.totalGoals }}</b></td>
+    <td>{{stat.championshipGoals}}</td>
+    <td>{{stat.nationalCupGoals}}</td>
+    <td>{{stat.regionalCupGoals}}</td>
+   
+  </tr>
+</table>
+<!-- <ul>
+  <li >
+    {{stat.player}}
   </li>
-</ul>
+</ul> -->

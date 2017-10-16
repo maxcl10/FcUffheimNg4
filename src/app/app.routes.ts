@@ -23,8 +23,10 @@ import { SponsorComponent } from './sponsors/sponsor/sponsor.component';
 import { GamesComponent } from './games/games-list/games-list.component';
 import { NewGameComponent } from './games/new-game/new-game.component';
 import { EditGameComponent } from './games/edit-game/edit-game.component';
+import { StatsComponent } from './stats/stats/stats.component';
 
 import { DataResolver } from './app.resolver';
+
 
 export const ROUTES: Routes =
   [{
@@ -103,4 +105,8 @@ export const ROUTES: Routes =
     path: 'editGame/:id',
     component: EditGameComponent
   },
+  {
+    path: 'stats',
+    component: StatsComponent
+  }
   ];

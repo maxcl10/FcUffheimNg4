@@ -94,6 +94,7 @@ import '../styles/styles.scss';
 import '../styles/headings.css';
 import { LastFiveGamesComponent } from './stats/last-five-games/last-five-games.component';
 import { StrikersComponent } from './stats/strikers/strikers.component';
+import { StatsComponent } from './stats/stats/stats.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -145,7 +146,8 @@ type StoreType = {
     RankingHistoryComponent,    
     EditTeamComponent,
     LastFiveGamesComponent,
-    StrikersComponent],
+    StrikersComponent,
+    StatsComponent],
   imports: [ // import Angular's modules  
     BrowserModule,
     ChartsModule,

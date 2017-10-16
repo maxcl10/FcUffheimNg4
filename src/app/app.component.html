@@ -98,10 +98,10 @@
                 </li>-->
                 <li> <a href="" [routerLink]="['league-table']">Classement</a></li>
                 <li> <a href="" [routerLink]="['games']">Calendrier</a></li>
+                <li> <a href="" [routerLink]="['stats']">stats</a></li>
                 <li> <a href="" [routerLink]="['club']">Club</a></li>
                 <li> <a href="" [routerLink]="['sponsors']">Partenaires</a></li>
                 <li> <a href="" [routerLink]="['contact']">Contact</a></li>
-
             </ul>
         </div>
     </div>
@@ -153,14 +153,17 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4>Stats</h4>
+                    <h4><a href="" [routerLink]="['stats']">Stats</a></h4>
                 </div>
                 <div class="panel-body">
                     <games-pie-chart></games-pie-chart>
-                    <h4>5 Derniers matchs</h4>
+                    <!-- <h4>5 Derniers matchs</h4>
                     <app-last-five-games></app-last-five-games>
+                    <h4>Buteurs</h4>
+
+                    <app-strikers [count]="5"></app-strikers> -->
                 </div>
-            </div>           
+            </div>
         </div>
     </div>
 </div>
