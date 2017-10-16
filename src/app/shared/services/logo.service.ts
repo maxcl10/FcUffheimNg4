@@ -64,7 +64,7 @@ export class LogoService {
             case 'Azzurri Mulhouse U.S.':
             case 'Azzurri Mulhouse U.S':
                 return baseUrl + 'Azzuri/azzuri_' + size + 'x' + size + '.png';
-            case 'Huningue F.C':
+            case 'Huningue A.S':
             case 'Huningue A.S.':
                 return baseUrl + 'Huningue/huningue_' + size + 'x' + size + '.png';
             case 'Kembs F.C.':
@@ -93,10 +93,12 @@ export class LogoService {
                 return baseUrl + 'Hagenbach/hagenbach_' + size + 'x' + size + '.png';
             case 'Helfrantzkirch ASCCO ':
                 return baseUrl + 'Helfrantzkirch/helfrantzkirch_' + size + 'x' + size + '.png';
-                   case 'Riespach A.S.':
+            case 'Riespach A.S.':
                 return baseUrl + 'Riespach/riespach_' + size + 'x' + size + '.png';
-                   case 'Carspach S.G.':
+            case 'Carspach S.G.':
                 return baseUrl + 'Carspach/carspach_' + size + 'x' + size + '.png';
+            case 'Ottmarsheim S.C.':
+                return baseUrl + 'Ottmarsheim/ottmarsheim_' + size + 'x' + size + '.png';
             default:
                 break;
         }
