@@ -55,15 +55,26 @@ img {
   -webkit-text-fill-color: transparent;      
 }
 
-.border-bottom
+table.ranking {   
+  border-collapse: separate !important; }
+
+  /* table.ranking td{   
+    padding: 5px !important;} */
+
+.border-bottom td
 {
-  border-bottom: 2px solid #3c763d !important;
+  border-bottom: 1px solid #3c763d !important;
 }
 
-
-.border-top
+tr.boxing-bottom td
 {
-  border-top: 2px solid #a94442 !important;
+  border-bottom: 1px dashed #96670f !important;
+  border-top: 0px !important;
+}
+
+.border-top td
+{
+  border-top: 1px solid #a94442 !important;
 }
 
 article * table
