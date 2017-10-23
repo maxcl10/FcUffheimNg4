@@ -35,6 +35,7 @@ export class AppComponent implements OnInit {
           // comment has been removed 
            ga('send', 'pageview', event.urlAfterRedirects);
         }
+        window.scrollTo(0, 0);
       });
 
     // Method to close the nav bar when clicking on a link on small screens

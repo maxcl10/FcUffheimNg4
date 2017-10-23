@@ -2,14 +2,14 @@ import {Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
 import {Player} from '../shared/player.model'
-import {PlayersService} from '../shared/players.service';
+import {TeamsService} from '../../teams/shared/teams.service';
 
 import {PlayerDetailsSmallComponent} from '../player-details-small/player-details-small.component'
 
 @Component({
     selector: 'players-carousel',
     templateUrl: './players-carousel.component.html',
-    providers: [PlayersService],  
+    providers: [TeamsService],  
 })
 
 export class PlayersCarouselComponent implements OnInit {
@@ -18,7 +18,7 @@ export class PlayersCarouselComponent implements OnInit {
     player: Player;
     errorMessage: string;
 
-    constructor(private playerService: PlayersService, private route: ActivatedRoute, private router: Router) {
+    constructor(private playerService: TeamsService, private route: ActivatedRoute, private router: Router) {
 
     }
 
@@ -35,7 +35,7 @@ export class PlayersCarouselComponent implements OnInit {
     }
 
     getPlayers() {
-        this.playerService.getplayers().subscribe(
+        this.playerService.getCurrentPlayers().subscribe(
             players => {
                 this.players = players;             
                 setInterval(this.changePlayer(players), 5000);

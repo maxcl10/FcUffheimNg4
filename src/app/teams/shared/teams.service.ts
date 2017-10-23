@@ -21,6 +21,12 @@ export class TeamsService {
             .catch(this.handleError);
     }
 
+    public getCurrentPlayers(): Observable<Player[]> {
+        return this.http.get(this.teamPlayersUrl + 'getcurrentplayers/')
+            .map((response) => response.json())
+            .catch(this.handleError);
+    }
+
     public getHomeTeams(): Observable<Team[]> {
         return this.http.get(this.teamPlayersUrl + 'getHomeTeams')
             .map((response) => response.json())
