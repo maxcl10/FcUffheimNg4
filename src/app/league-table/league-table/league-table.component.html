@@ -2,20 +2,20 @@
     <tr>
         <th>Pos</th>
         <th>Equipe</th>
+        <th>Pts</th>
         <th>J</th>
         <th>G</th>
         <th>N</th>
         <th>D</th>
         <th class="hidden-xs">BP</th>
         <th class="hidden-xs">BC</th>
-        <th class="hidden-xs">+/-</th>
-        <th>Pts</th>
+        <th class="hidden-xs">+/-</th>        
     </tr>
     <tr *ngFor="let item of rankings" [ngClass]="{'mauve': item.team == 'Uffheim F.C.', 'border-bottom': item.position == 1, 'border-top': item.position == 13, 'boxing-bottom': item.position == 2}">
 
         <td [ngClass]="{'text-success': item.position<= 2, 'text-danger':  item.position>= 13}">{{item.position}}</td>
-
         <td><img [src]="item.imageUrl"> {{item.team}}</td>
+        <td><b>{{item.points}}</b></td>
         <!-- <i class="fa fa-shirtsinbulk green-white" aria-hidden="true"  ></i> -->
         <td>{{item.matchPlayed}}</td>
         <td>{{item.matchWon}}</td>
@@ -24,7 +24,7 @@
         <td class="hidden-xs">{{item.goalsScored}}</td>
         <td class="hidden-xs">{{item.goalsAgainst}}</td>
         <td class="hidden-xs">{{item.goalDifference}}</td>
-        <td><b>{{item.points}}</b></td>
+    
     </tr>
 
 </table>

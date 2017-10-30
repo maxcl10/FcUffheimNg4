@@ -3,12 +3,12 @@
         <tr>
             <th>Pos</th>
             <th>Equipe</th>
+            <th>Pts</th>
             <th class="hidden-sm">J</th>
             <th class="hidden-sm">G</th>
             <th class="hidden-sm">N</th>
             <th class="hidden-sm">D</th>
-            <th class="hidden-sm">+/-</th>
-            <th>Pts</th>
+            <th class="hidden-sm">+/-</th>            
         </tr>
     </thead>
     <tbody>
@@ -16,12 +16,12 @@
             <td [ngClass]="{'text-success': item.position<= 1, 'text-danger':  item.position>= 13}">{{item.position}}</td>
             <td> {{item.team}}</td>
             <!-- <i class="fa fa-shirtsinbulk green-white" aria-hidden="true"  ></i> -->
+            <td><b>{{item.points}}</b></td>
             <td class="hidden-sm">{{item.matchPlayed}}</td>
             <td class="hidden-sm">{{item.matchWon}}</td>
             <td class="hidden-sm">{{item.matchDraw}}</td>
             <td class="hidden-sm">{{item.matchLost}}</td>
-            <td class="hidden-sm">{{item.goalDifference}}</td>
-            <td><b>{{item.points}}</b></td>
+            <td class="hidden-sm">{{item.goalDifference}}</td>           
         </tr>
     </tbody>
 </table>

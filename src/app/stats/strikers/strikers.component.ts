@@ -35,10 +35,10 @@ export class StrikersComponent implements OnInit {
     this.strickersStats.push(stat5);
     var stat6 = new StrickerStat("Arnaud Goepfert", 2, 0, 0, 0);
     this.strickersStats.push(stat6);
-    var stat7 = new StrickerStat("Johan Stark", 1, 0, 1, 0);
-    this.strickersStats.push(stat7);
-    var stat8 = new StrickerStat("Kamel Benali", 0, 1, 0, 0);
+    var stat8 = new StrickerStat("Kamel Benali", 1, 1, 0, 0);
     this.strickersStats.push(stat8);
+    var stat7 = new StrickerStat("Johan Stark", 1, 0, 1, 0);
+    this.strickersStats.push(stat7);   
     var stat9 = new StrickerStat("Ruben Arendt", 1, 0, 0, 0);
     this.strickersStats.push(stat9);
     var stat10 = new StrickerStat("Fabien Trebosc", 1, 0, 0, 0);
