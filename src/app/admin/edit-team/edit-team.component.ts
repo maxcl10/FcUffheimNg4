@@ -2,6 +2,8 @@ import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 
 import { Player } from '../../players/shared/player.model';
 import { TeamsService } from '../../teams/shared/teams.service';
+import { Team } from '../../teams/shared/team.model';
+import 'rxjs/add/observable/throw';
 
 // import { DragulaService } from 'ng2-dragula/ng2-dragula';
 
@@ -14,33 +16,42 @@ import { TeamsService } from '../../teams/shared/teams.service';
 export class EditTeamComponent implements OnInit {
 
     @Input()
-    set allPlayers(players: Player[]){
-
-                this.teamService.getPlayers(this.teamId).subscribe(
-            (teamPlayers) => {
-                this.teamPlayers = teamPlayers;                
-                this.poolPlayers = this.arr_diff(players, teamPlayers);               
-            },
-            (error) => this.errorMessage = <any>error);
+    set allPlayers(players: Player[]) {
+        if(this.selectedTeam == undefined)
+        {
+            this.selectedTeam = 'b8bc86da-9eea-4820-a5d5-c9f57b3b7d80';
         }
+        this.allPlayersPool = players;
+        this.updateList(players);
+    };
 
-               
 
-    public teamId: string;
-    public poolPlayers: Player[];  
-    public teamPlayers: Player[];  
+    public allPlayersPool: Player[];
+    public poolPlayers: Player[];
+    public teamPlayers: Player[];
+    public localTeams: Team[];
     public errorMessage: string;
+    public selectedTeam: string;
 
     constructor(private teamService: TeamsService) {
-        // Equipe1
-        this.teamId = 'b8bc86da-9eea-4820-a5d5-c9f57b3b7d80';
-        // Equipe 2 3707ef89-38c6-4f94-bc97-98238eaef435
-        //  this.teamId = ' 3707ef89-38c6-4f94-bc97-98238eaef435';      
+
+    }
+
+    private updateList(players: Player[]) {
+        this.teamService.getPlayers(this.selectedTeam).subscribe(
+            (teamPlayers) => {
+                this.teamPlayers = teamPlayers;
+                this.poolPlayers = this.arr_diff(players, teamPlayers);
+            },
+            (error) => this.errorMessage = <any>error);
     }
 
     public ngOnInit() {
 
-        
+        this.teamService.getHomeTeams().subscribe((teams) => {
+            this.localTeams = teams;
+            this.selectedTeam = 'b8bc86da-9eea-4820-a5d5-c9f57b3b7d80';
+        })
     }
 
     private arr_diff(a1: Player[], a2: Player[]): Player[] {
@@ -51,13 +62,13 @@ export class EditTeamComponent implements OnInit {
                     buffer.push(element);
                 }
             });
-        }      
+        }
         return buffer;
-      
+
     };
 
     public add(player: Player) {
-        this.teamService.addPlayerInTeam(player.id, this.teamId).subscribe(
+        this.teamService.addPlayerInTeam(player.id, this.selectedTeam).subscribe(
             (res) => {
                 if (res === true) {
                     this.teamPlayers.push(player);
@@ -69,7 +80,7 @@ export class EditTeamComponent implements OnInit {
     }
 
     public remove(player: Player) {
-        this.teamService.removePlayerFromTeam(player.id, this.teamId).subscribe(
+        this.teamService.removePlayerFromTeam(player.id, this.selectedTeam).subscribe(
             (res) => {
                 if (res === true) {
                     this.poolPlayers.push(player);
@@ -78,5 +89,9 @@ export class EditTeamComponent implements OnInit {
                 }
             }
         );
+    }
+
+    onTeamChange(deviceValue): void {
+          this.updateList(this.allPlayersPool);
     }
 }

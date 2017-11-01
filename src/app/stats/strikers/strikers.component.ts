@@ -12,6 +12,7 @@ export class StrikersComponent implements OnInit {
   public totalChampionshipGoals: number = 0;
   public totalNationalCupGoals: number = 0;
   public totalRegionalCupGoals: number = 0;
+  public totalOtherCupGoals: number = 0;
 
 
   @Input()
@@ -48,9 +49,11 @@ export class StrikersComponent implements OnInit {
     var stat13 = new StrickerStat("Eliott Fehr ", 0, 0, 1, 0);
     this.strickersStats.push(stat13);
     var stat14 = new StrickerStat("David Schwartz", 0, 0, 1, 0);
-    this.strickersStats.push(stat14);
+    this.strickersStats.push(stat14);    
     var stat15 = new StrickerStat("Maxime Matter", 0, 0, 1, 0);
     this.strickersStats.push(stat15);
+    var stat16 = new StrickerStat("Julien Burtz", 0, 0, 0,1);
+    this.strickersStats.push(stat16);
 
     if (this.count != undefined) {
       this.strickersStats = this.strickersStats.slice(0, this.count);
@@ -61,6 +64,7 @@ export class StrikersComponent implements OnInit {
       this.totalChampionshipGoals += element.championshipGoals;
       this.totalNationalCupGoals += element.nationalCupGoals;
       this.totalRegionalCupGoals += element.regionalCupGoals;
+      this.totalOtherCupGoals += element.otherCupGoals;
     });
   }
 

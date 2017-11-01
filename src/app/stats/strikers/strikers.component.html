@@ -5,6 +5,7 @@
     <td title="Championnat">Champ</td>
     <td title="Coupe de France">CdF</td>
     <td title="Coupe d'Alsace">CdA</td>
+    <td title="Coupe Credit Mutuel">CCM</td>
   </tr>
   <tr *ngFor="let stat of strickersStats">  
     <td>
@@ -15,6 +16,7 @@
     <td>{{stat.championshipGoals}}</td>
     <td>{{stat.nationalCupGoals}}</td>
     <td>{{stat.regionalCupGoals}}</td>   
+    <td>{{stat.otherCupGoals}}</td>
   </tr>
   <tr>
     <td></td>
@@ -22,6 +24,7 @@
     <td>{{totalChampionshipGoals}}</td>
     <td>{{totalNationalCupGoals}}</td>
     <td>{{totalRegionalCupGoals}}</td>
+    <td>{{totalOtherCupGoals}}</td>
   </tr>
 </table>
 <!-- <ul>
