@@ -6,14 +6,18 @@
 <!--<div class="panel-body" *ngIf="success==false">
     <input type="file" [ng-file-select]="options" (onUpload)="handleUpload($event)">
     <input type="file" ngFileSelect [options]="options" (onUpload)="handleUpload($event)">
-</div>
+</div>-->
 <div *ngIf="success" class="alert alert-success">
     Le classement a été mis à jour avec succès.
 </div>
 
-<div *ngIf="error" class="alert alert-warning">
+<div *ngIf="errorMessage != null" class="alert alert-danger">
+    {{errorMessage}}
+</div>
+
+<!-- <div *ngIf="error" class="alert alert-warning">
     {{ uploadFile | json }}
-</div>-->
+</div> -->
 
 <h4>Mise à jour du Classement par la lafa</h4>
 <p>Les données seront mise à jour par le biai du site de la lafa.</p>
