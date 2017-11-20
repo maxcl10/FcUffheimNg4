@@ -48,7 +48,14 @@ export class LeagueTableSmallComponent implements OnInit {
                     let firstTeams = rankings.filter((o) => o.position <= 2);
                     this.rankings = firstTeams;
 
-                    let middleTeams = rankings.filter((o) => o.position >= myTeamPosition - 1 && o.position <= myTeamPosition + 1);
+                    var middleTeams;
+                    if (myTeamPosition == 3) {
+                        middleTeams = rankings.filter((o) => o.position == myTeamPosition || o.position == myTeamPosition + 1);
+                    }
+                    else {
+                        middleTeams = rankings.filter((o) => o.position >= myTeamPosition - 1 && o.position <= myTeamPosition + 1);
+                    }
+
                     middleTeams.forEach((element) => {
                         this.rankings.push(element);
                     });
@@ -59,6 +66,6 @@ export class LeagueTableSmallComponent implements OnInit {
                     });
                 }
             },
-            (error) => this.errorMessage = <any> error);
+            (error) => this.errorMessage = <any>error);
     }
 }
