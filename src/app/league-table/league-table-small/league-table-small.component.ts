@@ -50,7 +50,7 @@ export class LeagueTableSmallComponent implements OnInit {
 
                     var middleTeams;
                     if (myTeamPosition == 3) {
-                        middleTeams = rankings.filter((o) => o.position == myTeamPosition || o.position == myTeamPosition + 1);
+                        middleTeams = rankings.filter((o) => o.position == myTeamPosition || yo.position == myTeamPosition + 1);
                     }
                     else {
                         middleTeams = rankings.filter((o) => o.position >= myTeamPosition - 1 && o.position <= myTeamPosition + 1);
