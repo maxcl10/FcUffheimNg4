@@ -1074,8 +1074,9 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #3f2b5d;
+   color: #3f2b5d;
   background-color: #ECF0F1;
+  /* background-image: url('../../../assets/img/background.png') */
 }
 input,
 button,
@@ -4473,7 +4474,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #3f2b5d;
+   background-color: #3f2b5d; 
+  
   border-color: #302146;
 }
 .navbar-default .navbar-brand {
@@ -5430,8 +5432,9 @@ button.list-group-item-danger.active:focus {
 }
 .panel-body {
   padding: 15px;
+ 
 }
-.panel-heading {
+.panel-heading { 
   padding: 10px 15px;
   border-bottom: 1px solid transparent;
   border-top-right-radius: -1px;
