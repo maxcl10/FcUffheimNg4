@@ -99,6 +99,8 @@ export class LogoService {
                 return baseUrl + 'Carspach/carspach_' + size + 'x' + size + '.png';
             case 'Ottmarsheim S.C.':
                 return baseUrl + 'Ottmarsheim/ottmarsheim_' + size + 'x' + size + '.png';
+                case 'Seppois F.C.':
+                return baseUrl + 'Seppois/seppois_' + size + 'x' + size + '.png';
             default:
                 break;
         }
