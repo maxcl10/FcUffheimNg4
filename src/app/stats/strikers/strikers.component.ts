@@ -24,9 +24,9 @@ export class StrikersComponent implements OnInit {
     this.strickersStats = [];
     var stat1 = new StrickerStat("Sofiane Kecha", 8, 1, 3, 0);
     this.strickersStats.push(stat1);
-    var stat3 = new StrickerStat("Hedi Riahi", 4, 1, 3, 0);
+    var stat3 = new StrickerStat("Hedi Riahi", 4, 1, 4, 0);
     this.strickersStats.push(stat3);
-    var stat11 = new StrickerStat("Philippe Tran", 2, 0, 3, 0);
+    var stat11 = new StrickerStat("Philippe Tran", 2, 0, 4, 0);
     this.strickersStats.push(stat11);
     var stat2 = new StrickerStat("Cédric Goepfert", 4, 0, 0, 0);
     this.strickersStats.push(stat2);
