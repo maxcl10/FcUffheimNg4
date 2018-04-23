@@ -22,7 +22,7 @@ export class StrikersComponent implements OnInit {
 
   ngOnInit() {
     this.strickersStats = [];
-    var stat1 = new StrickerStat("Sofiane Kecha", 8, 1, 4, 0);
+    var stat1 = new StrickerStat("Sofiane Kecha", 9, 1, 4, 0);
     this.strickersStats.push(stat1);
     var stat3 = new StrickerStat("Hedi Riahi", 5, 1, 4, 0);
     this.strickersStats.push(stat3);
@@ -32,7 +32,7 @@ export class StrikersComponent implements OnInit {
     this.strickersStats.push(stat2);
     var stat5 = new StrickerStat("Gaetan Pilot", 4, 0, 0, 0);
     this.strickersStats.push(stat5);
-    var stat8 = new StrickerStat("Kamel Benali", 3, 1, 0, 0);
+    var stat8 = new StrickerStat("Kamel Benali", 4, 1, 0, 0);
     this.strickersStats.push(stat8);
     var stat6 = new StrickerStat("Arnaud Goepfert", 3, 0, 0, 0);
     this.strickersStats.push(stat6);
