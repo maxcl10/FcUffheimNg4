@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 // import { Ng2Summernote } from 'ng2-summernote/ng2-summernote';
 // import { TinymceModule } from 'ng2-tinymce-alt';
 import { TinymceModule } from 'angular2-tinymce';

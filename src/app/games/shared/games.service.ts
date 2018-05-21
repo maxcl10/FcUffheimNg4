@@ -1,9 +1,17 @@
-import { Http, Response, Headers } from '@angular/http';
+
+import { throwError as observableThrowError, Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/toPromise';
+
 
 import { Game } from './game.model';
+
+
+const httpOptions = {
+    headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+    })
+};
 
 @Injectable()
 export class GamesService {
@@ -12,62 +20,55 @@ export class GamesService {
     private nextGameUrl = 'http://88.121.16.195/Services/FcHagenthalService/api/nextgame/';
     private lastGameUrl = 'http://88.121.16.195/Services/FcHagenthalService/api/previousgame/';
 
-    constructor(private http: Http) {
+
+
+    constructor(private http: HttpClient) {
 
     }
 
     public getGame(id: string): Observable<Game> {
-        return this.http.get(this.gameUrl + '/' + id)
-            .map((response) => response.json())
-            .catch(this.handleError);
+        return this.http.get<Game>(this.gameUrl + '/' + id);
     }
 
     public getGames(): Observable<Game[]> {
-
-        return this.http.get(this.gameUrl)
-            .map((response) => response.json())
-            .catch(this.handleError);
+        return this.http.get<Game[]>(this.gameUrl);
     }
 
     public getNextGame(): Observable<Game> {
-        return this.http.get(this.nextGameUrl)
-            .map((response) => response.json())
-            .catch(this.handleError);
+        return this.http.get<Game>(this.nextGameUrl);
     }
 
     public getLastGame(): Observable<Game> {
-        return this.http.get(this.lastGameUrl)
-            .map((response) => response.json())
-            .catch(this.handleError);
+        return this.http.get<Game>(this.lastGameUrl);
     }
 
-    public createGame(Game: Game): Observable<Game> {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        return this.http.post(this.gameUrl, JSON.stringify(Game), { headers })
-            .map((response) => response.json())
-            .catch(this.handleError);
+    public createGame(game: Game): Observable<Game> {
+        return this.http.post<Game>(this.gameUrl, game, httpOptions);
     }
 
-    public updateGame(Game: Game): Observable<Game> {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let url = this.gameUrl + '/' + Game.Id;
-        return this.http.put(url, JSON.stringify(Game), { headers })
-            .map((response) => response.json())
-            .catch(this.handleError);
-    } 
+    public updateGame(game: Game): Observable<Game> {
+        let url = this.gameUrl + '/' + game.Id;
+        return this.http.put<Game>(url, game, httpOptions);
+    }
 
     public deleteGame(id: string) {
         console.debug('Delete Game ' + id);
-        return this.http.delete(this.gameUrl + '/' + id)
-            .map((response) => response.json())
-            .catch(this.handleError);
+        return this.http.delete(this.gameUrl + '/' + id)           
     }
 
-    private handleError(error: any) {
-        // In a real world app, we might use a remote logging infrastructure
-        // We'd also dig deeper into the error to get a better message
-        let errMsg = error.message || error.statusText || 'Server error';
-        console.error(errMsg); // log to console instead
-        return Observable.throw(errMsg);
-    }
+    // private handleError(error: HttpErrorResponse) {
+    //     if (error.error instanceof ErrorEvent) {
+    //         // A client-side or network error occurred. Handle it accordingly.
+    //         console.error('An error occurred:', error.error.message);
+    //     } else {
+    //         // The backend returned an unsuccessful response code.
+    //         // The response body may contain clues as to what went wrong,
+    //         console.error(
+    //             `Backend returned code ${error.status}, ` +
+    //             `body was: ${error.error}`);
+    //     }
+    //     // return an observable with a user-facing error message
+    //     return throwError(
+    //         'Something bad happened; please try again later.');
+    // };
 }

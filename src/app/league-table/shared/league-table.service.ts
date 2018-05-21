@@ -1,7 +1,8 @@
-import { Http, Response, Headers } from '@angular/http';
+
+import {throwError as observableThrowError,  Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/toPromise';
+
 import { Ranking } from './league-table.model';
 
 @Injectable()
@@ -9,7 +10,7 @@ export class LeagueRankingsService {
     private rankingUrl = 'http://88.121.16.195/Services/FcHagenthalService/api/ranking';
     private updateLafaRankingUrl = 'http://88.121.16.195/Services/FcHagenthalService/UpdateRankingFromLafa';
 
-    constructor(private http: Http) {
+    constructor(private http: HttpClient) {
 
     }
 
@@ -20,15 +21,11 @@ export class LeagueRankingsService {
     // }
 
     public getRankings(): Observable<Ranking[]> {
-        return this.http.get(this.rankingUrl)
-            .map((response) => response.json())
-            .catch(this.handleError);
+        return this.http.get<Ranking[]>(this.rankingUrl);            
     }
 
     public updateRankingFromLafa() {
-        return this.http.get(this.updateLafaRankingUrl)
-            .map((response) => response)
-            .catch(this.handleError);
+        return this.http.get(this.updateLafaRankingUrl);           
     }
 
     // createranking(ranking: Ranking): Observable<Ranking> {
@@ -57,6 +54,6 @@ export class LeagueRankingsService {
         // We'd also dig deeper into the error to get a better message
         let errMsg = error.message || error.statusText || 'Server error';
         console.error(errMsg); // log to console instead
-        return Observable.throw(errMsg);
+        return observableThrowError(errMsg);
     }
 }

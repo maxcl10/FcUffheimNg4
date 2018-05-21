@@ -1,7 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { Article, ArticlesService } from '../../articles/shared/index';
 
@@ -9,7 +9,7 @@ import { PlayersService } from '../../players/shared/players.service';
 import { Player } from '../../players/shared/player.model';
 
 import { GamesService } from '../../games/shared/games.service';
-import { Game } from '../../Games/shared/game.model';
+import { Game } from '../../games/shared/game.model';
 
 import { AuthenticationService } from '../../services/authentication.service';
 

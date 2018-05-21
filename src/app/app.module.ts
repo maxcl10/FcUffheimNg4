@@ -1,7 +1,7 @@
 
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import {
   NgModule,
   ApplicationRef
@@ -153,13 +153,12 @@ type StoreType = {
     ChartsModule,
     TinymceModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     CommonModule,  
     RouterModule.forRoot(ROUTES, { useHash: false, preloadingStrategy: PreloadAllModules })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     APP_PROVIDERS,
-    HttpModule,
     ArticlesService,
     Title,
     SeoService
