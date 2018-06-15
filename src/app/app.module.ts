@@ -19,7 +19,7 @@ import { TinymceModule } from 'angular2-tinymce';
 
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 //  import { Ng2Summernote } from 'ng2-summernote/ng2-summernote';
-  // import { TinymceComponent } from 'ng2-tinymce';
+// import { TinymceComponent } from 'ng2-tinymce';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -88,13 +88,15 @@ import { EditTeamComponent } from './admin/edit-team/edit-team.component';
 
 import './add-rxjs-operators';
 import { ArticlesService } from './articles/shared/articles.service';
-import {RankingHistoryComponent } from './stats/ranking-History-chart/ranking-history-chart.component';
+import { RankingHistoryComponent } from './stats/ranking-History-chart/ranking-history-chart.component';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
 import { LastFiveGamesComponent } from './stats/last-five-games/last-five-games.component';
 import { StrikersComponent } from './stats/strikers/strikers.component';
 import { StatsComponent } from './stats/stats/stats.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -131,7 +133,7 @@ type StoreType = {
     GamesComponent,
     NewGameComponent,
     EditGameComponent,
-    LeagueTablePageComponent,        
+    LeagueTablePageComponent,
     NextGameComponent,
     PlayersCarouselComponent,
     LeagueTableSmallComponent,
@@ -143,7 +145,7 @@ type StoreType = {
     NewTeamComponent,
     LeagueTableComponent,
     PlayerDetailsSmallComponent,
-    RankingHistoryComponent,    
+    RankingHistoryComponent,
     EditTeamComponent,
     LastFiveGamesComponent,
     StrikersComponent,
@@ -154,8 +156,9 @@ type StoreType = {
     TinymceModule,
     FormsModule,
     HttpClientModule,
-    CommonModule,  
-    RouterModule.forRoot(ROUTES, { useHash: false, preloadingStrategy: PreloadAllModules })
+    CommonModule,
+    RouterModule.forRoot(ROUTES, { useHash: false, preloadingStrategy: PreloadAllModules }),
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     APP_PROVIDERS,
@@ -165,5 +168,5 @@ type StoreType = {
   ]
 })
 
-export class AppModule {  
+export class AppModule {
 }
