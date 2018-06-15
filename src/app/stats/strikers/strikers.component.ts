@@ -24,7 +24,7 @@ export class StrikersComponent implements OnInit {
     this.strickersStats = [];
     var stat1 = new StrickerStat("Sofiane Kecha", 9, 1, 4, 0);
     this.strickersStats.push(stat1);
-    var stat8 = new StrickerStat("Kamel Benali", 6, 1, 0, 0);
+    var stat8 = new StrickerStat("Kamel Benali", 7, 1, 0, 0);
     this.strickersStats.push(stat8);
     var stat3 = new StrickerStat("Hedi Riahi", 5, 1, 4, 0);
     this.strickersStats.push(stat3); 
@@ -32,14 +32,18 @@ export class StrikersComponent implements OnInit {
     this.strickersStats.push(stat11);   
     var stat2 = new StrickerStat("Cédric Goepfert", 4, 0, 0, 0);
     this.strickersStats.push(stat2);
-    var stat5 = new StrickerStat("Gaetan Pilot", 4, 0, 0, 0);
+    var stat5 = new StrickerStat("Gaetan Pilot", 5, 0, 0, 0);
     this.strickersStats.push(stat5);    
     var stat6 = new StrickerStat("Arnaud Goepfert", 3, 0, 0, 0);
     this.strickersStats.push(stat6);
     var stat4 = new StrickerStat("Cédric Leroy", 2, 0, 0, 0);
     this.strickersStats.push(stat4);   
     var stat7 = new StrickerStat("Johan Stark", 1, 0, 1, 0);
-    this.strickersStats.push(stat7);   
+    this.strickersStats.push(stat7);  
+    var stat13 = new StrickerStat("Eliott Fehr ", 1, 0, 1, 0);
+    this.strickersStats.push(stat13); 
+    var stat15 = new StrickerStat("Maxime Matter", 1, 0, 1, 0);
+    this.strickersStats.push(stat15);
     var stat9 = new StrickerStat("Ruben Arendt", 1, 0, 0, 0);
     this.strickersStats.push(stat9);
     var stat17 = new StrickerStat("David Mohr", 1, 0, 0, 0);
@@ -47,13 +51,9 @@ export class StrikersComponent implements OnInit {
     var stat10 = new StrickerStat("Fabien Trebosc", 1, 0, 0, 0);
     this.strickersStats.push(stat10);
     var stat12 = new StrickerStat("Luc Wintzer", 0, 0, 1, 0);
-    this.strickersStats.push(stat12);
-    var stat13 = new StrickerStat("Eliott Fehr ", 0, 0, 1, 0);
-    this.strickersStats.push(stat13);
+    this.strickersStats.push(stat12); 
     var stat14 = new StrickerStat("David Schwartz", 0, 0, 1, 0);
-    this.strickersStats.push(stat14);    
-    var stat15 = new StrickerStat("Maxime Matter", 0, 0, 1, 0);
-    this.strickersStats.push(stat15);
+    this.strickersStats.push(stat14);
     var stat16 = new StrickerStat("Julien Burtz", 0, 0, 0,1);
     this.strickersStats.push(stat16);
 
