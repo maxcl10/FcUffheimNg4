@@ -8,7 +8,7 @@ import { RankingHistory } from './rankingHistory.model';
 @Injectable()
 export class StatsService {
 
-    private statsUrl = 'http://88.121.16.195/Services/FcHagenthalService/api/ns/stats/';
+    private statsUrl = 'https://fcuwebapi.azurewebsites.net/api/ns/stats/';
 
     constructor(private http: HttpClient) {
 

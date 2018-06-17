@@ -14,7 +14,7 @@ const httpOptions = {
 
 @Injectable()
 export class ArticlesService {
-    private articleUrl = 'http://88.121.16.195/Services/FcHagenthalService/api/articles';
+    private articleUrl = 'https://fcuwebapi.azurewebsites.net/api/articles';
 
     constructor(private http: HttpClient) {
 
@@ -34,11 +34,11 @@ export class ArticlesService {
     }
 
     public updateArticle(article: Article): Observable<Article> {
-        return this.http.put<Article>(this.articleUrl + '/' + article.id, article, httpOptions);         
+        return this.http.put<Article>(this.articleUrl + '/' + article.id, article, httpOptions);
     }
 
     public deleteArticle(id: string) {
-        return this.http.delete(this.articleUrl + '/' + id)
+        return this.http.delete(this.articleUrl + '/' + id);
     }
 
     private handleError(error: any) {

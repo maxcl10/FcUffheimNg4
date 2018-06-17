@@ -16,7 +16,7 @@ export class UploadRankingComponent {
   public errorMessage: string;
 
   public options: Object = {
-    url: 'http://88.121.16.195/Services/FcHagenthalService/api/ranking'
+    url: 'https://fcuwebapi.azurewebsites.net/api/ranking'
   };
 
   constructor(private leagueService: LeagueRankingsService) {

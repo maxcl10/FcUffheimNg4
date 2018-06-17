@@ -150,7 +150,7 @@ type StoreType = {
     LastFiveGamesComponent,
     StrikersComponent,
     StatsComponent],
-  imports: [ // import Angular's modules  
+  imports: [ // import Angular's modules
     BrowserModule,
     ChartsModule,
     TinymceModule,

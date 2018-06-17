@@ -7,8 +7,8 @@ import { Ranking } from './league-table.model';
 
 @Injectable()
 export class LeagueRankingsService {
-    private rankingUrl = 'http://88.121.16.195/Services/FcHagenthalService/api/ranking';
-    private updateLafaRankingUrl = 'http://88.121.16.195/Services/FcHagenthalService/UpdateRankingFromLafa';
+    private rankingUrl = 'https://fcuwebapi.azurewebsites.net/api/ranking';
+    private updateLafaRankingUrl = 'https://fcuwebapi.azurewebsites.net/UpdateRankingFromLafa';
 
     constructor(private http: HttpClient) {
 

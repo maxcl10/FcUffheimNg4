@@ -13,7 +13,7 @@ const httpOptions = {
 
 @Injectable()
 export class PlayersService {
-    private playerUrl = 'http://88.121.16.195/Services/FcHagenthalService/api/players';
+    private playerUrl = 'https://fcuwebapi.azurewebsites.net/api/players';
 
     constructor(private http: HttpClient) {
     }

@@ -15,8 +15,8 @@ const httpOptions = {
 
 @Injectable()
 export class TeamsService {
-    private teamsUrl = 'http://88.121.16.195/Services/FcHagenthalService/api/teams';
-    private teamPlayersUrl = 'http://88.121.16.195/Services/FcHagenthalService/api/ns/teamplayer/';
+    private teamsUrl = 'https://fcuwebapi.azurewebsites.net/api/teams';
+    private teamPlayersUrl = 'https://fcuwebapi.azurewebsites.net/api/ns/teamplayer/';
     private devTeamPlayerUrl = 'http://localhost:2028/api/ns/teamplayer/';
 
     constructor(private http: HttpClient) {

@@ -16,9 +16,9 @@ const httpOptions = {
 @Injectable()
 export class GamesService {
 
-    private gameUrl = 'http://88.121.16.195/Services/FcHagenthalService/api/games/';
-    private nextGameUrl = 'http://88.121.16.195/Services/FcHagenthalService/api/nextgame/';
-    private lastGameUrl = 'http://88.121.16.195/Services/FcHagenthalService/api/previousgame/';
+    private gameUrl = 'https://fcuwebapi.azurewebsites.net/api/games/';
+    private nextGameUrl = 'https://fcuwebapi.azurewebsites.net/api/nextgame/';
+    private lastGameUrl = 'https://fcuwebapi.azurewebsites.net/api/previousgame/';
 
 
 
@@ -53,7 +53,7 @@ export class GamesService {
 
     public deleteGame(id: string) {
         console.debug('Delete Game ' + id);
-        return this.http.delete(this.gameUrl + '/' + id)           
+        return this.http.delete(this.gameUrl + '/' + id);
     }
 
     // private handleError(error: HttpErrorResponse) {
