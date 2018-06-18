@@ -4,10 +4,10 @@
                {{game.Championship}}
          </label>
         <label *ngIf="isToday == false">
-             {{game.MatchDate | frDate:"longDateTime"}}                
+             {{game.MatchDate | frDate:"longDateTime"}}
         </label>
         <label *ngIf="isToday == true">
-             Aujourd'hui à {{game.MatchDate | frDate:"time"}}               
+             Aujourd'hui à {{game.MatchDate | frDate:"time"}}
         </label>
 
 </div>
@@ -17,10 +17,13 @@
            <span class="hidden-sm">{{game.HomeTeam}}</span>
 </span>
 
-<span class="pull-right"> 
+<span class="pull-right">
     <span class="hidden-sm">  {{game.AwayTeam}}</span>
 <img [src]="game.awayTeamLogoUrl" [title]="game.AwayTeam">
 </span>
 
 </div>
+</span>
+<span *ngIf="game==null">
+  Aucun match prévu
 </span>
