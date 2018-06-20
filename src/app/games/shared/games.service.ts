@@ -16,9 +16,9 @@ const httpOptions = {
 @Injectable()
 export class GamesService {
 
-    private gameUrl = 'https://fcuwebapi.azurewebsites.net/api/games/';
-    private nextGameUrl = 'https://fcuwebapi.azurewebsites.net/api/nextgame/';
-    private lastGameUrl = 'https://fcuwebapi.azurewebsites.net/api/previousgame/';
+    private gameUrl = 'https://fcuwebapi.azurewebsites.net/api/games';
+    private nextGameUrl = 'https://fcuwebapi.azurewebsites.net/api/nextgame';
+    private lastGameUrl = 'https://fcuwebapi.azurewebsites.net/api/previousgame';
 
 
 
@@ -47,12 +47,12 @@ export class GamesService {
     }
 
     public updateGame(game: Game): Observable<Game> {
-        let url = this.gameUrl + '/' + game.Id;
+        const url = this.gameUrl + '/' + game.Id;
         return this.http.put<Game>(url, game, httpOptions);
     }
 
     public deleteGame(id: string) {
-        console.debug('Delete Game ' + id);
+        console.log('Delete Game ' + id);
         return this.http.delete(this.gameUrl + '/' + id);
     }
 

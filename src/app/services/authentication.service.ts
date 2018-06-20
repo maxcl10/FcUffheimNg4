@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 
-let users = [
+const users = [
   new User('admin@admin.com', 'p@ssw0rd'),
 ];
 
@@ -13,7 +13,7 @@ export class AuthenticationService {
   }
 
   public login(user: User) {
-    let authenticatedUser = users.find((u) => u.email === user.email);
+    const authenticatedUser = users.find((u) => u.email === user.email);
 
     if (authenticatedUser && (authenticatedUser.password === user.password)) {
       sessionStorage.setItem('user', authenticatedUser.email);

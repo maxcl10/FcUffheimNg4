@@ -23,7 +23,7 @@ export class PlayersService {
     }
 
     public getplayers(): Observable<Player[]> {
-        return this.http.get<Player[]>(this.playerUrl)
+        return this.http.get<Player[]>(this.playerUrl);
     }
 
     public createplayer(player: Player): Observable<Player> {
@@ -41,7 +41,7 @@ export class PlayersService {
     private handleError(error: any) {
         // In a real world app, we might use a remote logging infrastructure
         // We'd also dig deeper into the error to get a better message
-        let errMsg = error.message || error.statusText || 'Server error';
+        const errMsg = error.message || error.statusText || 'Server error';
         console.error(errMsg); // log to console instead
         return observableThrowError(errMsg);
     }
