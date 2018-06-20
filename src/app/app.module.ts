@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
 import { SeoService } from './shared/services/seo.service';
 
 //  import { TinymceModule } from 'ng2-tinymce-alt';
-import { TinymceModule } from 'angular2-tinymce';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 //  import { Ng2Summernote } from 'ng2-summernote/ng2-summernote';
@@ -104,11 +104,11 @@ const APP_PROVIDERS = [
   AppState
 ];
 
-type StoreType = {
-  state: InternalStateType,
-  restoreInputValues: () => void,
-  disposeOldHosts: () => void
-};
+// type StoreType = {
+//   state: InternalStateType,
+//   restoreInputValues: () => void,
+//   disposeOldHosts: () => void
+// };
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
@@ -153,7 +153,7 @@ type StoreType = {
   imports: [ // import Angular's modules
     BrowserModule,
     ChartsModule,
-    TinymceModule,
+    EditorModule,
     FormsModule,
     HttpClientModule,
     CommonModule,
