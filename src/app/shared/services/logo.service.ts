@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 export class LogoService {
 
     public getLogoPath(team: string, size: number) {
-        let baseUrl = '../../../assets/img/logos/';
+        const baseUrl = '../../../assets/img/logos/';
         switch (team) {
             case 'Bennwihr F.C.':
                 return baseUrl + 'Bennwhir/bennwhir_' + size + 'x' + size + '.png';
@@ -99,8 +99,18 @@ export class LogoService {
                 return baseUrl + 'Carspach/carspach_' + size + 'x' + size + '.png';
             case 'Ottmarsheim S.C.':
                 return baseUrl + 'Ottmarsheim/ottmarsheim_' + size + 'x' + size + '.png';
-                case 'Seppois F.C.':
-                return baseUrl + 'Seppois/seppois_' + size + 'x' + size + '.png';
+            case 'Habsheim F.C.':
+                return baseUrl + 'Habsheim/habsheim_' + size + 'x' + size + '.png';
+            case 'Mulhouse A.S.R.S.':
+                return baseUrl + 'RedStar_mulhouse/redstar_' + size + 'x' + size + '.png';
+            case 'Berrwiller A.S. 2':
+            case 'Berrwiller A.S.':
+                return baseUrl + 'Berrwiller/berwiller_' + size + 'x' + size + '.png';
+            case 'Zillisheim S.S.':
+                return baseUrl + 'Zillisheim/zillisheim_' + size + 'x' + size + '.png';
+            case 'Montreux Sports':
+                return baseUrl + 'Montreux/montreux_' + size + 'x' + size + '.png';
+
             default:
                 break;
         }

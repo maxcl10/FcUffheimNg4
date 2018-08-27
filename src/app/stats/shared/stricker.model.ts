@@ -1,14 +1,8 @@
-export class StrickerStat {
-  public totalGoals: number;
-
-  constructor(
-    public player: string,
-    public championshipGoals: number,
-    public nationalCupGoals: number,
-    public regionalCupGoals: number,
-    public otherCupGoals: number
-  ) {
-    this.totalGoals =
-      championshipGoals + nationalCupGoals + regionalCupGoals + otherCupGoals;
-  }
+export interface Stricker {
+  playerName: string;
+  playerId: string;
+  championshipGoals: number;
+  nationalCupGoals: number;
+  regionalCupGoals: number;
+  otherCupGoals: number;
 }

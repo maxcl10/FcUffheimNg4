@@ -43,13 +43,13 @@ export class TeamsService {
 
     public addPlayerInTeam(playerId: string, teamId: string) {
         return this.http.post(
-          this.teamPlayersUrl + 'addPlayer/', '{playerId: ' + JSON.stringify(playerId)
+          this.teamPlayersUrl + '/addPlayer/', '{playerId: ' + JSON.stringify(playerId)
           + ', teamId: ' + JSON.stringify(teamId) + '}', httpOptions);
     }
 
     public removePlayerFromTeam(playerId: string, teamId: string) {
         return this.http.post(
-          this.teamPlayersUrl + 'removePlayer/', '{playerId: ' + JSON.stringify(playerId)
+          this.teamPlayersUrl + '/removePlayer/', '{playerId: ' + JSON.stringify(playerId)
           + ', teamId: ' + JSON.stringify(teamId) + '}', httpOptions);
     }
     // updateplayer(player: Player): Observable<Player> {

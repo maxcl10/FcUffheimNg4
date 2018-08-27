@@ -137,11 +137,11 @@
   "defaultProject": "fc-uffheim-ng",
   "schematics": {
     "@schematics/angular:component": {
-      "prefix": "app",
+      "prefix": "fws",
       "styleext": "css"
     },
     "@schematics/angular:directive": {
-      "prefix": "app"
+      "prefix": "fws"
     }
   }
 }

@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { RankingHistory } from './rankingHistory.model';
+import { Stricker } from './stricker.model';
 
 @Injectable()
 export class StatsService {
@@ -17,6 +18,10 @@ export class StatsService {
     public getShape(): Observable<string[]> {
         return this.http.get<string[]>(this.statsUrl + '/getShape');
     }
+
+    public getStrickers(): Observable<Stricker[]> {
+      return this.http.get<Stricker[]>(this.statsUrl + '/getStrickers');
+  }
 
     public getRankingHistory(): Observable<RankingHistory[]> {
         return this.http.get<RankingHistory[]>(this.statsUrl + '/getRankingHistory');

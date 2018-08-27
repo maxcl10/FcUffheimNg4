@@ -25,9 +25,6 @@ import { NewGameComponent } from './games/new-game/new-game.component';
 import { EditGameComponent } from './games/edit-game/edit-game.component';
 import { StatsComponent } from './stats/stats/stats.component';
 
-import { DataResolver } from './app.resolver';
-
-
 export const ROUTES: Routes =
   [{
     path: '',

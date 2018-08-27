@@ -74,6 +74,9 @@ import { UploadRankingComponent } from './admin/upload-ranking/upload-ranking.co
 import { ContactComponent } from './club/contact/contact.component';
 import { SponsorComponent } from './sponsors/sponsor/sponsor.component';
 
+import { AppConfig } from './app.config';
+import { APP_INITIALIZER } from '@angular/core';
+
 // import { SummernoteComponent } from './summernote.component';
 // import { UNITYTinyMCE } from './unity-tinymce';
 
@@ -97,12 +100,19 @@ import { StrikersComponent } from './stats/strikers/strikers.component';
 import { StatsComponent } from './stats/stats/stats.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ClubService } from './club/shared/club.service';
+import { SponsorsService } from './sponsors/shared/sponsors.service';
+import { StatsService } from './stats/shared/stats.service';
 
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   AppState
 ];
+
+export function initializeApp(appConfig: AppConfig) {
+  return () => appConfig.load();
+}
 
 // type StoreType = {
 //   state: InternalStateType,
@@ -164,7 +174,14 @@ const APP_PROVIDERS = [
     APP_PROVIDERS,
     ArticlesService,
     Title,
-    SeoService
+    SeoService,
+    ClubService,
+    StatsService,
+    SponsorsService,
+    AppConfig,
+    { provide: APP_INITIALIZER,
+      useFactory: initializeApp,
+      deps: [AppConfig], multi: true }
   ]
 })
 

@@ -27,7 +27,7 @@
     "@tinymce/tinymce-angular": "^2.0.0",
     "angular2-tinymce": "^3.0.0",
     "animate.css": "^3.5.2",
-    "bootstrap": "^4.1.1",
+    "bootstrap": "^3.3.7",
     "chart.js": "^2.7.0",
     "core-js": "^2.4.1",
     "express": "^4.16.3",
