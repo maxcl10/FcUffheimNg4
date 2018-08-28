@@ -110,7 +110,8 @@ export class LogoService {
                 return baseUrl + 'Zillisheim/zillisheim_' + size + 'x' + size + '.png';
             case 'Montreux Sports':
                 return baseUrl + 'Montreux/montreux_' + size + 'x' + size + '.png';
-
+            case 'Raedersheim A.S.':
+                return baseUrl + 'Raedersheim/raedersheim_' + size + 'x' + size + '.png';
             default:
                 break;
         }

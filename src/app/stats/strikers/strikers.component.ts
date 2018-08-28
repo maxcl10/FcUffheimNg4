@@ -24,7 +24,7 @@ export class StrikersComponent implements OnInit {
       this.strickers = strickers;
 
       this.strickers.forEach(element => {
-        // this.totalGoals += element.totalGoals;
+        this.totalGoals += element.totalGoals;
         this.totalChampionshipGoals += element.championshipGoals;
         this.totalNationalCupGoals += element.nationalCupGoals;
         this.totalRegionalCupGoals += element.regionalCupGoals;

@@ -1,15 +1,15 @@
 <h2>Admin</h2>
 
 <ul class="nav nav-pills nav-justified">
-    <li data-toggle="tab"  href="#articles"><a>Articles</a></li>
+    <li data-toggle="tab" class="active" href="#articles"><a>Articles</a></li>
     <li data-toggle="tab" href="#players"><a>Joueurs</a></li>
     <li data-toggle="tab" href="#games"><a>Matchs</a></li>
     <li data-toggle="tab" href="#ranking"><a>Classement</a></li>
-    <li data-toggle="tab" class="active" href="#team"><a>Equipes</a></li>
+    <li data-toggle="tab" href="#team"><a>Equipes</a></li>
 </ul>
 
 <div class="tab-content">
-    <div id="articles" class="tab-pane fade ">
+    <div id="articles" class="tab-pane fade  in active">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <a class="btn btn-success pull-right" href="" [routerLink]="['newArticle']">
@@ -116,7 +116,7 @@
 
     </div>
 
-    <div id="team" class="tab-pane fade in active">
+    <div id="team" class="tab-pane fade">
         <edit-team [allPlayers]="players"></edit-team>
     </div>
 

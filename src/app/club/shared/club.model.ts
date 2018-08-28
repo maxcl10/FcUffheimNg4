@@ -10,4 +10,5 @@ export interface Club {
   youtube: string;
   stadium: string;
   history: string;
+  googleMap: string;
 }
