@@ -1,8 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Observable } from 'rxjs';
-
 import { Article, ArticlesService } from '../../articles/shared/index';
 
 import { PlayersService } from '../../players/shared/players.service';
@@ -11,7 +9,7 @@ import { Player } from '../../players/shared/player.model';
 import { GamesService } from '../../games/shared/games.service';
 import { Game } from '../../games/shared/game.model';
 
-import { AuthenticationService } from '../../services/authentication.service';
+import { AuthenticationService } from '../../shared/services/authentication.service';
 
 @Component({
     selector: 'admin',
@@ -29,7 +27,8 @@ export class AdminComponent implements OnInit {
     public articlesCount: number;
     public playersCount: number;
 
-    constructor(private articlesService: ArticlesService, private router: Router, private authenticationService: AuthenticationService, private playersService: PlayersService, private gameservice: GamesService) {
+    constructor(private articlesService: ArticlesService, private router: Router,
+       private authenticationService: AuthenticationService, private playersService: PlayersService, private gameservice: GamesService) {
     }
 
     public getPlayers() {

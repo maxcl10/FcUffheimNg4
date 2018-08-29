@@ -1,4 +1,4 @@
-<h2>Edit {{article.title}}</h2>
+<h2>Edition '{{article.title}}'</h2>
 
 
 
@@ -12,10 +12,13 @@
         <label for="exampleInputPassword1">Content</label>
         <!--<span id="summernote" rows="20" class="form-control" placeholder="Content" >{{article.body}}</span>-->
         <!--<unity-tinymce [mceContent]="article.body" (contentChanged)="descriptionChanged($event)"></unity-tinymce>-->
-        <editor [(ngModel)]="article.body"></editor>
+        <editor apiKey="j5sbmlaj7vwsys2kgtcrjmrnwl684gw2wjreipgjaxc8o7zd" [(ngModel)]="article.body" [init]="{height : '400'}"
+        plugins="advlist autolink lists link image charmap print preview anchor textcolor',
+              'searchreplace visualblocks code fullscreen', 'insertdatetime media table contextmenu paste code help wordcount">
+            </editor>
            <!-- <app-tinymce [(ngModel)]='article.body' ngDefaultControl ></app-tinymce> -->
     </div>
     <div>
-        <button (click)="goBack()" class="btn btn-default">Back</button>
-        <button (click)="saveArticle()" type="submit" class="btn btn-success">Save</button>
+        <button (click)="goBack()" class="btn btn-default">Retour</button>
+        <button (click)="saveArticle()" type="submit" class="btn btn-success pull-right">Sauvegarder</button>
     </div>

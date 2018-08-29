@@ -28,9 +28,12 @@ export class NewTeamComponent {
                 this.successfull = true;
                 this.errorMessage = null;
                 this.teamAdded.next(team);
+                this.team.name = '';
+                this.team.shortName = '';
             },
             (error) => this.errorMessage = <any> error);
     }
+
 
     public goBack() {
         window.history.back();

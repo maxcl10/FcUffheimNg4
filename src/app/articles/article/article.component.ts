@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Article, ArticlesService } from '../shared/index';
-import { AuthenticationService } from '../../services/authentication.service';
+import { AuthenticationService } from '../../shared/services/authentication.service';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -18,13 +18,14 @@ export class ArticleComponent implements OnInit {
     public isAuthenticated: boolean;
     private sub: any;
 
-    constructor(private articleService: ArticlesService, private route: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService, private titleService: Title) {
+    constructor(private articleService: ArticlesService, private route: ActivatedRoute,
+      private router: Router, private authenticationService: AuthenticationService, private titleService: Title) {
         this.article = new Article();
     }
 
     public ngOnInit() {
         this.sub = this.route.params.subscribe((params) => {
-            let id = params['id']; // (+) converts string 'id' to a number
+            const id = params['id']; // (+) converts string 'id' to a number
             this.getArticle(id);
         });
         this.isAuthenticated = this.authenticationService.checkCredentials();

@@ -1,30 +1,33 @@
 import { Component, ElementRef } from '@angular/core';
-import { AuthenticationService } from '../../services/authentication.service';
+import { AuthenticationService } from '../../shared/services/authentication.service';
 import { Router } from '@angular/router';
-import { User } from '../../models/user';
+import { User } from '../../shared/services/user.model';
 
 @Component({
-    selector: 'login-form',
-    providers: [AuthenticationService],
-    templateUrl: './login.component.html'
+  selector: 'login-form',
+  providers: [AuthenticationService],
+  templateUrl: './login.component.html'
 })
-
 export class LoginComponent {
+  public user = new User();
+  public errorMessage = '';
 
-    public user = new User('admin@admin.com', '');
-    public errorMessage = '';
+  constructor(private service: AuthenticationService, private router: Router) {}
 
-    constructor(private service: AuthenticationService, private router: Router) { }
-
-    public login() {
-        if (!this.service.login(this.user)) {
-            this.errorMessage = 'Failed to login';
+  public login() {
+    this.service
+      .authenticate(this.user.alias, this.user.password)
+      .subscribe(result => {
+        if (result == null) {
+          this.errorMessage = 'Failed to login';
         } else {
-            this.router.navigate(['/admin']);
+         sessionStorage.setItem('user', result.userId);
+           this.router.navigate(['/admin']);
         }
-    }
+      });
+  }
 
-    public goBack() {
-        window.history.back();
-    }
+  public goBack() {
+    window.history.back();
+  }
 }
