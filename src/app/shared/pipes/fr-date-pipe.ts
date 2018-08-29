@@ -7,12 +7,12 @@ export class FrDatePipeComponent implements PipeTransform {
   private timeSeparator = 'h';
 
   public transform(value, args) {
-    if (value == null || value == undefined) {
+    if (value == null || value === undefined) {
       return '';
     }
 
-    let match = value.match(/^(\d+)-(\d+)-(\d+)T(\d+)\:(\d+)\:(\d+)$/);
-    let myDate = new Date(
+    const match = value.match(/^(\d+)-(\d+)-(\d+)T(\d+)\:(\d+)\:(\d+)$/);
+    const myDate = new Date(
       match[1],
       match[2] - 1,
       match[3],

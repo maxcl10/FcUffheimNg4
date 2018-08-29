@@ -14,7 +14,7 @@ import { Team } from '../../teams/shared/team.model';
 export class EditTeamComponent implements OnInit {
   @Input()
   set allPlayers(players: Player[]) {
-    if (this.selectedTeam == undefined) {
+    if (this.selectedTeam === undefined) {
       this.selectedTeam = 'b8bc86da-9eea-4820-a5d5-c9f57b3b7d80';
     }
     this.allPlayersPool = players;
@@ -49,7 +49,7 @@ export class EditTeamComponent implements OnInit {
 
   private arr_diff(a1: Player[], a2: Player[]): Player[] {
     const buffer = [];
-    if (a1 != null && a1 != undefined) {
+    if (a1 != null && a1 !== undefined) {
       a1.forEach(element => {
         if (a2.filter(o => o.id === element.id).length === 0) {
           buffer.push(element);

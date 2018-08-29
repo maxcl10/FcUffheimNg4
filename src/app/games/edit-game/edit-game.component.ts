@@ -67,7 +67,7 @@ export class EditGameComponent implements OnInit {
   public ngOnInit() {
     this.getTeams();
     this.sub = this.route.params.subscribe(params => {
-      let id = params['id']; // (+) converts string 'id' to a number
+      const id = params['id']; // (+) converts string 'id' to a number
       this.getGame(id);
     });
   }

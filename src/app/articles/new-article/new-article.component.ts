@@ -21,7 +21,7 @@ export class NewArticleComponent {
   constructor(private articlesService: ArticlesService) {
     this.articlesService = articlesService;
     this.article = new Article();
-    this.body = new String('');
+    this.body = '';
     this.successfull = false;
   }
 
