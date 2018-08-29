@@ -11,11 +11,9 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'team',
   templateUrl: './team.component.html',
-  providers: [PlayersService, TeamsService],
+  providers: [PlayersService, TeamsService]
 })
-
 export class TeamComponent implements OnInit {
-
   public goalkeeperPlayers: Player[] = [];
   public defenderPlayers: Player[] = [];
   public midfieldPlayers: Player[] = [];
@@ -26,13 +24,17 @@ export class TeamComponent implements OnInit {
   public errorMessage: string;
   private sub: any;
 
-  constructor(private playersService: PlayersService, private titleService: Title, private route: ActivatedRoute, private teamService: TeamsService) {
-  }
+  constructor(
+    private playersService: PlayersService,
+    private titleService: Title,
+    private route: ActivatedRoute,
+    private teamService: TeamsService
+  ) {}
 
   public ngOnInit() {
     this.titleService.setTitle('F.C Uffheim - Equipe');
 
-    this.sub = this.route.params.subscribe((params) => {
+    this.sub = this.route.params.subscribe(params => {
       // Clear because can be redirected from the same page
       this.players = [];
       this.goalkeeperPlayers = [];
@@ -41,12 +43,12 @@ export class TeamComponent implements OnInit {
       this.attackerPlayers = [];
       this.coaches = [];
 
-      let id = params['id'];
+      const id = params['id'];
       this.teamService.getPlayers(id).subscribe(
-        (players) => {
+        players => {
           this.players = players;
 
-          this.players.forEach((element) => {
+          this.players.forEach(element => {
             if (element.position === 'Milieu') {
               this.midfieldPlayers.push(element);
             } else if (element.position === 'Gardien') {
@@ -59,19 +61,18 @@ export class TeamComponent implements OnInit {
               this.coaches.push(element);
             }
           });
-        }
-        ,
-        (error) => this.errorMessage = <any> error);
-      ;
+        },
+        error => (this.errorMessage = <any>error)
+      );
     });
     // this.getPlayers();
   }
 
   public getPlayers() {
     this.playersService.getplayers().subscribe(
-      (players) => {
+      players => {
         this.players = players;
-        this.players.forEach((element) => {
+        this.players.forEach(element => {
           if (element.position === 'Milieu') {
             this.midfieldPlayers.push(element);
           } else if (element.position === 'Gardien') {
@@ -83,6 +84,7 @@ export class TeamComponent implements OnInit {
           }
         });
       },
-      (error) => this.errorMessage = <any> error);
+      error => (this.errorMessage = <any>error)
+    );
   }
 }

@@ -36,18 +36,21 @@ export class NextGameComponent implements OnInit {
   }
 
   private getNextGame() {
-    this.gamesService.getNextGame().subscribe(game => {
-      this.game = game;
-      if (this.game != null) {
-        this.game.awayTeamLogoUrl = this.logoService.getLogoPath(
-          this.game.AwayTeam,
-          30
-        );
-        this.game.homeTeamLogoUrl = this.logoService.getLogoPath(
-          this.game.HomeTeam,
-          30
-        );
-      }
-    }, error => (this.errorMessage = <any>error));
+    this.gamesService.getNextGame().subscribe(
+      game => {
+        this.game = game;
+        if (this.game != null) {
+          this.game.awayTeamLogoUrl = this.logoService.getLogoPath(
+            this.game.AwayTeam,
+            30
+          );
+          this.game.homeTeamLogoUrl = this.logoService.getLogoPath(
+            this.game.HomeTeam,
+            30
+          );
+        }
+      },
+      error => (this.errorMessage = <any>error)
+    );
   }
 }

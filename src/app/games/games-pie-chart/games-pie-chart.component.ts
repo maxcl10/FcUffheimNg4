@@ -7,22 +7,17 @@ import { StatsService } from '../../stats/shared/stats.service';
   templateUrl: './games-pie-chart.component.html',
   providers: [StatsService]
 })
-
 export class GamesPieChartComponent implements OnInit {
   // Doughnut
   public doughnutChartLabels: string[] = ['Gagnés', 'Nuls', 'Perdus'];
-  public doughnutChartType: string = 'doughnut';
+  public doughnutChartType = 'doughnut';
   public doughnutChartData: number[];
   public doughnutChartColors: any[];
   public doughnutChartOptions: any;
 
   public errorMessage: string;
 
-
-
-
-  constructor(private statsService: StatsService) {
-  }
+  constructor(private statsService: StatsService) {}
 
   // events
   public chartClicked(e: any): void {
@@ -35,14 +30,14 @@ export class GamesPieChartComponent implements OnInit {
 
   public ngOnInit() {
     this.statsService.getShape().subscribe(
-      (res) => {
-        let lossCount = res.filter((o) => o === 'P').length;
-        let drawCount = res.filter((o) => o === 'N').length;
-        let wonCount = res.filter((o) => o === 'G').length;
+      res => {
+        const lossCount = res.filter(o => o === 'P').length;
+        const drawCount = res.filter(o => o === 'N').length;
+        const wonCount = res.filter(o => o === 'G').length;
         this.doughnutChartData = [wonCount, drawCount, lossCount];
       },
-      (error) => this.errorMessage = <any>error);
-
+      error => (this.errorMessage = <any>error)
+    );
 
     this.doughnutChartType = 'doughnut';
     this.doughnutChartColors = [
@@ -62,8 +57,7 @@ export class GamesPieChartComponent implements OnInit {
         labels: {
           fontColor: '#3f2b5d'
         }
-
-      },
+      }
       // title: {
       //   display: true,
       //   text: 'Custom Chart Title',

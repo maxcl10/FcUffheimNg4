@@ -1,5 +1,5 @@
 export class Team {
-    public id: string;
-    public name: string;
-    public shortName: string;
+  public id: string;
+  public name: string;
+  public shortName: string;
 }

@@ -1,5 +1,4 @@
-
-import {throwError as observableThrowError,  Observable } from 'rxjs';
+import { throwError as observableThrowError, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -8,30 +7,29 @@ import { Stricker } from './stricker.model';
 
 @Injectable()
 export class StatsService {
+  private statsUrl = 'https://fcuwebapi.azurewebsites.net/api/ns/stats';
 
-    private statsUrl = 'https://fcuwebapi.azurewebsites.net/api/ns/stats';
+  constructor(private http: HttpClient) {}
 
-    constructor(private http: HttpClient) {
-
-    }
-
-    public getShape(): Observable<string[]> {
-        return this.http.get<string[]>(this.statsUrl + '/getShape');
-    }
-
-    public getStrickers(): Observable<Stricker[]> {
-      return this.http.get<Stricker[]>(this.statsUrl + '/getStrickers');
+  public getShape(): Observable<string[]> {
+    return this.http.get<string[]>(this.statsUrl + '/getShape');
   }
 
-    public getRankingHistory(): Observable<RankingHistory[]> {
-        return this.http.get<RankingHistory[]>(this.statsUrl + '/getRankingHistory');
-    }
+  public getStrickers(): Observable<Stricker[]> {
+    return this.http.get<Stricker[]>(this.statsUrl + '/getStrickers');
+  }
 
-    private handleError(error: any) {
-        // In a real world app, we might use a remote logging infrastructure
-        // We'd also dig deeper into the error to get a better message
-        const errMsg = error.message || error.statusText || 'Server error';
-        console.error(errMsg); // log to console instead
-        return observableThrowError(errMsg);
-    }
+  public getRankingHistory(): Observable<RankingHistory[]> {
+    return this.http.get<RankingHistory[]>(
+      this.statsUrl + '/getRankingHistory'
+    );
+  }
+
+  private handleError(error: any) {
+    // In a real world app, we might use a remote logging infrastructure
+    // We'd also dig deeper into the error to get a better message
+    const errMsg = error.message || error.statusText || 'Server error';
+    console.error(errMsg); // log to console instead
+    return observableThrowError(errMsg);
+  }
 }

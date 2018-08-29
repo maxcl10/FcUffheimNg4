@@ -2,26 +2,26 @@
 
 <div class="panel panel-default">
 
-        <div class="panel-body">
+  <div class="panel-body">
 
-            <div class="alert alert-success" *ngIf="successfull">
-                Equipe "{{team.name}}" a été sauvé!
-            </div>
-            <div class="alert alert-danger" *ngIf="errorMessage">
-              {{errorMessage}}
-            </div>
-            <div class="form-group">
-                <label>Nom</label>
-                <input required class="form-control" placeholder="Nom" [(ngModel)]='team.name' type="text" ngControl="name">
-            </div>
-            <div class="form-group">
-                <label>Nom court</label>
-                <input required class="form-control" placeholder="Nom court" [(ngModel)]='team.shortName' type="text" ngControl="shortName">
-            </div>
-        </div>
-        <div class="panel-footer" style="height:60px" >
-                    <!--<button (click)="goBack()" class="btn btn-default">Back</button>-->
-            <button (click)="saveTeam()" type="submit" class="btn pull-right btn-success">Ajouter</button>
-        </div>
+    <div class="alert alert-success" *ngIf="successfull">
+      Equipe "{{team.name}}" a été sauvé!
+    </div>
+    <div class="alert alert-danger" *ngIf="errorMessage">
+      {{errorMessage}}
+    </div>
+    <div class="form-group">
+      <label>Nom</label>
+      <input required class="form-control" placeholder="Nom" [(ngModel)]='team.name' type="text" ngControl="name">
+    </div>
+    <div class="form-group">
+      <label>Nom court</label>
+      <input required class="form-control" placeholder="Nom court" [(ngModel)]='team.shortName' type="text" ngControl="shortName">
+    </div>
+  </div>
+  <div class="panel-footer" style="height:60px">
+    <!--<button (click)="goBack()" class="btn btn-default">Back</button>-->
+    <button (click)="saveTeam()" type="submit" class="btn pull-right btn-success">Ajouter</button>
+  </div>
 
 </div>

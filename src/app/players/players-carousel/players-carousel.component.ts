@@ -1,55 +1,53 @@
-import {Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
-import {Player} from '../shared/player.model'
-import {TeamsService} from '../../teams/shared/teams.service';
+import { Player } from '../shared/player.model';
+import { TeamsService } from '../../teams/shared/teams.service';
 
-import {PlayerDetailsSmallComponent} from '../player-details-small/player-details-small.component'
+import { PlayerDetailsSmallComponent } from '../player-details-small/player-details-small.component';
 
 @Component({
-    selector: 'players-carousel',
-    templateUrl: './players-carousel.component.html',
-    providers: [TeamsService],  
+  selector: 'players-carousel',
+  templateUrl: './players-carousel.component.html',
+  providers: [TeamsService]
 })
-
 export class PlayersCarouselComponent implements OnInit {
+  players: Player[];
+  player: Player;
+  errorMessage: string;
 
-    players: Player[];
-    player: Player;
-    errorMessage: string;
+  constructor(
+    private playerService: TeamsService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
-    constructor(private playerService: TeamsService, private route: ActivatedRoute, private router: Router) {
+  private sub: any;
 
-    }
+  ngOnInit() {
+    this.player = new Player();
+    this.getPlayers();
+  }
 
-    private sub: any;
+  changePlayer(players: Player[]) {
+    const index = Math.round(Math.random() * (players.length - 2) + 1);
+    this.player = players[index];
+  }
 
-    ngOnInit() {
-        this.player = new Player();
-        this.getPlayers();
-    }
+  getPlayers() {
+    this.playerService.getCurrentPlayers().subscribe(
+      players => {
+        this.players = players;
+        setInterval(this.changePlayer(players), 5000);
+      },
 
-    changePlayer(players: Player[]) {
-        var index = Math.round(Math.random() * (players.length-2) + 1);      
-            this.player = players[index];            
-    }
+      error => (this.errorMessage = <any>error)
+    );
+  }
 
-    getPlayers() {
-        this.playerService.getCurrentPlayers().subscribe(
-            players => {
-                this.players = players;             
-                setInterval(this.changePlayer(players), 5000);
-            },
-
-            error => this.errorMessage = <any>error);
-    }
-
-    getIndex(player: Player) {
-        var index = this.players.indexOf(player);
-        alert(index);
-        return index;
-    }
+  getIndex(player: Player) {
+    const index = this.players.indexOf(player);
+    alert(index);
+    return index;
+  }
 }
-
-
-

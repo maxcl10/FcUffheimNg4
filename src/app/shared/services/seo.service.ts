@@ -1,9 +1,8 @@
 import { Injectable, AfterViewInit } from '@angular/core';
-import { Title, } from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
 // import { getDOM } from '@angular/platform-browser/src/dom/dom_adapter';
 
 @Injectable()
-
 export class SeoService implements AfterViewInit {
   /**
    * Angular 2 Title Service
@@ -29,7 +28,6 @@ export class SeoService implements AfterViewInit {
    */
   constructor(titleService: Title) {
     this.titleService = titleService;
-
   }
 
   public ngAfterViewInit() {

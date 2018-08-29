@@ -40,20 +40,23 @@ export class TodayGameComponent implements OnInit {
   }
 
   public getNextGame() {
-    this.gamesService.getNextGame().subscribe(game => {
-      this.game = game;
-      if (game != null) {
-        this.game.awayTeamLogoUrl = this.logoService.getLogoPath(
-          this.game.AwayTeam,
-          100
-        );
-        this.game.homeTeamLogoUrl = this.logoService.getLogoPath(
-          this.game.HomeTeam,
-          100
-        );
-      }
+    this.gamesService.getNextGame().subscribe(
+      game => {
+        this.game = game;
+        if (game != null) {
+          this.game.awayTeamLogoUrl = this.logoService.getLogoPath(
+            this.game.AwayTeam,
+            100
+          );
+          this.game.homeTeamLogoUrl = this.logoService.getLogoPath(
+            this.game.HomeTeam,
+            100
+          );
+        }
 
-      this.isToday = this.isGameToday();
-    }, error => (this.errorMessage = <any>error));
+        this.isToday = this.isGameToday();
+      },
+      error => (this.errorMessage = <any>error)
+    );
   }
 }

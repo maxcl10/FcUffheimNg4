@@ -1,17 +1,14 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 // import { CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass } from '@angular/common';
-import { StatsService } from '../../stats/shared/stats.service'
-import { RankingHistory } from '../shared/rankingHistory.model'
+import { StatsService } from '../../stats/shared/stats.service';
+import { RankingHistory } from '../shared/rankingHistory.model';
 
 @Component({
-    selector: 'ranking-history-chart',
-    templateUrl: './ranking-history-chart.component.html',
-    providers: [StatsService]
+  selector: 'ranking-history-chart',
+  templateUrl: './ranking-history-chart.component.html',
+  providers: [StatsService]
 })
-
-
-export class RankingHistoryComponent {
-}
+export class RankingHistoryComponent {}
 
 //     public lineChartData: Array<any> = [
 //         { data: [10, 4, 1, 1, 4, 6], label: 'Position' },
@@ -27,14 +24,13 @@ export class RankingHistoryComponent {
 //     constructor(private statsService: StatsService) {
 //  this.statsService.getRankingHistory().subscribe(
 //             res => {
-      
+
 //                 // this.lineChartLabels = new Array[res.length];
 //                 // res.forEach(element => {
 //                 //     this.lineChartLabels.push(element.uploadDate);
-//                 // });    
+//                 // });
 
 //                 let _lineChartData: Array<any> = new Array(1);
-         
 
 //                 for (let i = 0; i < 1; i++) {
 //                     _lineChartData[i] = { data: new Array(res.length), label: 'position' };
@@ -42,13 +38,11 @@ export class RankingHistoryComponent {
 //                         _lineChartData[i].data[j] = res[j];
 //                     }
 //                 }
-            
+
 //                 this.lineChartData = _lineChartData;
 //             },
 //             error => this.errorMessage = <any>error);
 //     }
-
-
 
 //     public errorMessage: string;
 
@@ -60,7 +54,6 @@ export class RankingHistoryComponent {
 //     public chartHovered(e: any): void {
 //         console.log(e);
 //     }
-
 
 //     public lineChartColours: Array<any> = [
 //         { // grey
@@ -93,5 +86,4 @@ export class RankingHistoryComponent {
 
 //     ngAfterViewInit() {
 
-       
 //     }

@@ -8,11 +8,11 @@
     <input type="file" ngFileSelect [options]="options" (onUpload)="handleUpload($event)">
 </div>-->
 <div *ngIf="success" class="alert alert-success">
-    Le classement a été mis à jour avec succès.
+  Le classement a été mis à jour avec succès.
 </div>
 
 <div *ngIf="errorMessage != null" class="alert alert-danger">
-    {{errorMessage}}
+  {{errorMessage}}
 </div>
 
 <!-- <div *ngIf="error" class="alert alert-warning">

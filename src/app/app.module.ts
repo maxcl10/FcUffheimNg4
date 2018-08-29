@@ -1,16 +1,9 @@
-
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {
-  NgModule,
-  ApplicationRef
-} from '@angular/core';
+import { NgModule, ApplicationRef } from '@angular/core';
 
-import {
-  RouterModule,
-  PreloadAllModules
-} from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SeoService } from './shared/services/seo.service';
 
@@ -103,12 +96,10 @@ import { environment } from '../environments/environment';
 import { ClubService } from './club/shared/club.service';
 import { SponsorsService } from './sponsors/shared/sponsors.service';
 import { StatsService } from './stats/shared/stats.service';
+import { StrickersEditorComponent } from './strickers/strickers-editor/strickers-editor.component';
 
 // Application wide providers
-const APP_PROVIDERS = [
-  ...APP_RESOLVER_PROVIDERS,
-  AppState
-];
+const APP_PROVIDERS = [...APP_RESOLVER_PROVIDERS, AppState];
 
 export function initializeApp(appConfig: AppConfig) {
   return () => appConfig.load();
@@ -125,7 +116,8 @@ export function initializeApp(appConfig: AppConfig) {
  */
 @NgModule({
   bootstrap: [AppComponent],
-  declarations: [AppComponent,
+  declarations: [
+    AppComponent,
     HomeComponent,
     TeamComponent,
     ClubComponent,
@@ -159,18 +151,27 @@ export function initializeApp(appConfig: AppConfig) {
     EditTeamComponent,
     LastFiveGamesComponent,
     StrikersComponent,
-    StatsComponent],
-  imports: [ // import Angular's modules
+    StatsComponent,
+    StrickersEditorComponent
+  ],
+  imports: [
+    // import Angular's modules
     BrowserModule,
     ChartsModule,
     EditorModule,
     FormsModule,
     HttpClientModule,
     CommonModule,
-    RouterModule.forRoot(ROUTES, { useHash: false, preloadingStrategy: PreloadAllModules }),
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+    RouterModule.forRoot(ROUTES, {
+      useHash: false,
+      preloadingStrategy: PreloadAllModules
+    }),
+    ServiceWorkerModule.register('/ngsw-worker.js', {
+      enabled: environment.production
+    })
   ],
-  providers: [ // expose our Services and Providers into Angular's dependency injection
+  providers: [
+    // expose our Services and Providers into Angular's dependency injection
     APP_PROVIDERS,
     ArticlesService,
     Title,
@@ -179,11 +180,12 @@ export function initializeApp(appConfig: AppConfig) {
     StatsService,
     SponsorsService,
     AppConfig,
-    { provide: APP_INITIALIZER,
+    {
+      provide: APP_INITIALIZER,
       useFactory: initializeApp,
-      deps: [AppConfig], multi: true }
+      deps: [AppConfig],
+      multi: true
+    }
   ]
 })
-
-export class AppModule {
-}
+export class AppModule {}

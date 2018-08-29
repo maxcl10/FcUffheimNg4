@@ -2,36 +2,35 @@
 
 <div class="panel panel-default">
 
-        <div class="panel-body">
+  <div class="panel-body">
 
-            <div class="alert alert-success" *ngIf="successfull">
-                Article "{{article.title}}" has been successfully saved!
-            </div>
-            <div class="form-group">
-                <label>Title</label>
-                <input required class="form-control" placeholder="Title" [(ngModel)]='article.title' type="text" ngControl="title">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Content</label>
-                <!--<textarea id="txtBody" required rows="20" class="form-control" placeholder="Content" [(ngModel)]='article.body' ngControl="body"></textarea>-->
-                 <!--<ng2-summernote [(ngModel)]="body" [height]="500"></ng2-summernote>-->
-              <!-- <app-tinymce [(ngModel)]='article.body'></app-tinymce> -->
-              <editor apiKey="j5sbmlaj7vwsys2kgtcrjmrnwl684gw2wjreipgjaxc8o7zd" [(ngModel)]="article.body" [init]="{height : '400'}"
-              plugins="advlist autolink lists link image charmap print preview anchor textcolor',
+    <div class="alert alert-success" *ngIf="successfull">
+      Article "{{article.title}}" has been successfully saved!
+    </div>
+    <div class="form-group">
+      <label>Title</label>
+      <input required class="form-control" placeholder="Title" [(ngModel)]='article.title' type="text" ngControl="title">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Content</label>
+      <!--<textarea id="txtBody" required rows="20" class="form-control" placeholder="Content" [(ngModel)]='article.body' ngControl="body"></textarea>-->
+      <!--<ng2-summernote [(ngModel)]="body" [height]="500"></ng2-summernote>-->
+      <!-- <app-tinymce [(ngModel)]='article.body'></app-tinymce> -->
+      <editor apiKey="j5sbmlaj7vwsys2kgtcrjmrnwl684gw2wjreipgjaxc8o7zd" [(ngModel)]="article.body" [init]="{height : '400'}" plugins="advlist autolink lists link image charmap print preview anchor textcolor',
               'searchreplace visualblocks code fullscreen', 'insertdatetime media table contextmenu paste code help wordcount"></editor>
-                 <!--<ckeditor
+      <!--<ckeditor
     [(ngModel)]="body"
 
     debounce="500">
   </ckeditor>-->
-                <!--<summernote [content]="article.body" (contentChanged)="descriptionChanged($event)" ></summernote>                  -->
-            </div>
-        </div>
+      <!--<summernote [content]="article.body" (contentChanged)="descriptionChanged($event)" ></summernote>                  -->
+    </div>
+  </div>
 
-        <div class="panel-footer">
-            <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>
-            <button (click)="goBack()" class="btn btn-default">Retour</button>
-            <button (click)="saveArticle()" type="submit" class="btn pull-right btn-success">Ajouter</button>
-        </div>
+  <div class="panel-footer">
+    <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+    <button (click)="goBack()" class="btn btn-default">Retour</button>
+    <button (click)="saveArticle()" type="submit" class="btn pull-right btn-success">Ajouter</button>
+  </div>
 
 </div>

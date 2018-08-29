@@ -10,24 +10,24 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './home.component.html',
   providers: [ArticlesService]
 })
-
 export class HomeComponent implements OnInit {
-
   public articles: Article[];
   public loaded = false;
   public errorMessage: string;
 
-  constructor(private articlesService: ArticlesService, private titleService: Title) {
-
-  }
+  constructor(
+    private articlesService: ArticlesService,
+    private titleService: Title
+  ) {}
 
   public getArticles() {
     this.articlesService.getArticles().subscribe(
-      (articles) => {
+      articles => {
         this.articles = articles;
         this.loaded = true;
       },
-      (error) => this.errorMessage = <any> error);
+      error => (this.errorMessage = <any>error)
+    );
   }
 
   public ngOnInit() {

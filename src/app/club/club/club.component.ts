@@ -5,20 +5,17 @@ import { Club } from '../shared/club.model';
 
 @Component({
   selector: 'app-club',
-  templateUrl: './club.component.html',
+  templateUrl: './club.component.html'
 })
-
 export class ClubComponent implements OnInit {
-
-  constructor(private titleService: Title, private service: ClubService ) {
-  }
+  constructor(private titleService: Title, private service: ClubService) {}
 
   public clubHistory: string;
 
   public ngOnInit() {
     this.titleService.setTitle('F.C Uffheim - Club');
 
-    this.service.getClub().subscribe((club) => {
+    this.service.getClub().subscribe(club => {
       this.clubHistory = club.history;
     });
   }

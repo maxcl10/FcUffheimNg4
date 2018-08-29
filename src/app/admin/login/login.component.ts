@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthenticationService } from '../../shared/services/authentication.service';
 import { Router } from '@angular/router';
 import { User } from '../../shared/services/user.model';
@@ -21,8 +21,8 @@ export class LoginComponent {
         if (result == null) {
           this.errorMessage = 'Failed to login';
         } else {
-         sessionStorage.setItem('user', result.userId);
-           this.router.navigate(['/admin']);
+          sessionStorage.setItem('user', result.userId);
+          this.router.navigate(['/admin']);
         }
       });
   }

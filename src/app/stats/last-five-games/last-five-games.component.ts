@@ -7,16 +7,13 @@ import { StatsService } from '../../stats/shared/stats.service';
   providers: [StatsService]
 })
 export class LastFiveGamesComponent implements OnInit {
-
   public stats: string[];
 
-  constructor(private statsService: StatsService) { }
+  constructor(private statsService: StatsService) {}
 
-  ngOnInit() {      
-    this.statsService.getShape().subscribe((stats) => {
-      this.stats = stats.slice(stats.length -5);      
-    })
-
+  ngOnInit() {
+    this.statsService.getShape().subscribe(stats => {
+      this.stats = stats.slice(stats.length - 5);
+    });
   }
-
 }
