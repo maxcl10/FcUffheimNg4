@@ -52,7 +52,7 @@
         <a class="btn btn-success pull-right" href="" [routerLink]="['newPlayer']">
           <span class="glyphicon glyphicon-plus"></span> Joueur
         </a>
-        <h4>{{playersCount}} Joueurs</h4>
+        <h4>{{playersCount}} joueurs</h4>
       </div>
       <div class="panel-body">
         <table class="table table-hover table-clickable">
@@ -84,9 +84,10 @@
   <div id="games" class="tab-pane fade">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <a class="btn btn-success" href="" [routerLink]="['newGame']">
+        <a class="btn btn-success pull-right" href="" [routerLink]="['newGame']">
           <span class="glyphicon glyphicon-plus"></span> Matches
         </a>
+        <h4>{{gamesCount}} matches</h4>
       </div>
       <div class="panel-body">
         <table class="table table-hover table-clickable">
@@ -118,13 +119,24 @@
   </div>
 
   <div id="team" class="tab-pane fade">
-    <edit-team [allPlayers]="players"></edit-team>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <edit-team [allPlayers]="players"></edit-team>
+      </div>
+    </div>
   </div>
-
   <div id="ranking" class="tab-pane fade">
-    <upload-ranking></upload-ranking>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <upload-ranking></upload-ranking>
+      </div>
+    </div>
   </div>
 
   <div id="strickers" class="tab-pane fade">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <fws-strickers-editor></fws-strickers-editor>
+      </div>
+    </div>
   </div>
-</div>

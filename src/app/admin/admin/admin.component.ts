@@ -30,6 +30,7 @@ export class AdminComponent implements OnInit {
   public errorMessage: string;
   public articlesCount: number;
   public playersCount: number;
+  public gamesCount: number;
 
   constructor(
     private articlesService: ArticlesService,
@@ -63,6 +64,7 @@ export class AdminComponent implements OnInit {
     this.gameservice.getGames().subscribe(
       games => {
         this.games = games;
+        this.gamesCount = games.length;
       },
       error => (this.errorMessage = <any>error)
     );
