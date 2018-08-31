@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   public getArticles() {
     this.articlesService.getArticles().subscribe(
       articles => {
-        this.articles = articles;
+        this.articles = articles.filter(o => o.published);
         this.loaded = true;
       },
       error => (this.errorMessage = <any>error)

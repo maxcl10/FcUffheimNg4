@@ -11,7 +11,12 @@
       <span [innerHTML]="article.body"></span>
     </div>
     <div class="panel-footer">
-      {{article.publishedDate | date:"dd/MM/yyyy"}} - {{article.publisher}}
+      <span *ngIf="article.publishedDate">
+        {{article.publishedDate | date:"dd/MM/yyyy"}} - {{article.publisher}}
+      </span>
+      <span *ngIf="!article.publishedDate">
+        Non publié - {{article.publisher}}
+      </span>
     </div>
   </div>
   <button *ngIf="isAuthenticated" class="btn btn-warning pull-right" data-toggle="modal" data-target="#myModal">Supprimer</button>

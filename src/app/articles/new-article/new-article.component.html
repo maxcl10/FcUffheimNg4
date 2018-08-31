@@ -12,6 +12,10 @@
       <input required class="form-control" placeholder="Title" [(ngModel)]='article.title' type="text" ngControl="title">
     </div>
     <div class="form-group">
+      <label>Publier</label>&nbsp;
+      <input [(ngModel)]='article.published' type="checkbox" ngControl="published">
+    </div>
+    <div class="form-group">
       <label for="exampleInputPassword1">Content</label>
       <!--<textarea id="txtBody" required rows="20" class="form-control" placeholder="Content" [(ngModel)]='article.body' ngControl="body"></textarea>-->
       <!--<ng2-summernote [(ngModel)]="body" [height]="500"></ng2-summernote>-->

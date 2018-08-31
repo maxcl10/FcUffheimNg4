@@ -29,6 +29,10 @@ export class AuthenticationService {
   //   // });
   // }
 
+  public getLoggedUserId() {
+    return sessionStorage.getItem('user');
+  }
+
   public checkCredentials() {
     if (sessionStorage.getItem('user') === null) {
       return false;

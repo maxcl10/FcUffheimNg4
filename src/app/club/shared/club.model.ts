@@ -1,6 +1,7 @@
 export interface Club {
   ownerId: string;
   name: string;
+  longName: string;
   address: string;
   zipCode: string;
   city: string;
@@ -11,4 +12,6 @@ export interface Club {
   stadium: string;
   history: string;
   googleMap: string;
+  logoUrl: string;
+  facebookLikeUrl: string;
 }

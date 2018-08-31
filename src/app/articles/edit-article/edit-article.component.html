@@ -9,6 +9,10 @@
   <input class="form-control" placeholder="Title" [(ngModel)]="article.title" type="text">
 </div>
 <div class="form-group">
+  <label>Publié</label>&nbsp;
+  <input [(ngModel)]='article.published' type="checkbox" ngControl="published">
+</div>
+<div class="form-group">
   <label for="exampleInputPassword1">Content</label>
   <!--<span id="summernote" rows="20" class="form-control" placeholder="Content" >{{article.body}}</span>-->
   <!--<unity-tinymce [mceContent]="article.body" (contentChanged)="descriptionChanged($event)"></unity-tinymce>-->

@@ -11,6 +11,8 @@ import { Team } from './teams/shared/team.model';
 import { AppConfig } from './app.config';
 
 import * as jQuery from 'jquery';
+import { ClubService } from './club/shared/club.service';
+import { Club } from './club/shared/club.model';
 declare let ga: any;
 
 /*
@@ -21,27 +23,33 @@ declare let ga: any;
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
   templateUrl: './app.component.html',
-  providers: [TeamsService, AppConfig],
+  providers: [TeamsService, AppConfig, ClubService]
 })
 export class AppComponent implements OnInit {
-
   public teams: Team[];
+  public club: Club;
   public errorMessage: string;
 
-  constructor(public appState: AppState, private teamsService: TeamsService, public router: Router) {
-
-    this.router.events.subscribe(
-      (event: Event) => {
-        if (event instanceof NavigationEnd) {
-          // comment has been removed
-           ga('send', 'pageview', event.urlAfterRedirects);
-        }
-        window.scrollTo(0, 0);
-      });
+  constructor(
+    public appState: AppState,
+    private teamsService: TeamsService,
+    private clubService: ClubService,
+    public router: Router
+  ) {
+    this.router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationEnd) {
+        // comment has been removed
+        ga('send', 'pageview', event.urlAfterRedirects);
+      }
+      window.scrollTo(0, 0);
+    });
 
     // Method to close the nav bar when clicking on a link on small screens
-    $(document).on('click', '.navbar-collapse.in', function (e) {
-      if ($(e.target).is('a') && $(e.target).attr('class') !== 'dropdown-toggle') {
+    $(document).on('click', '.navbar-collapse.in', function(e) {
+      if (
+        $(e.target).is('a') &&
+        $(e.target).attr('class') !== 'dropdown-toggle'
+      ) {
         $(this).collapse('hide');
       }
     });
@@ -50,11 +58,18 @@ export class AppComponent implements OnInit {
   public ngOnInit() {
     console.log('Initial App State', this.appState.state);
 
-    alert(AppConfig.settings.env.name);
     this.teamsService.getHomeTeams().subscribe(
-      (homeTeams) => {
+      homeTeams => {
         this.teams = homeTeams;
       },
-      (error) => this.errorMessage = <any> error);
+      error => (this.errorMessage = <any>error)
+    );
+
+    this.clubService.getClub().subscribe(
+      club => {
+        this.club = club;
+      },
+      error => (this.errorMessage = <any>error)
+    );
   }
 }
