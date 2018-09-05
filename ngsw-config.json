@@ -25,7 +25,12 @@
         "https://fcuwebapi.azurewebsites.net/api/previousgame",
         "https://fcuwebapi.azurewebsites.net/api/ns/stats/getShape",
         "https://fcuwebapi.azurewebsites.net/api/ranking",
-        "https://fcuwebapi.azurewebsites.net/api/games"
+        "https://fcuwebapi.azurewebsites.net/api/games",
+        "https://fcbwebapi.azurewebsites.net/api/nextgame",
+        "https://fcbwebapi.azurewebsites.net/api/previousgame",
+        "https://fcbwebapi.azurewebsites.net/api/ns/stats/getShape",
+        "https://fcbwebapi.azurewebsites.net/api/ranking",
+        "https://fcbwebapi.azurewebsites.net/api/games"
       ],
       "cacheConfig": {
         "strategy": "freshness",
@@ -38,7 +43,9 @@
       "name": "api-performance",
       "urls": [
         "https://fcuwebapi.azurewebsites.net/api/articles",
-        "https://fcuwebapi.azurewebsites.net/api/ns/teamplayer/getplayers/**"
+        "https://fcuwebapi.azurewebsites.net/api/ns/teamplayer/getplayers/**",
+        "https://fcbwebapi.azurewebsites.net/api/articles",
+        "https://fcbwebapi.azurewebsites.net/api/ns/teamplayer/getplayers/**"
       ],
       "cacheConfig": {
         "strategy": "performance",

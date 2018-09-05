@@ -1,4 +1,4 @@
-export interface Sponsor {
+export class Sponsor {
   sponsorId: string;
   name?: any;
   logoUrl: string;
