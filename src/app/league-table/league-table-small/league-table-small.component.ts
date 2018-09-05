@@ -2,26 +2,37 @@ import { Component, OnInit } from '@angular/core';
 
 import { Ranking } from '../shared/league-table.model';
 import { LeagueRankingsService } from '../shared/league-table.service';
+import { TeamsService } from '../../teams/shared/teams.service';
 
 @Component({
   selector: 'league-table-small',
   templateUrl: './league-table-small.component.html',
-  providers: [LeagueRankingsService]
+  providers: [LeagueRankingsService, TeamsService]
 })
 export class LeagueTableSmallComponent implements OnInit {
   public rankings: Ranking[];
   public errorMessage: string;
+  public homeTeam: string;
 
-  constructor(private rankingService: LeagueRankingsService) {}
+  constructor(
+    private rankingService: LeagueRankingsService,
+    private teamsService: TeamsService
+  ) {}
 
   public ngOnInit() {
-    this.getRankings();
+    this.teamsService.getHomeTeams().subscribe(
+      homeTeams => {
+        this.homeTeam = homeTeams[0].name;
+        this.getRankings();
+      },
+      error => (this.errorMessage = <any>error)
+    );
   }
 
   public getRankings() {
     this.rankingService.getRankings().subscribe(
       rankings => {
-        const myTeamPosition = rankings.find(o => o.team === 'Uffheim F.C.')
+        const myTeamPosition = rankings.find(o => o.team === this.homeTeam)
           .position;
         if (myTeamPosition <= 2) {
           // We want to display the 3 first and the two latest

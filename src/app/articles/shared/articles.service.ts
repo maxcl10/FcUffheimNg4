@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Article } from '../shared/article.model';
+import { AppConfig } from '../../app.config';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -12,7 +13,7 @@ const httpOptions = {
 
 @Injectable()
 export class ArticlesService {
-  private articleUrl = 'https://fcuwebapi.azurewebsites.net/api/articles';
+  private articleUrl = AppConfig.settings.apiServer.url + '/articles';
 
   constructor(private http: HttpClient) {}
 

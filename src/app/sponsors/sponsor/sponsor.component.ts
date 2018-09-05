@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { SponsorsService } from '../shared/sponsors.service';
 import { Sponsor } from '../shared/sponsor.model';
+import { AppConfig } from '../../app.config';
 
 @Component({
   selector: 'app-player',
@@ -13,7 +14,9 @@ export class SponsorComponent implements OnInit {
   public sponsors: Sponsor[];
 
   public ngOnInit() {
-    this.titleService.setTitle('F.C Uffheim - Partenaires');
+    this.titleService.setTitle(
+      AppConfig.settings.properties.siteName + ' - Partenaires'
+    );
 
     this.service.getSponsors().subscribe(sponsors => {
       this.sponsors = sponsors;

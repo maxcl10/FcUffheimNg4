@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Player } from './player.model';
+import { AppConfig } from '../../app.config';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -12,7 +13,7 @@ const httpOptions = {
 
 @Injectable()
 export class PlayersService {
-  private playerUrl = 'https://fcuwebapi.azurewebsites.net/api/players';
+  private playerUrl = AppConfig.settings.apiServer.url + '/players';
 
   constructor(private http: HttpClient) {}
 

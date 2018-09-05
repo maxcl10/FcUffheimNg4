@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { User } from './user.model';
+import { AppConfig } from '../../app.config';
 
 @Injectable()
 export class AuthenticationService {
-  private playerUrl = 'https://fcuwebapi.azurewebsites.net/api/authentication';
+  private playerUrl = AppConfig.settings.apiServer.url + '/authentication';
 
   constructor(private http: HttpClient) {}
 
@@ -15,19 +16,6 @@ export class AuthenticationService {
   public logout() {
     sessionStorage.removeItem('user');
   }
-
-  // public login(user: User): Promise<boolean> {
-  //   const response = this.authenticate(user.email, user.password).toPromise();
-  //   return response;
-  //   // ret(result => {
-  //   //   if (result === true) {
-  //   //     sessionStorage.setItem('user', user.email);
-  //   //     return true;
-  //   //   } else {
-  //   //     return false;
-  //   //   }
-  //   // });
-  // }
 
   public getLoggedUserId() {
     return sessionStorage.getItem('user');

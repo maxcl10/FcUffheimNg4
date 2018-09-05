@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ChartsModule } from 'ng2-charts';
 import { StatsService } from '../../stats/shared/stats.service';
+import { AppConfig } from '../../app.config';
 
 @Component({
   selector: 'games-pie-chart',
@@ -42,7 +43,11 @@ export class GamesPieChartComponent implements OnInit {
     this.doughnutChartType = 'doughnut';
     this.doughnutChartColors = [
       {
-        backgroundColor: ['#3f2b5d', '#ECF0F1', '#E74C3C'],
+        backgroundColor: [
+          AppConfig.settings.properties.mainColor,
+          '#ECF0F1',
+          '#E74C3C'
+        ],
         borderColor: 'rgba(255,255,255,1)',
         pointBackgroundColor: 'rgba(148,159,177,1)',
         pointBorderColor: '#fff',
@@ -55,7 +60,7 @@ export class GamesPieChartComponent implements OnInit {
       legend: {
         display: true,
         labels: {
-          fontColor: '#3f2b5d'
+          // fontColor: '#3f2b5d'
         }
       }
       // title: {

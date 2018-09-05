@@ -1,0 +1,12 @@
+{
+  "env": {
+    "name": "FCU"
+  },
+  "apiServer": {
+    "url": "https://fcuwebapi.azurewebsites.net/api/"
+  },
+  "properties": {
+    "siteName": "F.C Uffheim",
+    "mainColor": "#3f2b5d"
+  }
+}

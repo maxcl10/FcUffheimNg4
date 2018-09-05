@@ -14,26 +14,26 @@
         <td class="hidden-sm hidden-xs">
           <span class="glyphicon glyphicon-time"></span> {{game.MatchDate | frDate:'time' }}
         </td>
-        <td *ngIf="game.HomeTeam != 'Uffheim F.C.'">
+        <td *ngIf="game.HomeTeam != homeTeam">
           E
         </td>
-        <td *ngIf="game.AwayTeam != 'Uffheim F.C.'">
+        <td *ngIf="game.AwayTeam != homeTeam">
           D
         </td>
-        <td *ngIf="game.HomeTeam != 'Uffheim F.C.'">
+        <td *ngIf="game.HomeTeam != homeTeam">
           <img [src]="game.homeTeamLogoUrl"> {{game.HomeTeam}}
         </td>
-        <td *ngIf="game.AwayTeam != 'Uffheim F.C.'">
+        <td *ngIf="game.AwayTeam != homeTeam">
           <img [src]="game.awayTeamLogoUrl"> {{game.AwayTeam}}
 
         </td>
 
         <td>
           <strong>
-            <span *ngIf="game.HomeTeamScore != null && game.AwayTeamScore != null" class="badge" [ngClass]="{'badge-success':(game.HomeTeamScore>game.AwayTeamScore && game.HomeTeam == 'Uffheim F.C.') ||
-                        (game.HomeTeamScore<game.AwayTeamScore && game.AwayTeam == 'Uffheim F.C.'),
-                        'badge-danger':(game.HomeTeamScore<game.AwayTeamScore && game.HomeTeam == 'Uffheim F.C.') ||
-                        (game.HomeTeamScore>game.AwayTeamScore && game.AwayTeam == 'Uffheim F.C.'),
+            <span *ngIf="game.HomeTeamScore != null && game.AwayTeamScore != null" class="badge" [ngClass]="{'badge-success':(game.HomeTeamScore>game.AwayTeamScore && game.HomeTeam == homeTeam) ||
+                        (game.HomeTeamScore<game.AwayTeamScore && game.AwayTeam == homeTeam),
+                        'badge-danger':(game.HomeTeamScore<game.AwayTeamScore && game.HomeTeam == homeTeam) ||
+                        (game.HomeTeamScore>game.AwayTeamScore && game.AwayTeam == homeTeam),
                         'badge-default':game.HomeTeamScore==game.AwayTeamScore}">
               {{game.HomeTeamScore}} - {{game.AwayTeamScore}}
             </span>

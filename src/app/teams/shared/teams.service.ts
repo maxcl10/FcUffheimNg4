@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 
 import { Team } from './team.model';
 import { Player } from '../../players/shared/player.model';
+import { AppConfig } from '../../app.config';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -13,9 +14,8 @@ const httpOptions = {
 
 @Injectable()
 export class TeamsService {
-  private teamsUrl = 'https://fcuwebapi.azurewebsites.net/api/teams';
-  private teamPlayersUrl =
-    'https://fcuwebapi.azurewebsites.net/api/ns/teamplayer';
+  private teamsUrl = AppConfig.settings.apiServer.url + '/teams';
+  private teamPlayersUrl = AppConfig.settings.apiServer.url + '/ns/teamplayer';
 
   constructor(private http: HttpClient) {}
 

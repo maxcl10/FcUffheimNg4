@@ -7,6 +7,7 @@ import {
 import { Injectable } from '@angular/core';
 
 import { Club } from './club.model';
+import { AppConfig } from '../../app.config';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,7 +17,7 @@ const httpOptions = {
 
 @Injectable()
 export class ClubService {
-  private ownerUrl = 'https://fcuwebapi.azurewebsites.net/api/owner';
+  private ownerUrl = AppConfig.settings.apiServer.url + '/owner';
 
   constructor(private http: HttpClient) {}
 

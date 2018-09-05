@@ -97,6 +97,7 @@ import { ClubService } from './club/shared/club.service';
 import { SponsorsService } from './sponsors/shared/sponsors.service';
 import { StatsService } from './stats/shared/stats.service';
 import { StrickersEditorComponent } from './strickers/strickers-editor/strickers-editor.component';
+import { EditPlayerStatsComponent } from './strickers/edit-player-stats/edit-player-stats.component';
 
 // Application wide providers
 const APP_PROVIDERS = [...APP_RESOLVER_PROVIDERS, AppState];
@@ -152,7 +153,8 @@ export function initializeApp(appConfig: AppConfig) {
     LastFiveGamesComponent,
     StrikersComponent,
     StatsComponent,
-    StrickersEditorComponent
+    StrickersEditorComponent,
+    EditPlayerStatsComponent
   ],
   imports: [
     // import Angular's modules
@@ -167,7 +169,7 @@ export function initializeApp(appConfig: AppConfig) {
       preloadingStrategy: PreloadAllModules
     }),
     ServiceWorkerModule.register('/ngsw-worker.js', {
-      enabled: environment.production
+      enabled: environment.name === 'production'
     })
   ],
   providers: [

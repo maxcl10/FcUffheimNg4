@@ -3,12 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Ranking } from './league-table.model';
+import { AppConfig } from '../../app.config';
 
 @Injectable()
 export class LeagueRankingsService {
-  private rankingUrl = 'https://fcuwebapi.azurewebsites.net/api/ranking';
+  private rankingUrl = AppConfig.settings.apiServer.url + '/ranking';
   private updateLafaRankingUrl =
-    'https://fcuwebapi.azurewebsites.net/UpdateRankingFromLafa';
+    AppConfig.settings.apiServer.url + '/UpdateRankingFromLafa';
 
   constructor(private http: HttpClient) {}
 

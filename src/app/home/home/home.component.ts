@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Article } from '../../articles/shared/article.model';
 import { ArticlesService } from '../../articles/shared/articles.service';
 import { Title } from '@angular/platform-browser';
+import { AppConfig } from '../../app.config';
 
 @Component({
   selector: 'home',
@@ -31,7 +32,9 @@ export class HomeComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.titleService.setTitle('F.C Uffheim - Site officiel');
+    this.titleService.setTitle(
+      AppConfig.settings.properties.siteName + ' - Site officiel'
+    );
     this.getArticles();
   }
 }

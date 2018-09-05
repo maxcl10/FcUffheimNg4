@@ -4,10 +4,17 @@ import { Injectable } from '@angular/core';
 
 import { RankingHistory } from './rankingHistory.model';
 import { Stricker } from './stricker.model';
+import { AppConfig } from '../../app.config';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+};
 
 @Injectable()
 export class StatsService {
-  private statsUrl = 'https://fcuwebapi.azurewebsites.net/api/ns/stats';
+  private statsUrl = AppConfig.settings.apiServer.url + 'ns/stats';
 
   constructor(private http: HttpClient) {}
 
@@ -15,8 +22,16 @@ export class StatsService {
     return this.http.get<string[]>(this.statsUrl + '/getShape');
   }
 
+  public getStricker(id: string): Observable<Stricker> {
+    return this.http.get<Stricker>(this.statsUrl + '/getStricker/' + id);
+  }
+
   public getStrickers(): Observable<Stricker[]> {
     return this.http.get<Stricker[]>(this.statsUrl + '/getStrickers');
+  }
+
+  public getTeamStrickers(): Observable<Stricker[]> {
+    return this.http.get<Stricker[]>(this.statsUrl + '/getTeamStrickers');
   }
 
   public getRankingHistory(): Observable<RankingHistory[]> {
@@ -24,12 +39,11 @@ export class StatsService {
       this.statsUrl + '/getRankingHistory'
     );
   }
-
-  private handleError(error: any) {
-    // In a real world app, we might use a remote logging infrastructure
-    // We'd also dig deeper into the error to get a better message
-    const errMsg = error.message || error.statusText || 'Server error';
-    console.error(errMsg); // log to console instead
-    return observableThrowError(errMsg);
+  public saveStricker(stricker: Stricker): Observable<Stricker> {
+    return this.http.post<Stricker>(
+      this.statsUrl + '/SetStricker/',
+      stricker,
+      httpOptions
+    );
   }
 }

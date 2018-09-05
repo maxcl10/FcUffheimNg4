@@ -6,24 +6,38 @@ import { Game } from '../shared/game.model';
 import { LogoService } from '../../shared/services/logo.service';
 import { Title } from '@angular/platform-browser';
 import { SeoService } from '../../shared/services/seo.service';
+import { TeamsService } from '../../teams/shared/teams.service';
+import { AppConfig } from '../../app.config';
 
 @Component({
   selector: 'games-list',
   templateUrl: './games-list.component.html',
-  providers: [GamesService, LogoService]
+  providers: [GamesService, LogoService, TeamsService]
 })
 export class GamesComponent implements OnInit {
   public games: Game[];
   public errorMessage: string;
+  public homeTeam: string;
+
   constructor(
     private gamesService: GamesService,
+    private teamsService: TeamsService,
     private logoService: LogoService,
     private seoService: SeoService
   ) {}
 
   public ngOnInit() {
-    this.seoService.setTitle('F.C Uffheim - Calendrier');
+    this.seoService.setTitle(
+      AppConfig.settings.properties.siteName + ' - Calendrier'
+    );
     this.getGames();
+
+    this.teamsService.getHomeTeams().subscribe(
+      homeTeams => {
+        this.homeTeam = homeTeams[0].name;
+      },
+      error => (this.errorMessage = <any>error)
+    );
   }
 
   public getGames() {

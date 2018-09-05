@@ -8,7 +8,11 @@ import { AdminComponent } from './admin/admin/admin.component';
 import { LeagueTablePageComponent } from './league-table/league-table-page/league-table-page.component';
 
 // Articles components
-import { NewArticleComponent, EditArticleComponent, ArticleComponent } from './articles/index';
+import {
+  NewArticleComponent,
+  EditArticleComponent,
+  ArticleComponent
+} from './articles/index';
 
 import { LoginComponent } from './admin/login/login.component';
 
@@ -24,16 +28,16 @@ import { GamesComponent } from './games/games-list/games-list.component';
 import { NewGameComponent } from './games/new-game/new-game.component';
 import { EditGameComponent } from './games/edit-game/edit-game.component';
 import { StatsComponent } from './stats/stats/stats.component';
+import { EditPlayerStatsComponent } from './strickers/edit-player-stats/edit-player-stats.component';
 
-export const ROUTES: Routes =
-  [{
+export const ROUTES: Routes = [
+  {
     path: '',
-    component: HomeComponent,
+    component: HomeComponent
   },
   {
     path: 'home',
-    component: HomeComponent,
-
+    component: HomeComponent
   },
   {
     path: 'team/:id',
@@ -70,7 +74,8 @@ export const ROUTES: Routes =
   {
     path: 'player/:id',
     component: PlayerComponent
-  }, {
+  },
+  {
     path: 'editPlayer/:id',
     component: EditPlayerComponent
   },
@@ -105,5 +110,9 @@ export const ROUTES: Routes =
   {
     path: 'stats',
     component: StatsComponent
+  },
+  {
+    path: 'admin/edit-player-stats/:id',
+    component: EditPlayerStatsComponent
   }
-  ];
+];

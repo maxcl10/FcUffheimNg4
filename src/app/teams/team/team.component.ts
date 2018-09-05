@@ -6,6 +6,7 @@ import { TeamsService } from '../../teams/shared/teams.service';
 import { Player } from '../../players/shared/player.model';
 
 import { Title } from '@angular/platform-browser';
+import { AppConfig } from '../../app.config';
 
 @Component({
   selector: 'team',
@@ -31,7 +32,9 @@ export class TeamComponent implements OnInit {
   ) {}
 
   public ngOnInit() {
-    this.titleService.setTitle('F.C Uffheim - Equipe');
+    this.titleService.setTitle(
+      AppConfig.settings.properties.siteName + ' - Equipe'
+    );
 
     this.sub = this.route.params.subscribe(params => {
       // Clear because can be redirected from the same page

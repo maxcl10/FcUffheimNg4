@@ -6,6 +6,7 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Sponsor } from './sponsor.model';
+import { AppConfig } from '../../app.config';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,7 +16,7 @@ const httpOptions = {
 
 @Injectable()
 export class SponsorsService {
-  private sponsorsUrl = 'https://fcuwebapi.azurewebsites.net/api/sponsors';
+  private sponsorsUrl = AppConfig.settings.apiServer.url + '/sponsors';
 
   constructor(private http: HttpClient) {}
 

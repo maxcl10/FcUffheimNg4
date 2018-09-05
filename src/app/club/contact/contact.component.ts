@@ -2,6 +2,7 @@ import { Component, Output, OnInit, Input } from '@angular/core';
 import { Title, DomSanitizer } from '@angular/platform-browser';
 import { ClubService } from '../shared/club.service';
 import { Club } from '../shared/club.model';
+import { AppConfig } from '../../app.config';
 
 @Component({
   selector: 'app-contact',
@@ -20,7 +21,9 @@ export class ContactComponent implements OnInit {
   ) {}
 
   public ngOnInit() {
-    this.titleService.setTitle('F.C Uffheim - Contact');
+    this.titleService.setTitle(
+      AppConfig.settings.properties.siteName + ' - Contact'
+    );
 
     this.service.getClub().subscribe(club => {
       this.club = club;

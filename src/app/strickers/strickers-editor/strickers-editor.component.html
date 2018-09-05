@@ -1,3 +1,20 @@
-<p>
-  En construction
-</p>
+ Buteur
+<table class="table">
+  <tr *ngFor="let stricker of strickers">
+    <td>
+      <a href="" [routerLink]="['edit-player-stats', stricker.playerId]">{{stricker.playerName}}</a>
+    </td>
+    <td>
+      {{stricker.championshipGoals}}
+    </td>
+    <td>
+      {{stricker.nationalCupGoals}}
+    </td>
+    <td>
+      {{stricker.regionalCupGoals}}
+    </td>
+    <td>
+      {{stricker.otherCupGoals}}
+    </td>
+  </tr>
+</table>

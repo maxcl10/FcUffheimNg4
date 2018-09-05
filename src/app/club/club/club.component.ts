@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ClubService } from '../shared/club.service';
 import { Club } from '../shared/club.model';
+import { AppConfig } from '../../app.config';
 
 @Component({
   selector: 'app-club',
@@ -13,7 +14,9 @@ export class ClubComponent implements OnInit {
   public clubHistory: string;
 
   public ngOnInit() {
-    this.titleService.setTitle('F.C Uffheim - Club');
+    this.titleService.setTitle(
+      AppConfig.settings.properties.siteName + ' - Club'
+    );
 
     this.service.getClub().subscribe(club => {
       this.clubHistory = club.history;

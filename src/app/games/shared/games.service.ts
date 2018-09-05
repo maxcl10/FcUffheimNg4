@@ -7,6 +7,7 @@ import {
 import { Injectable } from '@angular/core';
 
 import { Game } from './game.model';
+import { AppConfig } from '../../app.config';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,9 +17,9 @@ const httpOptions = {
 
 @Injectable()
 export class GamesService {
-  private gameUrl = 'https://fcuwebapi.azurewebsites.net/api/games';
-  private nextGameUrl = 'https://fcuwebapi.azurewebsites.net/api/nextgame';
-  private lastGameUrl = 'https://fcuwebapi.azurewebsites.net/api/previousgame';
+  private gameUrl = AppConfig.settings.apiServer.url + '/games';
+  private nextGameUrl = AppConfig.settings.apiServer.url + '/nextgame';
+  private lastGameUrl = AppConfig.settings.apiServer.url + '/previousgame';
 
   constructor(private http: HttpClient) {}
 
