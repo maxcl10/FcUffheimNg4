@@ -5,6 +5,8 @@ import { Player } from '../shared/player.model';
 import { PlayersService } from '../shared/players.service';
 import { FrDatePipeComponent } from '../../shared/pipes/fr-date-pipe';
 import { AuthenticationService } from '../../shared/services/authentication.service';
+import { SeoService } from '../../shared/services/seo.service';
+import { AppConfig } from '../../app.config';
 
 @Component({
   selector: 'player',
@@ -25,7 +27,8 @@ export class PlayerComponent implements OnInit {
     private playerService: PlayersService,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private seoService: SeoService
   ) {
     this.player = new Player();
   }
@@ -42,6 +45,14 @@ export class PlayerComponent implements OnInit {
     this.playerService.getplayer(id).subscribe(
       player => {
         this.player = player;
+
+        this.seoService.setTitle(
+          AppConfig.settings.properties.siteName +
+            ' - ' +
+            this.player.lastName +
+            ' ' +
+            this.player.firstName
+        );
       },
       error => (this.errorMessage = <any>error)
     );

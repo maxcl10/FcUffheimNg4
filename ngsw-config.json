@@ -20,25 +20,7 @@
   "dataGroups": [
     {
       "name": "api-freshness",
-      "urls": [
-        "https://fcuwebapi.azurewebsites.net/api/nextgame",
-        "https://fcuwebapi.azurewebsites.net/api/previousgame",
-        "https://fcuwebapi.azurewebsites.net/api/ns/stats/getShape",
-        "https://fcuwebapi.azurewebsites.net/api/ranking",
-        "https://fcuwebapi.azurewebsites.net/api/games",
-        "https://fcuwebapi.azurewebsites.net/api/ns/stats/getStrickers",
-        "https://fcuwebapi.azurewebsites.net/api//owner",
-        "https://fcuwebapi.azurewebsites.net/api//sponsors",
-
-        "https://fcbwebapi.azurewebsites.net/api/nextgame",
-        "https://fcbwebapi.azurewebsites.net/api/previousgame",
-        "https://fcbwebapi.azurewebsites.net/api/ns/stats/getShape",
-        "https://fcbwebapi.azurewebsites.net/api/ranking",
-        "https://fcbwebapi.azurewebsites.net/api/games",
-        "https://fcbwebapi.azurewebsites.net/api/ns/stats/getStrickers",
-        "https://fcbwebapi.azurewebsites.net/api//owner",
-        "https://fcbwebapi.azurewebsites.net/api//sponsors"
-      ],
+      "urls": ["/api/**"],
       "cacheConfig": {
         "strategy": "freshness",
         "maxSize": 100,

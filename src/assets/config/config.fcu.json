@@ -3,7 +3,7 @@
     "name": "FCU"
   },
   "apiServer": {
-    "url": "https://fcuwebapi.azurewebsites.net/api/"
+    "url": "https://fcuwebapi.azurewebsites.net/api"
   },
   "properties": {
     "siteName": "F.C Uffheim",

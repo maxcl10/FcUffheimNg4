@@ -13,6 +13,7 @@ export class ContactComponent implements OnInit {
   public club: Club;
 
   public googleMapUrl;
+  public url;
 
   constructor(
     private titleService: Title,
@@ -27,13 +28,17 @@ export class ContactComponent implements OnInit {
 
     this.service.getClub().subscribe(club => {
       this.club = club;
-
-      const url =
+      if (this.club.googleMap == null) {
+        this.club.googleMap = 'Foot ' + this.club.city;
+      }
+      this.url =
         'https://www.google.com/maps/embed/v1/place?q=' +
         this.club.googleMap +
         '&key=AIzaSyAOPGDDgrY2StsOVlBeslyXXK_yDL4af0A';
 
-      this.googleMapUrl = this.sanitizer.bypassSecurityTrustUrl(url);
+      this.googleMapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+        this.url
+      );
     });
   }
 }

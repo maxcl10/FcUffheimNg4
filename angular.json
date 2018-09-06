@@ -81,6 +81,10 @@
                 {
                   "replace": "src/manifest.json",
                   "with": "src/manifest.fcb.json"
+                },
+                {
+                  "replace": "src/sitemap.xml",
+                  "with": "src/sitemap.fcb.xml"
                 }
               ],
               "serviceWorker": true

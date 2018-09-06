@@ -68,6 +68,19 @@ export class FrDatePipeComponent implements PipeTransform {
         this.getFrMonth(myDate.getMonth())
       );
     }
+    if (args === 'shortDateTime') {
+      return (
+        this.getShortFrDay(myDate.getDay()) +
+        ' ' +
+        this.padStr(myDate.getDate()) +
+        ' ' +
+        this.getShortFrMonth(myDate.getMonth()) +
+        ' ' +
+        this.padStr(myDate.getHours()) +
+        this.timeSeparator +
+        this.padStr(myDate.getMinutes().toString())
+      );
+    }
     if (args === 'longDateTime') {
       return (
         this.getFrDay(myDate.getDay()) +

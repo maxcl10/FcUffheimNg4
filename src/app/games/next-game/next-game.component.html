@@ -3,13 +3,22 @@
     <label class="pull-right">
       {{game.Championship}}
     </label>
+    <div class="hidden-xs">
+      <label *ngIf="isToday == false">
+        {{game.MatchDate | frDate:"longDateTime"}}
+      </label>
+      <label *ngIf="isToday == true">
+        Aujourd'hui à {{game.MatchDate | frDate:"time"}}
+      </label>
+    </div>
+  </div>
+  <div class="visible-xs">
     <label *ngIf="isToday == false">
-      {{game.MatchDate | frDate:"longDateTime"}}
+      {{game.MatchDate | frDate:"shortDateTime"}}
     </label>
     <label *ngIf="isToday == true">
       Aujourd'hui à {{game.MatchDate | frDate:"time"}}
     </label>
-
   </div>
   <div>
     <span>

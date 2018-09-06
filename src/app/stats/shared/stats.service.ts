@@ -14,7 +14,7 @@ const httpOptions = {
 
 @Injectable()
 export class StatsService {
-  private statsUrl = AppConfig.settings.apiServer.url + 'ns/stats';
+  private statsUrl = AppConfig.settings.apiServer.url + '/ns/stats';
 
   constructor(private http: HttpClient) {}
 
