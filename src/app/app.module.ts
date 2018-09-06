@@ -171,7 +171,7 @@ export function initializeApp(appConfig: AppConfig) {
       preloadingStrategy: PreloadAllModules
     }),
     ServiceWorkerModule.register('/ngsw-worker.js', {
-      enabled: environment.name === 'production'
+      enabled: environment.name === 'production' || environment.name === 'fcb'
     })
   ],
   providers: [
