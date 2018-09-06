@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Article, ArticlesService } from '../shared/index';
 import { AuthenticationService } from '../../shared/services/authentication.service';
 import { Title } from '@angular/platform-browser';
+import { AppConfig } from '../../app.config';
 
 @Component({
   selector: 'my-article',
@@ -15,6 +16,7 @@ export class ArticleComponent implements OnInit {
   public errorMessage: string;
   public isAuthenticated: boolean;
   private sub: any;
+  public appUrl: string;
 
   constructor(
     private articleService: ArticlesService,
@@ -24,6 +26,7 @@ export class ArticleComponent implements OnInit {
     private titleService: Title
   ) {
     this.article = new Article();
+    this.appUrl = AppConfig.settings.properties.siteUrl;
   }
 
   public ngOnInit() {

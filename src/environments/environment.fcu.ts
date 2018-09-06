@@ -1,3 +1,4 @@
 export const environment = {
-  name: 'fcu'
+  name: 'fcu',
+  production: true
 };

@@ -1,6 +1,6 @@
 <div id="player" class="panel panel-default ">
   <div class="panel-heading">
-    {{player.firstName}} <label class="text-uppercase bold">{{player.lastName}}</label>
+    <a href="" [routerLink]="['/player',player.id]">{{player.firstName}} <label class="text-uppercase bold">{{player.lastName}}</label></a>
   </div>
   <div class="panel-body">
     <div class="row">

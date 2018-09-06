@@ -4,16 +4,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Player } from '../shared/player.model';
 import { PlayersService } from '../shared/players.service';
 import { FrDatePipeComponent } from '../../shared/pipes/fr-date-pipe';
+import { AuthenticationService } from '../../shared/services/authentication.service';
 
 @Component({
   selector: 'player',
   templateUrl: './player.component.html',
-  providers: [PlayersService]
+  providers: [PlayersService, AuthenticationService]
 })
 export class PlayerComponent implements OnInit {
   public player: Player;
   public errorMessage: string;
   private sub: any;
+  public isAuthenticated: boolean;
 
   public get playerAge(): number {
     return this.getAge(this.player.dateOfBirth);
@@ -22,7 +24,8 @@ export class PlayerComponent implements OnInit {
   constructor(
     private playerService: PlayersService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private authenticationService: AuthenticationService
   ) {
     this.player = new Player();
   }
@@ -32,6 +35,7 @@ export class PlayerComponent implements OnInit {
       const id = params['id'];
       this.getPlayer(id);
     });
+    this.isAuthenticated = this.authenticationService.checkCredentials();
   }
 
   public getPlayer(id: string) {

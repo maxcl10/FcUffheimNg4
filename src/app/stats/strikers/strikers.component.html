@@ -9,7 +9,7 @@
   </tr>
   <tr *ngFor="let stricker of strickers">
     <td>
-      {{stricker.playerName}}
+      <a href="" [routerLink]="['/player',stricker.playerId]">{{stricker.playerName}}</a>
     </td>
     <td>
       <b>{{stricker.totalGoals }}</b>

@@ -10,5 +10,6 @@ export interface IAppConfig {
   properties: {
     siteName: string;
     mainColor: string;
+    siteUrl: string;
   };
 }
