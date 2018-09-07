@@ -59,15 +59,39 @@ export class TeamComponent implements OnInit {
               this.defenderPlayers.push(element);
             } else if (element.position === 'Attaquant') {
               this.attackerPlayers.push(element);
-            } else if (element.position === 'Entraineur') {
+            } else if (
+              element.position === 'Entraineur' ||
+              element.position === 'Entraineur Adjoint' ||
+              element.position === 'Entraineur Gardien' ||
+              element.position === 'Dirigeant'
+            ) {
               this.coaches.push(element);
             }
           });
+          this.coaches.sort(this.compare);
         },
         error => (this.errorMessage = <any>error)
       );
     });
     // this.getPlayers();
+  }
+
+  public compare(a: Player, b: Player) {
+    if (a.position === 'Entraineur') {
+      return 1;
+    }
+
+    if (a.position === 'Entraineur Adjoint') {
+      return 1;
+    }
+    if (a.position === 'Entraineur Gardien') {
+      return 1;
+    }
+    if (a.position === 'Dirigeant') {
+      return 1;
+    }
+
+    return 0;
   }
 
   public getPlayers() {

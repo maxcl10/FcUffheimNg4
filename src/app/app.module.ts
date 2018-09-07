@@ -99,6 +99,7 @@ import { StatsService } from './stats/shared/stats.service';
 import { StrickersEditorComponent } from './strickers/strickers-editor/strickers-editor.component';
 import { EditPlayerStatsComponent } from './strickers/edit-player-stats/edit-player-stats.component';
 import { NewSponsorComponent } from './sponsors/new-sponsor/new-sponsor.component';
+import { SearchPipe } from './shared/pipes/search.pipe';
 
 // Application wide providers
 const APP_PROVIDERS = [...APP_RESOLVER_PROVIDERS, AppState];
@@ -146,6 +147,7 @@ export function initializeApp(appConfig: AppConfig) {
     TodayGameComponent,
     PlayerDetailsComponent,
     FrDatePipeComponent,
+    SearchPipe,
     NewTeamComponent,
     LeagueTableComponent,
     PlayerDetailsSmallComponent,

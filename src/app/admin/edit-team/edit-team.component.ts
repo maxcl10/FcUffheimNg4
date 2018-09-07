@@ -27,6 +27,7 @@ export class EditTeamComponent implements OnInit {
   public localTeams: Team[];
   public errorMessage: string;
   public selectedTeam: string;
+  public query: string;
 
   constructor(private teamService: TeamsService) {}
 
@@ -43,7 +44,7 @@ export class EditTeamComponent implements OnInit {
   public ngOnInit() {
     this.teamService.getHomeTeams().subscribe(teams => {
       this.localTeams = teams;
-      this.selectedTeam = 'b8bc86da-9eea-4820-a5d5-c9f57b3b7d80';
+      this.selectedTeam = teams[0].id;
     });
   }
 
