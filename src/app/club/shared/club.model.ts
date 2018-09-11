@@ -14,4 +14,5 @@ export interface Club {
   googleMap: string;
   logoUrl: string;
   facebookLikeUrl: string;
+  nickname: string;
 }

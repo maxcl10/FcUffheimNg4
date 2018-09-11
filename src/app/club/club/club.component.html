@@ -1,2 +1,6 @@
 <h2>Club</h2>
-<span [innerHTML]="clubHistory"></span>
+<div class="panel panel-default" *ngIf="clubHistory">
+  <div class="panel-body">
+    <span [innerHTML]="clubHistory"></span>
+  </div>
+</div>

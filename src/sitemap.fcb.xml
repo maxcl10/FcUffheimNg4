@@ -7,43 +7,43 @@
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
 <url>
-  <loc>https://fcbartenheim.azurewebsites.net/</loc>
+  <loc>https://fcbartenheim.com/</loc>
   <lastmod>2018-09-06T00:00:16+00:00</lastmod>
   <changefreq>daily</changefreq>
 </url>
 
 <url>
-  <loc>https://fcbartenheim.azurewebsites.net//Team</loc>
+  <loc>https://fcbartenheim.com/Team</loc>
   <lastmod>2018-09-06T00:00:16+00:00</lastmod>
   <changefreq>monthly</changefreq>
 </url>
 
 <url>
-  <loc>https://fcbartenheim.azurewebsites.net//league-table</loc>
-  <lastmod>2018-09-06T00:00:16+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-</url>
-
-<url>
-  <loc>https://fcbartenheim.azurewebsites.net//games</loc>
+  <loc>https://fcbartenheim.com/league-table</loc>
   <lastmod>2018-09-06T00:00:16+00:00</lastmod>
   <changefreq>weekly</changefreq>
 </url>
 
 <url>
-  <loc>https://fcbartenheim.azurewebsites.net//club</loc>
+  <loc>https://fcbartenheim.com/games</loc>
+  <lastmod>2018-09-06T00:00:16+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+
+<url>
+  <loc>https://fcbartenheim.com/club</loc>
  <lastmod>2018-09-06T00:00:16+00:00</lastmod>
   <changefreq>monthly</changefreq>
 </url>
 
 <url>
-  <loc>https://fcbartenheim.azurewebsites.net//sponsors</loc>
+  <loc>https://fcbartenheim.com/sponsors</loc>
  <lastmod>2018-09-06T00:00:16+00:00</lastmod>
   <changefreq>monthly</changefreq>
 </url>
 
 <url>
-  <loc>https://fcbartenheim.azurewebsites.net//contact</loc>
+  <loc>https://fcbartenheim.com/contact</loc>
   <lastmod>2018-09-06T00:00:16+00:00</lastmod>
   <changefreq>monthly</changefreq>
 </url>

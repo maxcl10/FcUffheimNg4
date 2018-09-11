@@ -62,7 +62,7 @@ export class TeamComponent implements OnInit {
             } else if (
               element.position === 'Entraineur' ||
               element.position === 'Entraineur Adjoint' ||
-              element.position === 'Entraineur Gardien' ||
+              element.position === 'Entraineur Gardiens' ||
               element.position === 'Dirigeant'
             ) {
               this.coaches.push(element);
@@ -84,7 +84,7 @@ export class TeamComponent implements OnInit {
     if (a.position === 'Entraineur Adjoint') {
       return 1;
     }
-    if (a.position === 'Entraineur Gardien') {
+    if (a.position === 'Entraineur Gardiens') {
       return 1;
     }
     if (a.position === 'Dirigeant') {
