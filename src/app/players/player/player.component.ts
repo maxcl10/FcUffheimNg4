@@ -9,7 +9,7 @@ import { SeoService } from '../../shared/services/seo.service';
 import { AppConfig } from '../../app.config';
 
 @Component({
-  selector: 'player',
+  selector: 'fws-player',
   templateUrl: './player.component.html',
   providers: [PlayersService, AuthenticationService]
 })

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StatsService } from '../../stats/shared/stats.service';
 
 @Component({
-  selector: 'app-last-five-games',
+  selector: 'fws-last-five-games',
   templateUrl: './last-five-games.component.html',
   providers: [StatsService]
 })

@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Article, ArticlesService } from '../shared/index';
 
 @Component({
-  selector: 'edit-article',
+  selector: 'fws-edit-article',
   templateUrl: './edit-article.component.html',
   providers: [ArticlesService]
 })

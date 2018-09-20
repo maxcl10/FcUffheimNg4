@@ -4,7 +4,7 @@ import { StatsService } from '../../stats/shared/stats.service';
 import { RankingHistory } from '../shared/rankingHistory.model';
 
 @Component({
-  selector: 'ranking-history-chart',
+  selector: 'fws-ranking-history-chart',
   templateUrl: './ranking-history-chart.component.html',
   providers: [StatsService]
 })

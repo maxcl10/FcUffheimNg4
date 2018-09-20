@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { User } from '../../shared/services/user.model';
 
 @Component({
-  selector: 'login-form',
+  selector: 'fws-login-form',
   providers: [AuthenticationService],
   templateUrl: './login.component.html'
 })

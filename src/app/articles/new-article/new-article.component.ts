@@ -9,7 +9,7 @@ import { Article, ArticlesService } from '../shared/index';
 import { AuthenticationService } from '../../shared/services/authentication.service';
 
 @Component({
-  selector: 'new-article',
+  selector: 'fws-new-article',
   templateUrl: './new-article.component.html',
   providers: [ArticlesService, AuthenticationService]
 })

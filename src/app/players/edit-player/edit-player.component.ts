@@ -6,7 +6,7 @@ import { Player } from '../shared/player.model';
 import { PlayersService } from '../shared/players.service';
 
 @Component({
-  selector: 'edit-player',
+  selector: 'fws-edit-player',
   templateUrl: './edit-player.component.html',
   providers: [PlayersService]
 })

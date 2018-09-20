@@ -4,7 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { AppConfig } from '../../app.config';
 
 @Component({
-  selector: 'league-table-page',
+  selector: 'fws-league-table-page',
   templateUrl: './league-table-page.component.html'
 })
 export class LeagueTablePageComponent implements OnInit {

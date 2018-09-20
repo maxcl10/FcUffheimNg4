@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LeagueRankingsService } from '../../league-table/shared/league-table.service';
 
 @Component({
-  selector: 'upload-ranking',
+  selector: 'fws-upload-ranking',
   templateUrl: './upload-ranking.component.html',
   providers: [LeagueRankingsService]
 })

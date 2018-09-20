@@ -7,7 +7,7 @@ import { Team } from '../../teams/shared/team.model';
 // import { DragulaService } from 'ng2-dragula/ng2-dragula';
 
 @Component({
-  selector: 'edit-team',
+  selector: 'fws-edit-team',
   templateUrl: './edit-team.component.html',
   providers: [TeamsService]
 })

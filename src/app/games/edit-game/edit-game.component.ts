@@ -6,7 +6,7 @@ import { Team } from '../../teams/shared/team.model';
 import { TeamsService } from '../../teams/shared/teams.service';
 
 @Component({
-  selector: 'edit-game',
+  selector: 'fws-edit-game',
   templateUrl: './edit-game.component.html',
   providers: [GamesService, TeamsService]
 })

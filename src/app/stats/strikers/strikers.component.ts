@@ -3,7 +3,7 @@ import { Stricker } from '../shared/stricker.model';
 import { StatsService } from '../shared/stats.service';
 
 @Component({
-  selector: 'app-strikers',
+  selector: 'fws-strikers',
   templateUrl: './strikers.component.html'
 })
 export class StrikersComponent implements OnInit {

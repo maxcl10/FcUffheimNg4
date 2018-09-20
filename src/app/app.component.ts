@@ -20,7 +20,7 @@ declare let ga: any;
  * Top Level Component
  */
 @Component({
-  selector: 'app',
+  selector: 'fws-root',
   encapsulation: ViewEncapsulation.None,
   templateUrl: './app.component.html',
   providers: [TeamsService, AppConfig, ClubService]

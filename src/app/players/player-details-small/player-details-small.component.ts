@@ -5,7 +5,7 @@ import { Player } from '../shared/player.model';
 import { FrDatePipeComponent } from '../../shared/pipes/fr-date-pipe';
 
 @Component({
-  selector: 'player-details-small',
+  selector: 'fws-player-details-small',
   templateUrl: './player-details-small.component.html'
 })
 export class PlayerDetailsSmallComponent {

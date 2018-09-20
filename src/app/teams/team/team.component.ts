@@ -9,7 +9,7 @@ import { Title } from '@angular/platform-browser';
 import { AppConfig } from '../../app.config';
 
 @Component({
-  selector: 'team',
+  selector: 'fws-team',
   templateUrl: './team.component.html',
   providers: [PlayersService, TeamsService]
 })

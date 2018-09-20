@@ -4,7 +4,7 @@ import { StatsService } from '../../stats/shared/stats.service';
 import { AppConfig } from '../../app.config';
 
 @Component({
-  selector: 'games-pie-chart',
+  selector: 'fws-games-pie-chart',
   templateUrl: './games-pie-chart.component.html',
   providers: [StatsService]
 })

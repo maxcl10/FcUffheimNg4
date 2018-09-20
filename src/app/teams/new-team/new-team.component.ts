@@ -4,7 +4,7 @@ import { Team } from '../shared/team.model';
 import { TeamsService } from '../shared/teams.service';
 
 @Component({
-  selector: 'new-team',
+  selector: 'fws-new-team',
   templateUrl: './new-team.component.html',
   providers: [TeamsService]
 })

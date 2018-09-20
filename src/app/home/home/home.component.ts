@@ -7,7 +7,7 @@ import { Title } from '@angular/platform-browser';
 import { AppConfig } from '../../app.config';
 
 @Component({
-  selector: 'home',
+  selector: 'fws-home',
   templateUrl: './home.component.html',
   providers: [ArticlesService]
 })

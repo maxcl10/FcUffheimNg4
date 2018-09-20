@@ -5,7 +5,7 @@ import { Club } from '../shared/club.model';
 import { AppConfig } from '../../app.config';
 
 @Component({
-  selector: 'app-club',
+  selector: 'fws-club',
   templateUrl: './club.component.html'
 })
 export class ClubComponent implements OnInit {

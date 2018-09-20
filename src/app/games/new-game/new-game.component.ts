@@ -8,7 +8,7 @@ import { TeamsService } from '../../teams/shared/teams.service';
 import { NewTeamComponent } from '../../teams/new-team/new-team.component';
 
 @Component({
-  selector: 'new-article',
+  selector: 'fws-new-article',
   templateUrl: './new-game.component.html',
   providers: [GamesService, TeamsService]
 })

@@ -12,7 +12,7 @@ import { Game } from '../../games/shared/game.model';
 import { AuthenticationService } from '../../shared/services/authentication.service';
 
 @Component({
-  selector: 'admin',
+  selector: 'fws-admin',
   templateUrl: './admin.component.html',
   providers: [
     ArticlesService,

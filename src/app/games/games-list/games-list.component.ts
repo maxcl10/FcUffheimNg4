@@ -10,7 +10,7 @@ import { TeamsService } from '../../teams/shared/teams.service';
 import { AppConfig } from '../../app.config';
 
 @Component({
-  selector: 'games-list',
+  selector: 'fws-games-list',
   templateUrl: './games-list.component.html',
   providers: [GamesService, LogoService, TeamsService]
 })

@@ -5,7 +5,7 @@ import { Sponsor } from '../shared/sponsor.model';
 import { AppConfig } from '../../app.config';
 
 @Component({
-  selector: 'app-player',
+  selector: 'fws-player',
   templateUrl: './sponsor.component.html'
 })
 export class SponsorComponent implements OnInit {

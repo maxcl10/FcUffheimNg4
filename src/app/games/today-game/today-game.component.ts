@@ -4,7 +4,7 @@ import { LogoService } from '../../shared/services/logo.service';
 import { Game } from '../shared/game.model';
 
 @Component({
-  selector: 'today-game',
+  selector: 'fws-today-game',
   templateUrl: './today-game.component.html',
   providers: [GamesService, LogoService]
 })

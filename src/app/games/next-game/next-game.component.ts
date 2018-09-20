@@ -5,7 +5,7 @@ import { Game } from '../shared/game.model';
 import { LogoService } from '../../shared/services/logo.service';
 
 @Component({
-  selector: 'next-game',
+  selector: 'fws-next-game',
   templateUrl: './next-game.component.html',
   providers: [GamesService, LogoService]
 })

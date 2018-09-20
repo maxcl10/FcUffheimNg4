@@ -5,7 +5,7 @@ import { LeagueRankingsService } from '../shared/league-table.service';
 import { TeamsService } from '../../teams/shared/teams.service';
 
 @Component({
-  selector: 'league-table-small',
+  selector: 'fws-league-table-small',
   templateUrl: './league-table-small.component.html',
   providers: [LeagueRankingsService, TeamsService]
 })

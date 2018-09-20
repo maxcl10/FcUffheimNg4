@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { AppConfig } from '../../app.config';
 
 @Component({
-  selector: 'app-stats',
+  selector: 'fws-stats',
   templateUrl: './stats.component.html'
 })
 export class StatsComponent implements OnInit {

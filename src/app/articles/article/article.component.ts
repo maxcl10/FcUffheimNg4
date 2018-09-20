@@ -7,7 +7,7 @@ import { Title } from '@angular/platform-browser';
 import { AppConfig } from '../../app.config';
 
 @Component({
-  selector: 'my-article',
+  selector: 'fws-article',
   templateUrl: './article.component.html',
   providers: [AuthenticationService]
 })

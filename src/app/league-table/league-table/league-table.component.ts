@@ -6,7 +6,7 @@ import { LogoService } from '../../shared/services/logo.service';
 import { TeamsService } from '../../teams/shared/teams.service';
 
 @Component({
-  selector: 'league-table',
+  selector: 'fws-league-table',
   templateUrl: './league-table.component.html',
   providers: [LeagueRankingsService, LogoService, TeamsService]
 })

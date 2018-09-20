@@ -7,7 +7,7 @@ import { TeamsService } from '../../teams/shared/teams.service';
 import { PlayerDetailsSmallComponent } from '../player-details-small/player-details-small.component';
 
 @Component({
-  selector: 'players-carousel',
+  selector: 'fws-players-carousel',
   templateUrl: './players-carousel.component.html',
   providers: [TeamsService]
 })
