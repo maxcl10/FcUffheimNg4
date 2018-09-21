@@ -1,4 +1,5 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 // My
 import { HomeComponent } from './home/home/home.component';
@@ -12,7 +13,7 @@ import {
   NewArticleComponent,
   EditArticleComponent,
   ArticleComponent
-} from './articles/index';
+} from './articles';
 
 import { LoginComponent } from './admin/login/login.component';
 
@@ -30,7 +31,7 @@ import { EditGameComponent } from './games/edit-game/edit-game.component';
 import { StatsComponent } from './stats/stats/stats.component';
 import { EditPlayerStatsComponent } from './strickers/edit-player-stats/edit-player-stats.component';
 
-export const ROUTES: Routes = [
+const routes: Routes = [
   {
     path: '',
     component: HomeComponent
@@ -116,3 +117,9 @@ export const ROUTES: Routes = [
     component: EditPlayerStatsComponent
   }
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}

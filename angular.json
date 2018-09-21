@@ -26,8 +26,8 @@
               "src/robots.txt"
             ],
             "styles": [
-              "src/styles/bootstrap/css/fcb_styles.css",
-              "src/styles/fcb_site.css",
+              "src/styles/bootstrap/css/styles.css",
+              "src/styles/site.css",
               "node_modules/font-awesome/css/font-awesome.css",
               "node_modules/animate.css/animate.min.css"
             ],
@@ -85,6 +85,14 @@
                 {
                   "replace": "src/sitemap.xml",
                   "with": "src/sitemap.fcb.xml"
+                },
+                {
+                  "replace": "src/styles/bootstrap/css/styles.css",
+                  "with": "src/styles/bootstrap/css/fcb_styles.css"
+                },
+                {
+                  "replace": "src/styles/site.css",
+                  "with": "src/styles/fcb_site.css"
                 }
               ],
               "serviceWorker": true

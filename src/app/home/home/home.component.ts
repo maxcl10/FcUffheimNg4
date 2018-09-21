@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   public articles: Article[];
   public loaded = false;
   public errorMessage: string;
+  public imageUrl: string;
 
   constructor(
     private articlesService: ArticlesService,
@@ -35,6 +36,8 @@ export class HomeComponent implements OnInit {
     this.titleService.setTitle(
       AppConfig.settings.properties.siteName + ' - Site officiel'
     );
+    this.imageUrl = AppConfig.settings.properties.homeImageUrl;
+
     this.getArticles();
   }
 }

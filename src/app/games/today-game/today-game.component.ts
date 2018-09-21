@@ -12,6 +12,7 @@ export class TodayGameComponent implements OnInit {
   public game: Game;
   public errorMessage: string;
   public isToday = false;
+  public gameType: string;
 
   constructor(
     private gamesService: GamesService,
@@ -55,8 +56,18 @@ export class TodayGameComponent implements OnInit {
         }
 
         this.isToday = this.isGameToday();
+        this.gameType = this.GetGameType(game);
       },
       error => (this.errorMessage = <any>error)
     );
+  }
+
+  private GetGameType(game: Game): string {
+    // championnat contain JXX. Therefore I have to use the conatain
+    if (game.Championship.includes('Championnat')) {
+      return 'Championnat';
+    } else {
+      return game.Championship;
+    }
   }
 }

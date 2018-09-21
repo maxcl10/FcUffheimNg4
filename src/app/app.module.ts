@@ -1,30 +1,21 @@
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule, ApplicationRef } from '@angular/core';
+import { NgModule } from '@angular/core';
 
-import { RouterModule, PreloadAllModules } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SeoService } from './shared/services/seo.service';
 
-//  import { TinymceModule } from 'ng2-tinymce-alt';
 import { EditorModule } from '@tinymce/tinymce-angular';
 
 import { ChartsModule } from 'ng2-charts/ng2-charts';
-//  import { Ng2Summernote } from 'ng2-summernote/ng2-summernote';
-// import { TinymceComponent } from 'ng2-tinymce';
 
-/*
- * Platform and Environment providers/directives/pipes
- */
-// import { CKEditorModule } from 'ng2-ckeditor';
-
-import { ROUTES } from './app.routes';
+import { AppRoutingModule } from './app-routing.module';
 
 // App is our top level component
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
-import { AppState, InternalStateType } from './app.service';
+import { AppState } from './app.service';
 
 // Mine
 import { HomeComponent } from './home/home/home.component';
@@ -70,19 +61,12 @@ import { SponsorComponent } from './sponsors/sponsor/sponsor.component';
 import { AppConfig } from './app.config';
 import { APP_INITIALIZER } from '@angular/core';
 
-// import { SummernoteComponent } from './summernote.component';
-// import { UNITYTinyMCE } from './unity-tinymce';
-
-// import { ChartsModule } from 'ng2-charts/ng2-charts';
-// import {UPLOAD_DIRECTIVES} from 'ng2-file-uploader/ng2-file-uploader';
-//  import { UPLOAD_DIRECTIVES } from 'ng2-uploader/ng2-uploader';
-
 import { FrDatePipeComponent } from './shared/pipes/fr-date-pipe';
-// import { DragulaModule } from 'ng2-dragula/ng2-dragula';
 
 import { EditTeamComponent } from './admin/edit-team/edit-team.component';
 
 import './add-rxjs-operators';
+
 import { ArticlesService } from './articles/shared/articles.service';
 import { RankingHistoryComponent } from './stats/ranking-History-chart/ranking-history-chart.component';
 
@@ -107,12 +91,6 @@ const APP_PROVIDERS = [...APP_RESOLVER_PROVIDERS, AppState];
 export function initializeApp(appConfig: AppConfig) {
   return () => appConfig.load();
 }
-
-// type StoreType = {
-//   state: InternalStateType,
-//   restoreInputValues: () => void,
-//   disposeOldHosts: () => void
-// };
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
@@ -168,10 +146,7 @@ export function initializeApp(appConfig: AppConfig) {
     FormsModule,
     HttpClientModule,
     CommonModule,
-    RouterModule.forRoot(ROUTES, {
-      useHash: false,
-      preloadingStrategy: PreloadAllModules
-    }),
+    AppRoutingModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {
       enabled: environment.name === 'production' || environment.name === 'fcb'
     })

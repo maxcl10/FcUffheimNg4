@@ -1,7 +1,3 @@
-<h2>Accueil</h2>
-
-
-
 <div class="panel panel-body">
 
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -15,11 +11,8 @@
 
     <div class="carousel-inner ">
       <div class="item active">
-        <img class="img-thumbnail" src="../../../assets/img/Fcb_2018_2019.jpg" alt="First Slide">
+        <img class="img-thumbnail" src="{{imageUrl}}" alt="Team Slide">
       </div>
-      <!-- <div class="item">
-        <img class="img-thumbnail" src="../../../assets/img/Fcu2_2017_2018.jpg" alt="Second Slide">
-      </div> -->
     </div>
     <!-- Carousel controls -->
     <a class="carousel-control left" href="#myCarousel" data-slide="prev">
@@ -84,7 +77,8 @@
         </div>
         <h4><a href="" [routerLink]="['/article',article.id]">{{article.title}}</a></h4>
       </div>
-      <div class="panel-body">
+      <div class="
+          panel-body">
         <span [innerHTML]="article.body"></span>
         <!--{{article.body}}-->
 
