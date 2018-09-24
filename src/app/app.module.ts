@@ -2,6 +2,7 @@ import { BrowserModule, Title } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CommonModule } from '@angular/common';
 import { SeoService } from './shared/services/seo.service';
@@ -143,6 +144,7 @@ export function initializeApp(appConfig: AppConfig) {
     BrowserModule,
     ChartsModule,
     EditorModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     CommonModule,

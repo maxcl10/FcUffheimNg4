@@ -5,6 +5,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AppState } from './app.service';
 import { Router, Event, NavigationEnd } from '@angular/router';
+import { fadeAnimation } from './shared/animations/animation';
 
 import { TeamsService } from './teams/shared/teams.service';
 import { Team } from './teams/shared/team.model';
@@ -23,7 +24,8 @@ declare let ga: any;
   selector: 'fws-root',
   encapsulation: ViewEncapsulation.None,
   templateUrl: './app.component.html',
-  providers: [TeamsService, AppConfig, ClubService]
+  providers: [TeamsService, AppConfig, ClubService],
+  animations: [fadeAnimation]
 })
 export class AppComponent implements OnInit {
   public teams: Team[];
