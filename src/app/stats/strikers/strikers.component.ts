@@ -14,15 +14,17 @@ export class StrikersComponent implements OnInit {
   public totalRegionalCupGoals = 0;
   public totalOtherCupGoals = 0;
 
+  public loading: boolean;
   @Input()
   public count: number;
 
   constructor(private service: StatsService) {}
 
   ngOnInit() {
+    this.loading = true;
     this.service.getStrickers().subscribe(strickers => {
       this.strickers = strickers;
-
+      this.loading = false;
       this.strickers.forEach(element => {
         this.totalGoals += element.totalGoals;
         this.totalChampionshipGoals += element.championshipGoals;

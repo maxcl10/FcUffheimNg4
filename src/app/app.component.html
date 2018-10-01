@@ -64,10 +64,12 @@
 </nav>
 
 <!--Body-->
-<div class="container body-content" [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+<div class="container body-content">
   <div style="margin-left: -15px; margin-right: -5px">
     <div class="col-md-8 col-sm-9">
-      <router-outlet #o="outlet"></router-outlet>
+      <main class="container" [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+        <router-outlet #o="outlet"></router-outlet>
+      </main>
     </div>
     <div class="col-md-4 col-sm-3 hidden-xs ">
       <div class="panel panel-default">
@@ -84,7 +86,7 @@
           <h4><a href="" [routerLink]="['league-table']">Classement</a></h4>
         </div>
         <div class="panel-body">
-          <fws-league-table-small> </fws-league-table-small>
+          <fws-league-table-small></fws-league-table-small>
         </div>
       </div>
 
@@ -113,11 +115,6 @@
         </div>
         <div class="panel-body">
           <fws-games-pie-chart></fws-games-pie-chart>
-          <!-- <h4>5 Derniers matchs</h4>
-                    <app-last-five-games></app-last-five-games>
-                    <h4>Buteurs</h4>
-
-                    <app-strikers [count]="5"></app-strikers> -->
         </div>
       </div>
     </div>
@@ -125,7 +122,7 @@
 </div>
 
 <!--Footer-->
-<footer class="footer" style="margin-top: 20px">
+<!-- <footer class="footer" style="margin-top: 20px">
   <div class="container">
     <div style="margin-top: 10px">
       <a href="" [routerLink]="['admin']">Admin</a>
@@ -134,4 +131,4 @@
       </span>
     </div>
   </div>
-</footer>
+</footer> -->

@@ -47,12 +47,14 @@ img {
 
 .green-white {
   background: linear-gradient(to right, #32cd32 45%, #ffffff 55%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .blue-white {
   background: linear-gradient(to right, #000080 45%, #ffffff 55%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -126,9 +128,9 @@ article * table {
   vertical-align: middle !important;
 }
 
-.panel {
-  /*border: none !important;*/
-}
+/*.panel {
+  border: none !important;
+}*/
 
 .subHeader {
   display: block;
@@ -327,3 +329,9 @@ transition: opacity 1s 0 ease;
 
 
 }*/
+
+router-outlet ~ * {
+  position: absolute;
+  height: 100%;
+  width: 95%;
+}
