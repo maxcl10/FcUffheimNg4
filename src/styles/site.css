@@ -334,5 +334,5 @@ article img {
 router-outlet ~ * {
   position: absolute;
   height: 100%;
-  width: 98%;
+  width: 95%;
 }

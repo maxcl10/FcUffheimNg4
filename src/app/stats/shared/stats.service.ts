@@ -1,4 +1,4 @@
-import { throwError as observableThrowError, Observable } from 'rxjs';
+import { throwError as observableThrowError, Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -15,6 +15,7 @@ const httpOptions = {
 @Injectable()
 export class StatsService {
   private statsUrl = AppConfig.settings.apiServer.url + '/ns/stats';
+  private strickers: Observable<Stricker[]>;
 
   constructor(private http: HttpClient) {}
 
@@ -31,7 +32,13 @@ export class StatsService {
   }
 
   public getTeamStrickers(): Observable<Stricker[]> {
-    return this.http.get<Stricker[]>(this.statsUrl + '/getTeamStrickers');
+    if (this.strickers) {
+      return this.strickers;
+    }
+    this.strickers = this.http.get<Stricker[]>(
+      this.statsUrl + '/getTeamStrickers'
+    );
+    return this.strickers;
   }
 
   public getRankingHistory(): Observable<RankingHistory[]> {
