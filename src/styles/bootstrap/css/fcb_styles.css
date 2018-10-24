@@ -2434,7 +2434,7 @@ table th[class*="col-"] {
 }
 @media screen and (max-width: 767px) {
   .h1 {
-    font-size: 30px;    
+    font-size: 30px;
   }
   .table-responsive {
     width: 100%;
@@ -2902,7 +2902,7 @@ select[multiple].input-lg {
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
-  color: #7b56b1;
+  color: #828385;
 }
 @media (min-width: 768px) {
   .form-inline .form-group {

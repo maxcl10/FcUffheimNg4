@@ -1,55 +1,74 @@
 <h2>Matches</h2>
 
-<div class="panel panel-default">
-  <div class="panel-body">
-    <table class="table table-striped">
-
-      <tr *ngFor="let game of games; let i=index;">
-        <td class="hidden-xs">
-          {{game.MatchDate | frDate:'shortDate'}}
-        </td>
-        <td class="visible-xs">
-          {{game.MatchDate | frDate:'dd/MM'}}<br> {{game.MatchDate | frDate:'shortTime'}}
-        </td>
-        <td class="hidden-sm hidden-xs">
-          <span class="glyphicon glyphicon-time"></span> {{game.MatchDate | frDate:'time' }}
-        </td>
-        <td *ngIf="game.HomeTeam != homeTeam">
-          E
-        </td>
-        <td *ngIf="game.AwayTeam != homeTeam">
-          D
-        </td>
-        <td *ngIf="game.HomeTeam != homeTeam">
-          <img [src]="game.homeTeamLogoUrl"> {{game.HomeTeam}}
-        </td>
-        <td *ngIf="game.AwayTeam != homeTeam">
-          <img [src]="game.awayTeamLogoUrl"> {{game.AwayTeam}}
-
-        </td>
-
-        <td>
-          <strong>
-            <span *ngIf="game.HomeTeamScore != null && game.AwayTeamScore != null" class="badge" [ngClass]="{'badge-success':(game.HomeTeamScore>game.AwayTeamScore && game.HomeTeam == homeTeam) ||
-                        (game.HomeTeamScore<game.AwayTeamScore && game.AwayTeam == homeTeam),
-                        'badge-danger':(game.HomeTeamScore<game.AwayTeamScore && game.HomeTeam == homeTeam) ||
-                        (game.HomeTeamScore>game.AwayTeamScore && game.AwayTeam == homeTeam),
-                        'badge-default':game.HomeTeamScore==game.AwayTeamScore}">
+<div *ngFor="let month of gamesPerMonth;">
+  <h4 class="help-block">{{month[0].MatchDate | frDate:'month/year' |uppercase }}</h4>
+  <hr>
+  <div class="panel panel-default" *ngFor="let game of month; let i=index; ">
+    <!-- medium  and large -->
+    <div class="panel-body hidden-xs">
+      <div class="row">
+        <div class="col-md-3 col-sm-3">
+          <b> {{game.MatchDate | frDate:'shortDate'}}</b> <br>
+          <span class="glyphicon glyphicon-time"></span> {{game.MatchDate | frDate:'time' }} <br><br>
+          <div class="help-block">
+            {{game.Championship}}
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4 text-center">
+          <img [src]="game.homeTeamLogoUrl">
+          <br>
+          <b>{{game.HomeTeam}}</b>
+        </div>
+        <div class="col-md-1 col-sm-1 text-center align-middle">
+            <span style="margin-top: 30px; margin-bottom: 30px" *ngIf="game.HomeTeamScore != null && game.AwayTeamScore != null"
+              class="badge" [ngClass]="{'badge-success':(game.HomeTeamScore>game.AwayTeamScore && game.HomeTeam == homeTeam) ||
+                            (game.HomeTeamScore<game.AwayTeamScore && game.AwayTeam == homeTeam),
+                            'badge-danger':(game.HomeTeamScore<game.AwayTeamScore && game.HomeTeam == homeTeam) ||
+                            (game.HomeTeamScore>game.AwayTeamScore && game.AwayTeam == homeTeam),
+                            'badge-default':game.HomeTeamScore==game.AwayTeamScore}">
               {{game.HomeTeamScore}} - {{game.AwayTeamScore}}
             </span>
-          </strong>
-        </td>
+        </div>
+        <div class="col-md-4 col-sm-4 text-center">
+          <img [src]="game.awayTeamLogoUrl"> <br>
+          <b>{{game.AwayTeam}}</b>
+        </div>
+      </div>
+    </div>
 
-        <td class="hidden-xs">
-          <span class="pull-right">
-            {{game.Championship}}
-          </span>
-        </td>
-      </tr>
-    </table>
+    <!-- small and extra small -->
 
-    <!--<div class="alert alert-info">
-            La suite du programme du championnat arrive bientôt.
-        </div>-->
+
+
+    <div class="panel-body visible-xs">
+      <div class="text-center" style="margin-bottom: 10px">
+        <b> {{game.MatchDate | frDate:'shortDate'}}</b> &nbsp;<span class="glyphicon glyphicon-time "></span>
+        {{game.MatchDate | frDate:'time' }}
+        <div class="help-block">
+          {{game.Championship}}
+        </div>
+        <div class="row">
+            <div class="col-xs-6 text-center">
+                <img [src]="game.homeTeamLogoUrl">
+                <br>
+                <b>{{game.HomeTeam}}</b>
+              </div>
+              <div class="col-xs-6 text-center">
+                <img [src]="game.awayTeamLogoUrl"> <br>
+                <b>{{game.AwayTeam}}</b>
+              </div>
+        </div>
+        <div class="text-center align-middle">
+            <span style="margin-top: 10px; margin-bottom: 5px" *ngIf="game.HomeTeamScore != null && game.AwayTeamScore != null"
+              class="badge" [ngClass]="{'badge-success':(game.HomeTeamScore>game.AwayTeamScore && game.HomeTeam == homeTeam) ||
+                            (game.HomeTeamScore<game.AwayTeamScore && game.AwayTeam == homeTeam),
+                            'badge-danger':(game.HomeTeamScore<game.AwayTeamScore && game.HomeTeam == homeTeam) ||
+                            (game.HomeTeamScore>game.AwayTeamScore && game.AwayTeam == homeTeam),
+                            'badge-default':game.HomeTeamScore==game.AwayTeamScore}">
+              {{game.HomeTeamScore}} - {{game.AwayTeamScore}}
+            </span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

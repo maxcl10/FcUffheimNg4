@@ -1,8 +1,5 @@
 <span *ngIf="game != null">
   <div>
-    <label class="pull-right">
-      {{game.Championship}}
-    </label>
     <div class="hidden-xs">
       <label *ngIf="isToday == false">
         {{game.MatchDate | frDate:"longDateTime"}}
@@ -20,18 +17,22 @@
       Aujourd'hui à {{game.MatchDate | frDate:"time"}}
     </label>
   </div>
-  <div>
-    <span>
-      <img [src]="game.homeTeamLogoUrl" [title]="game.HomeTeam">
+
+  <div class="row">
+    <div class="col-md-6 text-center">
+      <img [src]="game.homeTeamLogoUrl" [title]="game.HomeTeam"><br>
       <span class="hidden-sm">{{game.HomeTeam}}</span>
-    </span>
+    </div>
 
-    <span class="pull-right">
+    <div class="col-md-6 text-center">
+        <img [src]="game.awayTeamLogoUrl" [title]="game.AwayTeam"><br>
       <span class="hidden-sm"> {{game.AwayTeam}}</span>
-      <img [src]="game.awayTeamLogoUrl" [title]="game.AwayTeam">
-    </span>
 
+    </div>
   </div>
+  <div class="help-block">
+      {{game.Championship}}
+    </div>
 </span>
 <span *ngIf="game==null">
   Aucun match prévu

@@ -66,12 +66,12 @@
 <!--Body-->
 <div class="container body-content">
   <div style="margin-left: -15px; margin-right: -5px">
-    <div class="col-md-8 col-sm-9">
+    <div class="col-md-8 col-sm-12">
       <main class="container" [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
         <router-outlet #o="outlet"></router-outlet>
       </main>
     </div>
-    <div class="col-md-4 col-sm-3 hidden-xs ">
+    <div class="col-md-4 col-sm-3 hidden-xs hidden-sm ">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h4><a href="" [routerLink]="['games']">Prochains match</a></h4>

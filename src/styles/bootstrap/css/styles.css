@@ -2898,7 +2898,7 @@ select[multiple].input-lg {
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
-  color: #7b56b1;
+  color: #828385;
 }
 @media (min-width: 768px) {
   .form-inline .form-group {
@@ -4474,8 +4474,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-   background-color: #3f2b5d; 
-  
+   background-color: #3f2b5d;
+
   border-color: #302146;
 }
 .navbar-default .navbar-brand {
@@ -5432,9 +5432,9 @@ button.list-group-item-danger.active:focus {
 }
 .panel-body {
   padding: 15px;
- 
+
 }
-.panel-heading { 
+.panel-heading {
   padding: 10px 15px;
   border-bottom: 1px solid transparent;
   border-top-right-radius: -1px;
@@ -6853,7 +6853,7 @@ button.close {
     color: #ecf0f1;
     font-size: 14px;
     font-weight: bold;
-  }  
+  }
 
   .dropdown-menu-lg > li > ul > li > a{
     color: #FFFFFF;

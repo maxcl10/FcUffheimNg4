@@ -42,11 +42,11 @@ export class NextGameComponent implements OnInit {
         if (this.game != null) {
           this.game.awayTeamLogoUrl = this.logoService.getLogoPath(
             this.game.AwayTeam,
-            30
+            60
           );
           this.game.homeTeamLogoUrl = this.logoService.getLogoPath(
             this.game.HomeTeam,
-            30
+            60
           );
         }
       },

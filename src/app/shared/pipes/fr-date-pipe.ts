@@ -59,6 +59,13 @@ export class FrDatePipeComponent implements PipeTransform {
         this.getShortFrMonth(myDate.getMonth())
       );
     }
+    if (args === 'month') {
+      return  this.getFrMonth(myDate.getMonth());
+    }
+    if (args === 'month/year') {
+      return  this.getFrMonth(myDate.getMonth()) +
+      ' ' + myDate.getFullYear();
+    }
     if (args === 'longDate') {
       return (
         this.getFrDay(myDate.getDay()) +
