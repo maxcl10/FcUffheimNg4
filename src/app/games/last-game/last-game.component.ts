@@ -5,6 +5,7 @@ import { GamesService } from '../shared/games.service';
 import { Game } from '../shared/game.model';
 
 import { LogoService } from '../../shared/services/logo.service';
+import { TeamsService } from '../../teams/shared/teams.service';
 
 @Component({
   selector: 'fws-last-game',
@@ -14,13 +15,21 @@ import { LogoService } from '../../shared/services/logo.service';
 export class LastGameComponent implements OnInit {
   public game: Game;
   public errorMessage: string;
+  public homeTeam: string;
 
   constructor(
     private gamesService: GamesService,
+    private teamsService: TeamsService,
     private logoService: LogoService
   ) {}
 
   public ngOnInit() {
+    this.teamsService.getHomeTeams().subscribe(
+      homeTeams => {
+        this.homeTeam = homeTeams[0].name;
+      },
+      error => (this.errorMessage = <any>error)
+    );
     this.getLastGame();
   }
 
@@ -30,11 +39,11 @@ export class LastGameComponent implements OnInit {
         this.game = game;
         this.game.awayTeamLogoUrl = this.logoService.getLogoPath(
           this.game.AwayTeam,
-          30
+          60
         );
         this.game.homeTeamLogoUrl = this.logoService.getLogoPath(
           this.game.HomeTeam,
-          30
+          60
         );
       },
       error => (this.errorMessage = <any>error)

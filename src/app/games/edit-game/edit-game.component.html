@@ -12,8 +12,8 @@
             <option>Equipe</option>
             <option *ngFor="let team of teams" [value]="team.id">{{team.name}}</option>
           </select>
-          <br/>
-          <input class="form-control" placeholder="" [(ngModel)]='game.HomeTeamScore' type="number">
+          <br />
+          <input class="form-control" placeholder="Score domicile" [(ngModel)]='game.HomeTeamScore' type="number">
         </div>
       </div>
 
@@ -24,12 +24,33 @@
             <option>Equipe</option>
             <option *ngFor="let team of teams" [value]="team.id">{{team.name}}</option>
           </select>
-          <br/>
-          <input class="form-control" placeholder="" [(ngModel)]='game.AwayTeamScore' type="number">
+          <br />
+          <input class="form-control" placeholder="score exterieur" [(ngModel)]='game.AwayTeamScore' type="number">
         </div>
       </div>
     </div>
-
+    <div *ngIf="game.HomeTeamScore != null && game.AwayTeamScore != null && game.HomeTeamScore === game.AwayTeamScore">
+      <label>Prolongations</label>
+      <div class="row">
+        <div class="col-md-6">
+          <input class="form-control" placeholder="prolongation domicile" [(ngModel)]='game.HomeExtraTimeScore' type="number">
+        </div>
+        <div class="col-md-6">
+          <input class="form-control" placeholder="prolongation exterieur" [(ngModel)]='game.AwayExtraTimeScore' type="number">
+        </div>
+      </div>
+    </div>
+    <div *ngIf="game.HomeExtraTimeScore != null && game.AwayExtraTimeScore != null && game.HomeExtraTimeScore === game.AwayExtraTimeScore">
+      <label>Pénalties</label>
+      <div class="row">
+        <div class="col-md-6">
+          <input class="form-control" placeholder="pénalties domicile" [(ngModel)]='game.HomePenaltyScore' type="number">
+        </div>
+        <div class="col-md-6">
+          <input class="form-control" placeholder="pénalties exterieur" [(ngModel)]='game.AwayPenaltyScore' type="number">
+        </div>
+      </div>
+    </div>
 
     <div class="form-group ">
       <label>Date</label>

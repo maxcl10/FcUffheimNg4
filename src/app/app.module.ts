@@ -66,13 +66,9 @@ import { FrDatePipeComponent } from './shared/pipes/fr-date-pipe';
 
 import { EditTeamComponent } from './admin/edit-team/edit-team.component';
 
-import './add-rxjs-operators';
-
 import { ArticlesService } from './articles/shared/articles.service';
 import { RankingHistoryComponent } from './stats/ranking-History-chart/ranking-history-chart.component';
 
-import '../styles/styles.scss';
-import '../styles/headings.css';
 import { LastFiveGamesComponent } from './stats/last-five-games/last-five-games.component';
 import { StrikersComponent } from './stats/strikers/strikers.component';
 import { StatsComponent } from './stats/stats/stats.component';

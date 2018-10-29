@@ -4,8 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Player } from '../shared/player.model';
 import { TeamsService } from '../../teams/shared/teams.service';
 
-import { PlayerDetailsSmallComponent } from '../player-details-small/player-details-small.component';
-
 @Component({
   selector: 'fws-players-carousel',
   templateUrl: './players-carousel.component.html',
@@ -38,7 +36,8 @@ export class PlayersCarouselComponent implements OnInit {
     this.playerService.getCurrentPlayers().subscribe(
       players => {
         this.players = players;
-        setInterval(this.changePlayer(players), 5000);
+        this.changePlayer(players);
+        setInterval(() => this.changePlayer(players), 15000);
       },
 
       error => (this.errorMessage = <any>error)

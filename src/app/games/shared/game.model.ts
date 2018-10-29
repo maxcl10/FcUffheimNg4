@@ -7,8 +7,12 @@ export class Game {
   public Championship: string;
   public HomeTeam: string;
   public AwayTeam: string;
-  public HomeTeamScore: any;
-  public AwayTeamScore: any;
+  public HomeTeamScore: number;
+  public AwayTeamScore: number;
+  public HomeExtraTimeScore: number;
+  public AwayExtraTimeScore: number;
+  public HomePenaltyScore: number;
+  public AwayPenaltyScore: number;
   public homeTeamLogoUrl: string;
   public awayTeamLogoUrl: string;
 }
