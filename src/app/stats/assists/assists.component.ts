@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { StatsService } from '../shared/stats.service';
 import { Stricker } from '../shared/stricker.model';
 
@@ -7,19 +7,19 @@ import { Stricker } from '../shared/stricker.model';
   templateUrl: './assists.component.html',
   styleUrls: ['./assists.component.css']
 })
-export class AssistsComponent implements OnInit {
-  public assists: Stricker[];
-  public loading: boolean;
-  constructor(private service: StatsService) {}
+export class AssistsComponent {
+  private _assists: Stricker[];
 
-  ngOnInit() {
-    this.loading = true;
-    this.service.getStrickers().subscribe(strickers => {
-      this.assists = strickers
+  @Input()
+  set playerStats(playerStats: Stricker[]) {
+    if (playerStats) {
+      this._assists = playerStats
         .filter(o => o.championshipAssists > 0)
         .sort((n1, n2) => n2.championshipAssists - n1.championshipAssists);
+    }
+  }
 
-      this.loading = false;
-    });
+  get assists(): Stricker[] {
+    return this._assists;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Article, ArticlesService } from '../../articles/shared/index';
@@ -10,6 +10,7 @@ import { GamesService } from '../../games/shared/games.service';
 import { Game } from '../../games/shared/game.model';
 
 import { AuthenticationService } from '../../shared/services/authentication.service';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'fws-admin',
@@ -21,16 +22,17 @@ import { AuthenticationService } from '../../shared/services/authentication.serv
     GamesService
   ]
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent implements OnInit, OnDestroy {
   @Output()
   public selectedArticle: Article;
-  public articles: Article[];
+
+  public articles$: Observable<Article[]>;
+  public games$: Observable<Game[]>;
   public players: Player[];
-  public games: Game[];
+
+  public playerSubscription: Subscription;
+
   public errorMessage: string;
-  public articlesCount: number;
-  public playersCount: number;
-  public gamesCount: number;
 
   constructor(
     private articlesService: ArticlesService,
@@ -40,34 +42,18 @@ export class AdminComponent implements OnInit {
     private gameservice: GamesService
   ) {}
 
-  public getPlayers() {
-    this.playersService.getplayers().subscribe(
-      players => {
-        this.players = players;
-        this.playersCount = players.length;
-      },
-      error => (this.errorMessage = <any>error)
-    );
-  }
-
-  public getArticles() {
-    this.articlesService.getArticles().subscribe(
-      articles => {
-        this.articles = articles;
-        this.articlesCount = articles.length;
-      },
-      error => (this.errorMessage = <any>error)
-    );
-  }
-
-  public getGames() {
-    this.gameservice.getGames().subscribe(
-      games => {
-        this.games = games;
-        this.gamesCount = games.length;
-      },
-      error => (this.errorMessage = <any>error)
-    );
+  public ngOnInit() {
+    if (!this.authenticationService.checkCredentials()) {
+      this.router.navigate(['/login']);
+    } else {
+      this.playerSubscription = this.playersService
+        .getplayers()
+        .subscribe(result => {
+          this.players = result;
+        });
+      this.articles$ = this.articlesService.getArticles();
+      this.games$ = this.gameservice.getGames();
+    }
   }
 
   public onselect(article: Article) {
@@ -95,13 +81,7 @@ export class AdminComponent implements OnInit {
     this.router.navigate(['/article', article.id]);
   }
 
-  public ngOnInit() {
-    if (!this.authenticationService.checkCredentials()) {
-      this.router.navigate(['/login']);
-    } else {
-      this.getArticles();
-      this.getPlayers();
-      this.getGames();
-    }
+  public ngOnDestroy(): void {
+    this.playerSubscription.unsubscribe();
   }
 }

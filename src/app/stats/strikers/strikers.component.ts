@@ -7,24 +7,19 @@ import { StatsService } from '../shared/stats.service';
   templateUrl: './strikers.component.html'
 })
 export class StrikersComponent implements OnInit {
-  public strickers: Stricker[];
+  private _strickers: Stricker[];
+
   public totalGoals = 0;
   public totalChampionshipGoals = 0;
   public totalNationalCupGoals = 0;
   public totalRegionalCupGoals = 0;
   public totalOtherCupGoals = 0;
 
-  public loading: boolean;
   @Input()
-  public count: number;
+  set playerStats(playerStats: Stricker[]) {
+    if (playerStats) {
+      this._strickers = playerStats;
 
-  constructor(private service: StatsService) {}
-
-  ngOnInit() {
-    this.loading = true;
-    this.service.getStrickers().subscribe(strickers => {
-      this.strickers = strickers;
-      this.loading = false;
       this.strickers.forEach(element => {
         this.totalGoals += element.totalGoals;
         this.totalChampionshipGoals += element.championshipGoals;
@@ -32,6 +27,14 @@ export class StrikersComponent implements OnInit {
         this.totalRegionalCupGoals += element.regionalCupGoals;
         this.totalOtherCupGoals += element.otherCupGoals;
       });
-    });
+    }
   }
+
+  get strickers(): Stricker[] {
+    return this._strickers;
+  }
+
+  constructor(private service: StatsService) {}
+
+  ngOnInit() {}
 }

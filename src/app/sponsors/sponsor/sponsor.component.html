@@ -3,7 +3,7 @@
 <div class="panel panel-default">
   <div class="panel-body ">
     <div class="row">
-      <div *ngFor="let sponsor of sponsors" class="col-md-3 col-sm-4 col-xs-6" title="{{sponsor.name}}">
+      <div *ngFor="let sponsor of sponsors$ | async" class="col-md-3 col-sm-4 col-xs-6" title="{{sponsor.name}}">
         <a href="{{sponsor.siteUrl}}" target="_blank" title="{{sponsor.name}}">
           <div class="md-3-square thumbnail">
             <img class="img-responsive" src="../../../assets/img/sponsors/{{sponsor.logoUrl}}" />

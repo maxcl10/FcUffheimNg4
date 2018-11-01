@@ -1,13 +1,10 @@
-<div *ngIf="loading">
-  <span class="fa fa-spinner fa-spin"></span>
-</div>
-<table *ngIf="!loading" class="table">
+<table *ngIf="assists" class="table">
   <tr>
     <td></td>
     <td>Champ</td>
   </tr>
   <tr *ngFor="let assist of assists">
-    <td>
+    <td class="bold">
       <a href="" [routerLink]="['/player',assist.playerId]">{{assist.playerName}}</a>
     </td>
     <td>

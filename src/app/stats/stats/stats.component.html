@@ -12,22 +12,42 @@
       <h3>5 Derniers Matchs</h3>
       <fws-last-five-games></fws-last-five-games>
     </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-body">
+          <h3>Défense</h3>
+          <div class="text-center">
+            <b> {{ concededGoalsPerGame$ |async | number:'1.1-1' }}</b> <br>
+            buts / match
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-body">
+          <h3>Attaque</h3>
+          <div class="text-center">
+            <b>{{ scoredGoalsPerGame$ |async | number:'1.1-1' }} </b> <br>
+            buts / match
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<div class="row">
+<div class="row" *ngIf="playerStats$ | async as playerStats">
   <div class="col-md-8">
-
     <div class="panel panel-body">
       <h3>Buteurs</h3>
-      <fws-strikers></fws-strikers>
+      <fws-strikers [playerStats]="playerStats"></fws-strikers>
     </div>
   </div>
   <div class="col-md-4">
 
     <div class="panel panel-body">
       <h3>Passeurs</h3>
-      <fws-assists></fws-assists>
+      <fws-assists [playerStats]="playerStats"></fws-assists>
     </div>
   </div>
 </div>

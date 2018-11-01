@@ -31,6 +31,14 @@ export class StatsService {
     return this.http.get<Stricker[]>(this.statsUrl + '/getStrickers');
   }
 
+  public getScoredGoalsPerGame(): Observable<number> {
+    return this.http.get<number>(this.statsUrl + '/getScoredGoalsPerGame');
+  }
+
+  public getConcededGoalsPerGame(): Observable<number> {
+    return this.http.get<number>(this.statsUrl + '/getConcededGoalsPerGame');
+  }
+
   public getTeamStrickers(): Observable<Stricker[]> {
     if (this.strickers) {
       return this.strickers;

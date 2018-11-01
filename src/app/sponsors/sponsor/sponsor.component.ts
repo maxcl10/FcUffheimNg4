@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { SponsorsService } from '../shared/sponsors.service';
 import { Sponsor } from '../shared/sponsor.model';
 import { AppConfig } from '../../app.config';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'fws-player',
@@ -11,15 +12,13 @@ import { AppConfig } from '../../app.config';
 export class SponsorComponent implements OnInit {
   constructor(private titleService: Title, private service: SponsorsService) {}
 
-  public sponsors: Sponsor[];
+  public sponsors$: Observable<Sponsor[]>;
 
   public ngOnInit() {
     this.titleService.setTitle(
       AppConfig.settings.properties.siteName + ' - Partenaires'
     );
 
-    this.service.getSponsors().subscribe(sponsors => {
-      this.sponsors = sponsors;
-    });
+    this.sponsors$ = this.service.getSponsors();
   }
 }

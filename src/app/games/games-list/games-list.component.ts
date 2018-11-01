@@ -7,8 +7,15 @@ import { SeoService } from '../../shared/services/seo.service';
 import { TeamsService } from '../../teams/shared/teams.service';
 import { AppConfig } from '../../app.config';
 
-import { groupBy, mergeMap, toArray } from 'rxjs/operators';
-import { Observable, from, merge, } from 'rxjs';
+import {
+  groupBy,
+  mergeMap,
+  toArray,
+  flatMap,
+  map,
+  switchMap
+} from 'rxjs/operators';
+import { Observable, from, merge, of } from 'rxjs';
 import { group } from '@angular/animations';
 
 @Component({
@@ -17,7 +24,6 @@ import { group } from '@angular/animations';
   providers: [GamesService, LogoService, TeamsService]
 })
 export class GamesComponent implements OnInit {
-  public games: Game[];
   public errorMessage: string;
   public homeTeam: string;
   public gamesPerMonth: Game[][];
@@ -45,6 +51,15 @@ export class GamesComponent implements OnInit {
 
   public getGames() {
     this.gamesPerMonth = new Array();
+
+    // this.gamesService
+    //   .getGames()
+    //   .pipe(
+    //     map(games => games.filter(o => (o.homeTeamLogoUrl = 'Bartenheim F.C.'))),
+    //     groupBy(o=> o.)
+    //   )
+    //   .subscribe(res => console.log(res));
+
     this.gamesService.getGames().subscribe(
       games => {
         games.forEach(element => {
@@ -57,19 +72,21 @@ export class GamesComponent implements OnInit {
             60
           );
         });
-        this.games = games;
 
-        const source = from(games);
-        const example = source.pipe(
-          groupBy(person => new Date(person.MatchDate).getMonth() + '-' + new Date(person.MatchDate).getFullYear() ),
-          // return each item in group as array
-          mergeMap(groupsd => groupsd.pipe(toArray()))
-        );
-
-        const subscribe = example.subscribe(val => {
-          console.log(val);
-          this.gamesPerMonth.push(val);
-          console.log(this.gamesPerMonth.length);
+        from(games)
+          .pipe(
+            // Groups by date
+            groupBy(
+              game =>
+                new Date(game.MatchDate).getMonth() +
+                '-' +
+                new Date(game.MatchDate).getFullYear()
+            ),
+            // return each item in group as array
+            mergeMap(grouped => grouped.pipe(toArray()))
+          )
+          .subscribe(val => {
+            this.gamesPerMonth.push(val);
           });
       },
       error => (this.errorMessage = <any>error)

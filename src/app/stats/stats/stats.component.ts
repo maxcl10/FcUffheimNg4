@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { AppConfig } from '../../app.config';
 import { StatsService } from '../shared/stats.service';
 import { Stricker } from '../shared/stricker.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'fws-stats',
@@ -11,11 +12,18 @@ import { Stricker } from '../shared/stricker.model';
 export class StatsComponent implements OnInit {
   constructor(private titleService: Title, private service: StatsService) {}
 
-  public strickers: Stricker[];
+  public playerStats$: Observable<Stricker[]>;
+  public concededGoalsPerGame$: Observable<number>;
+  public scoredGoalsPerGame$: Observable<number>;
+  public shape$: Observable<string[]>;
 
   ngOnInit() {
     this.titleService.setTitle(
       AppConfig.settings.properties.siteName + ' - Classement'
     );
+
+    this.playerStats$ = this.service.getStrickers();
+    this.scoredGoalsPerGame$ = this.service.getScoredGoalsPerGame();
+    this.concededGoalsPerGame$ = this.service.getConcededGoalsPerGame();
   }
 }

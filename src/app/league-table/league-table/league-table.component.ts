@@ -1,31 +1,27 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 
 import { Ranking } from '../shared/league-table.model';
 import { LeagueRankingsService } from '../shared/league-table.service';
 import { LogoService } from '../../shared/services/logo.service';
 import { TeamsService } from '../../teams/shared/teams.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'fws-league-table',
   templateUrl: './league-table.component.html',
   providers: [LeagueRankingsService, LogoService, TeamsService]
 })
-export class LeagueTableComponent implements OnInit {
+export class LeagueTableComponent implements OnInit, OnDestroy {
   public rankings: Ranking[];
   public errorMessage: string;
   public homeTeam: string;
+  private subscription: Subscription;
 
   constructor(
     private rankingService: LeagueRankingsService,
     private logoService: LogoService,
     private teamsService: TeamsService
   ) {}
-
-  // ngAfterViewInit()
-  // {
-  //     // var rows = $('#leagueTable > tbody > tr');
-  //     // alert(rows.length);
-  // }
 
   public ngOnInit() {
     this.teamsService.getHomeTeams().subscribe(
@@ -39,7 +35,7 @@ export class LeagueTableComponent implements OnInit {
   }
 
   public getRankings() {
-    this.rankingService.getRankings().subscribe(
+    this.subscription = this.rankingService.getRankings().subscribe(
       rankings => {
         rankings.forEach(element => {
           element.imageUrl = this.logoService.getLogoPath(element.team, 30);
@@ -48,5 +44,9 @@ export class LeagueTableComponent implements OnInit {
       },
       error => (this.errorMessage = <any>error)
     );
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

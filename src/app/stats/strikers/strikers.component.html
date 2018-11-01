@@ -1,7 +1,4 @@
-<div *ngIf="loading">
-  <span class="fa fa-spinner fa-spin"></span>
-</div>
-<table class="table" *ngIf="!loading">
+<table class="table" *ngIf="strickers">
   <tr>
     <td></td>
     <td title="Total">Tot</td>
@@ -11,7 +8,7 @@
     <td title="Coupe Credit Mutuel">CCM</td>
   </tr>
   <tr *ngFor="let stricker of strickers">
-    <td>
+    <td class="bold">
       <a href="" [routerLink]="['/player',stricker.playerId]">{{stricker.playerName}}</a>
     </td>
     <td>
@@ -31,8 +28,3 @@
     <td>{{totalOtherCupGoals}}</td>
   </tr>
 </table>
-<!-- <ul>
-  <li >
-    {{stat.player}}
-  </li>
-</ul> -->

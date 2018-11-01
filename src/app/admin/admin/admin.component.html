@@ -11,14 +11,13 @@
 </ul>
 
 <div class="tab-content">
-  <div id="articles" class="tab-pane fade  in active">
+  <div id="articles" class="tab-pane fade  in active" *ngIf="articles$ | async as articles">
     <div class="panel panel-default">
       <div class="panel-heading">
         <a class="btn btn-success pull-right" href="" [routerLink]="['newArticle']">
           <span class="glyphicon glyphicon-plus"></span> Article
         </a>
-
-        <h4>{{articlesCount}} articles</h4>
+        <h4>{{articles.length}} articles</h4>
       </div>
       <div class="panel-body">
         <table class="table table-hover table-clickable">
@@ -53,7 +52,7 @@
         <a class="btn btn-success pull-right" href="" [routerLink]="['newPlayer']">
           <span class="glyphicon glyphicon-plus"></span> Joueur
         </a>
-        <h4>{{playersCount}} joueurs</h4>
+        <h4>{{players?.length}} joueurs</h4>
       </div>
       <div class="panel-body">
         <table class="table table-hover table-clickable">
@@ -86,13 +85,21 @@
     </div>
   </div>
 
-  <div id="games" class="tab-pane fade">
+  <div id="team" class="tab-pane fade">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <fws-edit-team [allPlayers]="players"></fws-edit-team>
+      </div>
+    </div>
+  </div>
+
+  <div id="games" class="tab-pane fade" *ngIf="games$ | async as games">
     <div class="panel panel-default">
       <div class="panel-heading">
         <a class="btn btn-success pull-right" href="" [routerLink]="['newGame']">
           <span class="glyphicon glyphicon-plus"></span> Matches
         </a>
-        <h4>{{gamesCount}} matches</h4>
+        <h4>{{games.length}} matches</h4>
       </div>
       <div class="panel-body">
         <table class="table table-hover table-clickable">
@@ -123,13 +130,7 @@
 
   </div>
 
-  <div id="team" class="tab-pane fade">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <fws-edit-team [allPlayers]="players"></fws-edit-team>
-      </div>
-    </div>
-  </div>
+
   <div id="ranking" class="tab-pane fade">
     <div class="panel panel-default">
       <div class="panel-body">

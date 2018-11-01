@@ -1285,6 +1285,10 @@ p {
   font-weight: 300;
   line-height: 1.4;
 }
+
+.panel-body > h3   {
+  margin-top: 0px;
+}
 @media (min-width: 768px) {
   .lead {
     font-size: 21px;
