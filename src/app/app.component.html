@@ -2,20 +2,35 @@
 <div style="background-color: #FFF">
   <div class="container">
     <div class="header">
-      <img id="logofcu" *ngIf="club" src="{{club.logoUrl}}">
+      <img id="logo" *ngIf="club" src="{{ club.logoUrl }}" />
       <div class="header-title siteTitle">
         <div class="hidden-xs">
-          <div class="fb-like  pull-right" data-href="https://fcbartenheim.com/" data-layout="button_count" data-action="like"
-            data-size="large" data-show-faces="true" data-share="true"></div>
-          <h1 *ngIf="club">{{club.longName}}</h1>
+          <div
+            class="fb-like  pull-right"
+            data-href="https://fcbartenheim.com/"
+            data-layout="button_count"
+            data-action="like"
+            data-size="large"
+            data-show-faces="true"
+            data-share="true"
+          ></div>
+          <h1 *ngIf="club">{{ club.longName }}</h1>
           <span class="subHeader">Site officiel</span>
         </div>
         <div class="visible-xs">
-          <h1 *ngIf="club">{{club.name}}</h1>
+          <h1 *ngIf="club">{{ club.name }}</h1>
           <!-- <div class="fb-like pull-right" style="margin-bottom: 5px; margin-right: 10px" data-href="https://fcuffheim.com/"
             data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div> -->
-          <div class="fb-like pull-right" style="margin-bottom: 5px; margin-right: 10px" data-href="https://https://fcbartenheim.com/"
-            data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="false"></div>
+          <div
+            class="fb-like pull-right"
+            style="margin-bottom: 5px; margin-right: 10px"
+            data-href="https://https://fcbartenheim.com/"
+            data-layout="button_count"
+            data-action="like"
+            data-size="large"
+            data-show-faces="true"
+            data-share="false"
+          ></div>
           <span>Site officiel</span>
         </div>
       </div>
@@ -25,7 +40,12 @@
 
 <nav id="nav" class="navbar navbar-default container-fluid">
   <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <button
+      type="button"
+      class="navbar-toggle"
+      data-toggle="collapse"
+      data-target=".navbar-collapse"
+    >
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
@@ -34,30 +54,57 @@
   <div class="navbar-collapse collapse js-navbar-collapse">
     <div class="container">
       <ul class="nav navbar-nav menuTitle ">
-        <li> <a href="" [routerLink]="['home']">Accueil</a></li>
+        <li><a href="" [routerLink]="['home']">Accueil</a></li>
         <li class="dropdown dropdown-lg">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Equipes <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+            >Equipes <b class="caret"></b
+          ></a>
           <ul class="dropdown-menu dropdown-menu-lg row">
             <li class="col-sm-4" *ngFor="let team of teams; let i = index">
               <ul>
-                <li class="dropdown-header">Equipe {{i+1}}</li>
-                <li><a href="" [routerLink]="['team', team.id]">Effectif</a></li>
-                <li *ngIf="i == 0"><a href="" [routerLink]="['league-table']">Classement</a></li>
-                <li *ngIf="i == 0"><a href="" [routerLink]="['games']">Calendrier</a></li>
+                <li class="dropdown-header">Equipe {{ i + 1 }}</li>
+                <li>
+                  <a href="" [routerLink]="['team', team.id]">Effectif</a>
+                </li>
+                <li *ngIf="i == 0">
+                  <a href="" [routerLink]="['league-table']">Classement</a>
+                </li>
+                <li *ngIf="i == 0">
+                  <a href="" [routerLink]="['games']">Calendrier</a>
+                </li>
                 <li *ngIf="i != 0" class="divider"></li>
                 <li *ngIf="i != 0" class="dropdown-header">LGEF</li>
-                <li *ngIf="i != 0"><a href="{{team.rankingUrl}}" target="_blank">Classement</a></li>
-                <li *ngIf="i != 0"><a href="{{team.calendarUrl}}" target="_blank">Calendrier</a></li>
+                <li *ngIf="i != 0">
+                  <a href="{{ team.rankingUrl }}" target="_blank">Classement</a>
+                </li>
+                <li *ngIf="i != 0">
+                  <a href="{{ team.calendarUrl }}" target="_blank"
+                    >Calendrier</a
+                  >
+                </li>
               </ul>
             </li>
           </ul>
         </li>
-        <li> <a href="" [routerLink]="['league-table']">Classement</a></li>
-        <li> <a href="" [routerLink]="['games']">Calendrier</a></li>
-        <li> <a href="" [routerLink]="['stats']">stats</a></li>
-        <li> <a href="" [routerLink]="['club']">Club</a></li>
-        <li> <a href="" [routerLink]="['sponsors']">Partenaires</a></li>
-        <li> <a href="" [routerLink]="['contact']">Contact</a></li>
+        <li><a href="" [routerLink]="['league-table']">Classement</a></li>
+        <li><a href="" [routerLink]="['games']">Calendrier</a></li>
+        <li><a href="" [routerLink]="['stats']">stats</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+            >Club <b class="caret"></b
+          ></a>
+          <ul class="dropdown-menu">
+            <li><a href="" [routerLink]="['club/history']">Histoire</a></li>
+            <li>
+              <a href="" [routerLink]="['club/organizational-chart']"
+                >Organigramme</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li><a href="" [routerLink]="['sponsors']">Partenaires</a></li>
+        <li><a href="" [routerLink]="['contact']">Contact</a></li>
       </ul>
     </div>
   </div>
@@ -67,7 +114,10 @@
 <div class="container body-content">
   <div style="margin-left: -15px; margin-right: -5px">
     <div class="col-md-8 col-sm-12">
-      <main class="container" [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+      <main
+        class="container"
+        [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''"
+      >
         <router-outlet #o="outlet"></router-outlet>
       </main>
     </div>
@@ -92,6 +142,15 @@
 
       <div class="panel panel-default">
         <div class="panel-heading">
+          <h4><a href="" [routerLink]="['league-table']">Championnat</a></h4>
+        </div>
+        <div class="panel-body">
+          <fws-season-summary></fws-season-summary>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
           <h4><a href="" [routerLink]="['games']">Dernier match</a></h4>
         </div>
         <div class="panel-body">
@@ -107,7 +166,6 @@
           <fws-players-carousel></fws-players-carousel>
         </div>
       </div>
-
 
       <div class="panel panel-default">
         <div class="panel-heading">

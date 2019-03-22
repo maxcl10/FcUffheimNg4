@@ -1,0 +1,235 @@
+@import './fcb_variables.scss';
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.42857143;
+  color: $black-1;
+  background-color: $grey-1;
+}
+
+.table-clickable > tbody > tr :hover {
+  cursor: pointer !important;
+}
+
+/*Used to hide a part of the article*/
+.partialHidden {
+  position: relative;
+  max-height: 400px;
+  overflow-y: hidden;
+}
+
+.partialHidden:after {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  content: '';
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 70%,
+    rgba(255, 255, 255, 1) 90%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  pointer-events: none; /* so the text is still selectable */
+}
+
+input[type='date'].form-control,
+input[type='time'].form-control,
+input[type='datetime-local'].form-control,
+input[type='month'].form-control {
+  line-height: 22px;
+}
+
+// img {
+//   padding: 2px;
+// }
+
+table.ranking {
+  border-collapse: separate !important;
+}
+
+article * table {
+  font-size: 15px;
+}
+
+.table-smaller {
+  font-size: 11px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.chart {
+  display: block;
+  width: 100%;
+}
+
+.siteTitle {
+  padding-left: 120px;
+}
+
+.menuTitle {
+  padding-left: 106px;
+}
+
+.subHeader {
+  display: block;
+  margin-top: -12px;
+  margin-bottom: 10px;
+  color: $grey-3;
+}
+
+#logo {
+  position: absolute;
+  width: 120px;
+  top: 10px;
+  z-index: 1500;
+}
+
+.table > tbody > tr.mauve {
+  background-color: $green-4;
+  color: white;
+  font-weight: bold;
+}
+
+.affix + .container {
+  padding-top: 65px;
+}
+
+.footer {
+  height: 90px;
+  background-color: #383838;
+  color: #fff;
+}
+
+.footer .panel {
+  vertical-align: middle;
+}
+
+.emphasize {
+  font-size: 25px;
+}
+
+.fb-share-button {
+  display: inline-block;
+  padding-top: 10px;
+  padding: 5px;
+  background-color: #4267b2;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.fb-share-button:hover {
+  background-color: #365899;
+  border-color: #365899;
+}
+
+.fb-share-button > a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.marginBottom-0 {
+  margin-bottom: 0;
+}
+
+.container {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.md-3-square {
+  height: 150px;
+  line-height: 140px;
+}
+
+.md-3-square img {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+
+article img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 767px) {
+  .panel-body {
+    padding: 5px;
+  }
+}
+
+router-outlet ~ * {
+  position: absolute;
+  height: 100%;
+  width: 95%;
+}
+
+.accordion-toggle:after {
+  font-family: 'Glyphicons Halflings';
+  content: '\e114';
+  float: right;
+  transition: all 0.5s;
+}
+
+.accordion-toggle.collapsed:after {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.heading {
+  background-color: $green-3;
+  font-weight: bold;
+  color: $white-1;
+  text-align: center;
+  padding: 5px;
+}
+
+.heading a {
+  color: $white-1;
+}
+
+.card {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.card .content {
+  background-color: #f4f4f4;
+}
+
+.card .title {
+  margin-top: 10px;
+  color: #383838;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.card .subtitle {
+  color: $grey-3;
+  padding-bottom: 10px;
+}
+
+.card-block {
+  border: solid 1px $border-color;
+  margin-top: 30px;
+}
+
+.card-container {
+  background-color: $white-1;
+}
+
+.row.card-container {
+  margin-left: 0;
+  margin-right: 0;
+}

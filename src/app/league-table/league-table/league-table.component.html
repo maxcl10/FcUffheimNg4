@@ -11,20 +11,25 @@
     <th class="hidden-xs">BC</th>
     <th class="hidden-xs">+/-</th>
   </tr>
-  <tr *ngFor="let item of rankings" [ngClass]="{'mauve': item.team == homeTeam, 'border-bottom': item.position == 1, 'border-top': item.position == 12}">
-
-    <td>{{item.position}}</td>
-    <td class="bold"><img [src]="item.imageUrl"> {{item.team}}</td>
-    <td><b>{{item.points}}</b></td>
-    <!-- <i class="fa fa-shirtsinbulk green-white" aria-hidden="true"  ></i> -->
-    <td>{{item.matchPlayed}}</td>
-    <td>{{item.matchWon}}</td>
-    <td>{{item.matchDraw}}</td>
-    <td>{{item.matchLost}}</td>
-    <td class="hidden-xs">{{item.goalsScored}}</td>
-    <td class="hidden-xs">{{item.goalsAgainst}}</td>
-    <td class="hidden-xs">{{item.goalDifference}}</td>
-
+  <tr
+    *ngFor="let item of rankings"
+    [ngClass]="{
+      mauve: item.team == homeTeam,
+      'border-bottom': item.position == 1,
+      'border-top': item.position == 12
+    }"
+  >
+    <td>{{ item.position }}</td>
+    <td class="bold"><img [src]="item.imageUrl" /> {{ item.team }}</td>
+    <td>
+      <b>{{ item.points }}</b>
+    </td>
+    <td>{{ item.matchPlayed }}</td>
+    <td>{{ item.matchWon }}</td>
+    <td>{{ item.matchDraw }}</td>
+    <td>{{ item.matchLost }}</td>
+    <td class="hidden-xs">{{ item.goalsScored }}</td>
+    <td class="hidden-xs">{{ item.goalsAgainst }}</td>
+    <td class="hidden-xs">{{ item.goalDifference }}</td>
   </tr>
-
 </table>

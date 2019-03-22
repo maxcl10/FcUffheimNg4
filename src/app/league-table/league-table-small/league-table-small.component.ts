@@ -6,8 +6,7 @@ import { TeamsService } from '../../teams/shared/teams.service';
 
 @Component({
   selector: 'fws-league-table-small',
-  templateUrl: './league-table-small.component.html',
-  providers: [LeagueRankingsService, TeamsService]
+  templateUrl: './league-table-small.component.html'
 })
 export class LeagueTableSmallComponent implements OnInit {
   public rankings: Ranking[];

@@ -12,7 +12,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist",
-            "index": "src/index.html",
+            "index": "src/index.fcb.html",
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
@@ -26,8 +26,7 @@
               "src/robots.txt"
             ],
             "styles": [
-              "src/styles/bootstrap/css/fcb_styles.css",
-              "src/styles/fcb_site.css",
+              "src/styles/fcb_site.scss",
               "node_modules/font-awesome/css/font-awesome.css",
               "node_modules/animate.css/animate.min.css"
             ],

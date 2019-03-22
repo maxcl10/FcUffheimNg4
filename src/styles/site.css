@@ -1,3 +1,5 @@
+/*General style valable for all tenants*/
+
 .table-clickable > tbody > tr :hover {
   cursor: pointer !important;
 }
@@ -114,7 +116,7 @@ article * table {
   padding-left: 106px;
 }
 
-#logofcu {
+#logo {
   position: absolute;
   width: 120px;
   top: 10px;

@@ -27,6 +27,10 @@ export class GamesComponent implements OnInit {
   public errorMessage: string;
   public homeTeam: string;
   public gamesPerMonth: Game[][];
+  public currentMonth =
+    new Date().getFullYear() +
+    '-' +
+    (new Date().getMonth() + 1).toString().padStart(2, '0');
 
   constructor(
     private gamesService: GamesService,
@@ -51,7 +55,6 @@ export class GamesComponent implements OnInit {
 
   public getGames() {
     this.gamesPerMonth = new Array();
-
     // this.gamesService
     //   .getGames()
     //   .pipe(

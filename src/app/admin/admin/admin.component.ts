@@ -82,6 +82,8 @@ export class AdminComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    this.playerSubscription.unsubscribe();
+    if (this.playerSubscription) {
+      this.playerSubscription.unsubscribe();
+    }
   }
 }

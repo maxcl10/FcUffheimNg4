@@ -8,6 +8,7 @@ import { Injectable } from '@angular/core';
 
 import { Club } from './club.model';
 import { AppConfig } from '../../app.config';
+import { OrganizationalItem } from './organizational-item.model';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -23,6 +24,12 @@ export class ClubService {
 
   public getClub(): Observable<Club> {
     return this.http.get<Club>(this.ownerUrl);
+  }
+
+  public getOrganizationalChart(): Observable<OrganizationalItem[]> {
+    return this.http.get<OrganizationalItem[]>(
+      '../../../assets/fcb_organigramme.json'
+    );
   }
 
   // private handleError(error: HttpErrorResponse) {

@@ -21,7 +21,7 @@ import { AppState } from './app.service';
 // Mine
 import { HomeComponent } from './home/home/home.component';
 import { TeamComponent } from './teams/team/team.component';
-import { ClubComponent } from './club/club/club.component';
+import { HistoryComponent } from './club/history/history.component';
 import { AdminComponent } from './admin/admin/admin.component';
 
 // Articles components
@@ -82,6 +82,11 @@ import { EditPlayerStatsComponent } from './strickers/edit-player-stats/edit-pla
 import { NewSponsorComponent } from './sponsors/new-sponsor/new-sponsor.component';
 import { SearchPipe } from './shared/pipes/search.pipe';
 import { AssistsComponent } from './stats/assists/assists.component';
+import { SeasonSummaryComponent } from './stats/season-summary/season-summary.component';
+import { LeagueRankingsService } from './league-table/shared/league-table.service';
+import { TeamsService } from './teams/shared/teams.service';
+import { GuideComponent } from './style/guide/guide.component';
+import { OrganizationalChartComponent } from './club/organizational-chart/organizational-chart.component';
 
 // Application wide providers
 const APP_PROVIDERS = [...APP_RESOLVER_PROVIDERS, AppState];
@@ -99,7 +104,7 @@ export function initializeApp(appConfig: AppConfig) {
     AppComponent,
     HomeComponent,
     TeamComponent,
-    ClubComponent,
+    HistoryComponent,
     AdminComponent,
     NewArticleComponent,
     ArticleComponent,
@@ -135,7 +140,10 @@ export function initializeApp(appConfig: AppConfig) {
     StrickersEditorComponent,
     EditPlayerStatsComponent,
     NewSponsorComponent,
-    AssistsComponent
+    AssistsComponent,
+    SeasonSummaryComponent,
+    GuideComponent,
+    OrganizationalChartComponent
   ],
   imports: [
     // import Angular's modules
@@ -148,7 +156,10 @@ export function initializeApp(appConfig: AppConfig) {
     CommonModule,
     AppRoutingModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {
-      enabled: environment.name === 'production' || environment.name === 'fcb'
+      enabled:
+        environment.name === 'production' ||
+        environment.name === 'fcb' ||
+        environment.name === 'fcu'
     })
   ],
   providers: [
@@ -159,6 +170,8 @@ export function initializeApp(appConfig: AppConfig) {
     SeoService,
     ClubService,
     StatsService,
+    LeagueRankingsService,
+    TeamsService,
     SponsorsService,
     AppConfig,
     {

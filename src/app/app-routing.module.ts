@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 // My
 import { HomeComponent } from './home/home/home.component';
 import { TeamComponent } from './teams/team/team.component';
-import { ClubComponent } from './club/club/club.component';
+import { HistoryComponent } from './club/history/history.component';
 import { AdminComponent } from './admin/admin/admin.component';
 import { LeagueTablePageComponent } from './league-table/league-table-page/league-table-page.component';
 
@@ -30,6 +30,8 @@ import { NewGameComponent } from './games/new-game/new-game.component';
 import { EditGameComponent } from './games/edit-game/edit-game.component';
 import { StatsComponent } from './stats/stats/stats.component';
 import { EditPlayerStatsComponent } from './strickers/edit-player-stats/edit-player-stats.component';
+import { GuideComponent } from './style/guide/guide.component';
+import { OrganizationalChartComponent } from './club/organizational-chart/organizational-chart.component';
 
 const routes: Routes = [
   {
@@ -45,8 +47,12 @@ const routes: Routes = [
     component: TeamComponent
   },
   {
-    path: 'club',
-    component: ClubComponent
+    path: 'club/history',
+    component: HistoryComponent
+  },
+  {
+    path: 'club/organizational-chart',
+    component: OrganizationalChartComponent
   },
   {
     path: 'admin',
@@ -115,6 +121,10 @@ const routes: Routes = [
   {
     path: 'admin/edit-player-stats/:id',
     component: EditPlayerStatsComponent
+  },
+  {
+    path: 'guide',
+    component: GuideComponent
   }
 ];
 

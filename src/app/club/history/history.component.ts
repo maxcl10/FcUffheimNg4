@@ -6,10 +6,10 @@ import { AppConfig } from '../../app.config';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'fws-club',
-  templateUrl: './club.component.html'
+  selector: 'fws-history',
+  templateUrl: './history.component.html'
 })
-export class ClubComponent implements OnInit {
+export class HistoryComponent implements OnInit {
   constructor(private titleService: Title, private service: ClubService) {}
 
   public clubHistory$: Observable<Club>;

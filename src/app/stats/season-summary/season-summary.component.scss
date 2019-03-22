@@ -1,0 +1,26 @@
+@import '../../../styles/fcb_variables.scss';
+.statContainer {
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.rankingLine {
+  width: max-content;
+}
+
+.titleStat {
+  font-size: 17px;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+.teamPoint {
+  font-size: 30px;
+  line-height: 30px;
+  margin-top: 5px;
+}
+
+.overallRanking {
+  font-size: 45px;
+  color: $green-1;
+}

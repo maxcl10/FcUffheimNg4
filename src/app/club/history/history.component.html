@@ -1,0 +1,9 @@
+<h2>Histoire</h2>
+<div
+  class="panel panel-default"
+  *ngIf="(clubHistory$ | async)?.history as clubHistory"
+>
+  <div class="panel-body">
+    <span [innerHTML]="clubHistory"></span>
+  </div>
+</div>

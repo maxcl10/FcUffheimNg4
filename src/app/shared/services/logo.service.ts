@@ -156,6 +156,8 @@ export class LogoService {
         );
       case 'Steinbrunn F.C.':
         return baseUrl + 'Steinbrunn/steinbrunn_' + size + 'x' + size + '.png';
+      case 'Biesheim A.S.C.':
+        return baseUrl + 'Biesheim/biesheim_' + size + 'x' + size + '.png';
       default:
         break;
     }
