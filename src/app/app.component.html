@@ -111,76 +111,17 @@
 </nav>
 
 <!--Body-->
-<div class="container body-content">
-  <div style="margin-left: -15px; margin-right: -5px">
-    <div class="col-md-8 col-sm-12">
-      <main
-        class="container"
-        [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''"
-      >
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <!-- <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''"> -->
+      <main>
         <router-outlet #o="outlet"></router-outlet>
       </main>
     </div>
-    <div class="col-md-4 col-sm-3 hidden-xs hidden-sm ">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4><a href="" [routerLink]="['games']">Prochains match</a></h4>
-        </div>
-        <div class="panel-body">
-          <fws-next-game></fws-next-game>
-        </div>
-      </div>
-
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4><a href="" [routerLink]="['league-table']">Classement</a></h4>
-        </div>
-        <div class="panel-body">
-          <fws-league-table-small></fws-league-table-small>
-        </div>
-      </div>
-
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4><a href="" [routerLink]="['league-table']">Championnat</a></h4>
-        </div>
-        <div class="panel-body">
-          <fws-season-summary></fws-season-summary>
-        </div>
-      </div>
-
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4><a href="" [routerLink]="['games']">Dernier match</a></h4>
-        </div>
-        <div class="panel-body">
-          <fws-last-game></fws-last-game>
-        </div>
-      </div>
-
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4>Présentation joueur</h4>
-        </div>
-        <div class="panel-body">
-          <fws-players-carousel></fws-players-carousel>
-        </div>
-      </div>
-
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4><a href="" [routerLink]="['stats']">Stats</a></h4>
-        </div>
-        <div class="panel-body">
-          <fws-games-pie-chart></fws-games-pie-chart>
-        </div>
-      </div>
-    </div>
   </div>
-</div>
-
-<!--Footer-->
-<!-- <footer class="footer" style="margin-top: 20px">
+  <!--Footer-->
+  <!-- <footer class="footer" style="margin-top: 20px">
   <div class="container">
     <div style="margin-top: 10px">
       <a href="" [routerLink]="['admin']">Admin</a>
@@ -190,3 +131,4 @@
     </div>
   </div>
 </footer> -->
+</div>

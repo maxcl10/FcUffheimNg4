@@ -1,8 +1,8 @@
 version: '2.1'
 
 services:
-  fcuffheimng4:
-    image: fcuffheimng4
+  fcb-website:
+    image: fcb-website
     build: .
     environment:
       NODE_ENV: development

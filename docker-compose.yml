@@ -1,10 +1,10 @@
 version: '2.1'
 
 services:
-  fcuffheimng4:
-    image: fcuffheimng4
+  fcbWebSite:
+    image: fcbWebSite
     build: .
     environment:
       NODE_ENV: production
     ports:
-      - 3000:3000
+      - 3001:3001

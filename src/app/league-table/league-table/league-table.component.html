@@ -20,7 +20,15 @@
     }"
   >
     <td>{{ item.position }}</td>
-    <td class="bold"><img [src]="item.imageUrl" /> {{ item.team }}</td>
+    <td class="bold ">
+      <img [src]="item.imageUrl" />
+      <span class="visible-xs-inline">
+        {{ item.team.substr(0, item.team.indexOf(' ')) }}
+      </span>
+      <span class="hidden-xs">
+        {{ item.team }}
+      </span>
+    </td>
     <td>
       <b>{{ item.points }}</b>
     </td>
@@ -33,3 +41,29 @@
     <td class="hidden-xs">{{ item.goalDifference }}</td>
   </tr>
 </table>
+
+<!-- Try -->
+<!-- <div *ngFor="let item of rankings">
+  <div class="panel">
+    <div class="row">
+      <div class="col-xs-2">
+        <b> {{ item.position }}</b>
+      </div>
+      <div class="col-xs-10">
+        <b><img [src]="item.imageUrl" /> {{ item.team }}</b>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-2"></div>
+      <div class="col-xs-1">{{ item.matchPlayed }}</div>
+      <div class="col-xs-1">{{ item.matchDraw }}</div>
+      <div class="col-xs-1">{{ item.matchLost }}</div>
+      <div class="col-xs-1">+{{ item.goalsScored }}</div>
+      <div class="col-xs-1">-{{ item.goalsAgainst }}</div>
+      <div class="col-xs-2">{{ item.goalDifference }}</div>
+      <div class="col-xs-2">
+        <b>{{ item.points }}pts</b>
+      </div>
+    </div>
+  </div>
+</div> -->

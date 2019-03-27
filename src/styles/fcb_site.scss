@@ -71,6 +71,11 @@ article * table {
   padding-left: 120px;
 }
 
+.siteTitle h1 {
+  font-size: 27px;
+  margin-top: 18px;
+}
+
 .menuTitle {
   padding-left: 106px;
 }
@@ -93,6 +98,15 @@ article * table {
   background-color: $green-4;
   color: white;
   font-weight: bold;
+}
+
+.light-text {
+  font-size: 10px;
+  color: $grey-3;
+}
+
+.grey-text {
+  color: $grey-3;
 }
 
 .affix + .container {
@@ -136,11 +150,6 @@ article * table {
   margin-bottom: 0;
 }
 
-.container {
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
 .md-3-square {
   height: 150px;
   line-height: 140px;
@@ -168,11 +177,11 @@ article img {
   }
 }
 
-router-outlet ~ * {
-  position: absolute;
-  height: 100%;
-  width: 95%;
-}
+// router-outlet ~ * {
+//   position: absolute;
+//   height: 100%;
+//   width: 100%;
+// }
 
 .accordion-toggle:after {
   font-family: 'Glyphicons Halflings';

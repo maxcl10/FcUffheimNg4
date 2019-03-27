@@ -1,6 +1,6 @@
 [
   {
-    "title": "Présidence",
+    "title": "Administratifs",
     "persons": [
       {
         "firstName": "Eric",
@@ -11,31 +11,27 @@
         "firstName": "Georges",
         "lastName": "Mendes",
         "title": "Président des Jeunes"
-      }
-    ]
-  },
-  {
-    "title": "Administratifs",
-    "persons": [
+      },
       {
-        "firstName": "Audrey",
-        "lastName": "Maurer",
-        "title": "Secrétaire"
+        "firstName": "Olivier",
+        "lastName": "Loll",
+        "title": "Vice-Président"
       },
       {
         "firstName": "Yves",
         "lastName": "Winterberg",
         "title": "Trésorier"
+      },
+      {
+        "firstName": "Audrey",
+        "lastName": "Maurer",
+        "title": "Secrétaire"
       }
     ]
   },
   {
     "title": "Commité Directeur",
     "persons": [
-      {
-        "firstName": "Yves",
-        "lastName": "Sieber"
-      },
       {
         "firstName": "Eric",
         "lastName": "Soulage"
@@ -73,10 +69,7 @@
         "firstName": "Anthony",
         "lastName": "Behra"
       },
-      {
-        "firstName": "Frédéric",
-        "lastName": "Loll"
-      },
+
       {
         "firstName": "Georges",
         "lastName": "Mendes"
@@ -87,8 +80,8 @@
     "title": "Cellule Arbitrage",
     "persons": [
       {
-        "firstName": "?",
-        "lastName": "?"
+        "firstName": "Didier",
+        "lastName": "Salber"
       }
     ]
   },
@@ -125,10 +118,6 @@
     "title": "Cellule Communication",
     "persons": [
       {
-        "firstName": "Yves",
-        "lastName": "Sieber"
-      },
-      {
         "firstName": "Anthony",
         "lastName": "Behra"
       },
@@ -148,10 +137,6 @@
       {
         "firstName": "Yves",
         "lastName": "Winterberg"
-      },
-      {
-        "firstName": "Frédéric",
-        "lastName": "Loll"
       },
       {
         "firstName": "Pascal",
@@ -177,10 +162,6 @@
       {
         "firstName": "Olivier",
         "lastName": "Loll"
-      },
-      {
-        "firstName": "Yves",
-        "lastName": "Sieber"
       },
       {
         "firstName": "Yves",

@@ -4,11 +4,15 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node",
+    "start-ng": "ng serve -o",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "gen-stats": "ng build --prod --stats-json",
+    "build:fcb": "ng build --configuration=fcb --buildOptimizer=true",
+    "view-stats": "webpack-bundle-analyzer dist/stats.json"
   },
   "private": true,
   "dependencies": {

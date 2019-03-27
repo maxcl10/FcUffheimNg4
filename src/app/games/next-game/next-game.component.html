@@ -1,39 +1,28 @@
 <span *ngIf="game != null">
-  <div class="text-center">
-    <div class="hidden-xs">
-      <label *ngIf="isToday == false">
-        {{game.MatchDate | frDate:"longDateTime"}}
-      </label>
-      <label *ngIf="isToday == true">
-        Aujourd'hui à {{game.MatchDate | frDate:"time"}}
-      </label>
-    </div>
-  </div>
-  <div class="visible-xs">
+  <div class="text-center help-block">
     <label *ngIf="isToday == false">
-      {{game.MatchDate | frDate:"shortDateTime"}}
+      {{ game.MatchDate | frDate: 'longDateTime' }}
     </label>
     <label *ngIf="isToday == true">
-      Aujourd'hui à {{game.MatchDate | frDate:"time"}}
+      Aujourd'hui à {{ game.MatchDate | frDate: 'time' }}
     </label>
   </div>
 
   <div class="row">
     <div class="col-md-6 col-xs-6 text-center">
-      <img [src]="game.homeTeamLogoUrl" [title]="game.HomeTeam"><br>
-      <div class="hidden-sm bold">{{game.HomeTeam}}</div>
+      <img [src]="game.homeTeamLogoUrl" [title]="game.HomeTeam" /><br />
+      <div class="hidden-sm bold">{{ game.HomeTeam }}</div>
     </div>
 
     <div class="col-md-6 col-xs-6 text-center">
-      <img [src]="game.awayTeamLogoUrl" [title]="game.AwayTeam"><br>
-      <div class="hidden-sm bold"> {{game.AwayTeam}}</div>
-
+      <img [src]="game.awayTeamLogoUrl" [title]="game.AwayTeam" /><br />
+      <div class="hidden-sm bold">{{ game.AwayTeam }}</div>
     </div>
   </div>
   <div class="help-block text-center">
-    {{game.Championship}}
+    {{ game.Championship }}
   </div>
 </span>
-<span *ngIf="game==null">
+<span *ngIf="game == null">
   Aucun match prévu
 </span>

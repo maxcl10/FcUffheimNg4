@@ -1,24 +1,15 @@
-# Client App
-FROM mmax/angular-cli as client-app
-LABEL authors="Maxime Matter"
+FROM node:8.11.2-alpine as node
 WORKDIR /usr/src/app
-COPY ["package.json", "npm-shrinkwrap.json*", "./"]
+COPY package*.json ./
 RUN npm install --silent
 COPY . .
-RUN ng build --prod
+RUN npm run build:fcb
 
-# Node server
-FROM node:8.11-alpine as node-server
-WORKDIR /usr/src/app
-COPY ["package.json", "npm-shrinkwrap.json*", "./"]
-RUN npm install --production --silent && mv node_modules ../
-COPY server.js .
-COPY /server /usr/src/app/server
-
-# Final image
-FROM node:8.11-alpine
-WORKDIR /usr/src/app
-COPY --from=node-server /usr/src /usr/src
-COPY --from=client-app /usr/src/app/dist ./
-EXPOSE 3001
-CMD ["node", "server.js"]
+# Stage 2
+FROM nginx:1.13.12-alpine
+# remove default content
+#RUN rm -rf /usr/share/nginx/html/*
+## From ‘builder’ stage copy over the artifacts in dist folder to default nginx public folder
+COPY --from=node /usr/src/app/dist /usr/share/nginx/html
+COPY ./nginx.conf /etc/nginx/conf.d/
+CMD ["nginx", "-g", "daemon off;"]

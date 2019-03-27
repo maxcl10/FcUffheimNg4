@@ -16,7 +16,7 @@
     [attr.id]="month[0].MatchDate | slice: 0:7"
     class=""
     [class]="
-      (month[0].MatchDate | slice: 0:7) == currentMonth
+      (month[0].MatchDate | slice: 0:7) >= currentMonth
         ? 'collapse in'
         : 'collapse'
     "

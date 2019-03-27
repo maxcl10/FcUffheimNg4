@@ -1,30 +1,62 @@
 <div id="player" class="panel panel-default">
   <div class="panel-heading">
-    <a href="" [routerLink]="['/player',player.id]">{{player.firstName}} <label class="text-uppercase bold">{{player.lastName}}</label></a>
+    <a href="" [routerLink]="['/player', player.id]">
+      <span class="hidden-xs">
+        {{ player.firstName }}
+        <label class="text-uppercase bold">{{ player.lastName }}</label>
+      </span>
+      <span class="visible-xs">
+        {{ player.lastName }}
+        {{ player.firstName.slice(0, 1) }}.
+      </span></a
+    >
   </div>
   <div class="panel-body">
     <div class="row">
       <div class="col-md-5 ">
-        <a href="" [routerLink]="['/player',player.id]">
-          <img [src]="'../../../assets/img/players/' + player.firstName + '_' + player.lastName + '.png'" class="img-responsive img-thumbnail"
+        <a href="" [routerLink]="['/player', player.id]">
+          <img
+            [src]="
+              '../../../assets/img/players/' +
+              player.firstName +
+              '_' +
+              player.lastName +
+              '.png'
+            "
+            class="img-responsive"
           />
         </a>
       </div>
       <div class="col-md-7 hidden-xs">
         <ul class="list-unstyled">
-          <li *ngIf="player.position != 'Gardien' && player.position != 'Defenseur' && player.position != 'Milieu' && player.position != 'Attaquant'">
-            <b> {{player.position}}</b></li>
-          <li *ngIf="player.nickname != null">Alias {{player.nickname}}</li>
-          <li *ngIf="playerAge != 0">{{player.dateOfBirth | frDate:"dd/MM/yyyy"}} ({{playerAge}} ans)</li>
-          <li *ngIf="player.height != null && player.height != 0">{{player.height /100 }} m</li>
-          <li *ngIf="player.weight != null && player.weight != 0">{{player.weight}} kg</li>
-          <li>{{player.nationality}}</li>
+          <li
+            *ngIf="
+              player.position != 'Gardien' &&
+              player.position != 'Defenseur' &&
+              player.position != 'Milieu' &&
+              player.position != 'Attaquant'
+            "
+          >
+            <b> {{ player.position }}</b>
+          </li>
+          <li *ngIf="player.nickname != null">Alias {{ player.nickname }}</li>
+          <li *ngIf="playerAge != 0">
+            {{ player.dateOfBirth | frDate: 'dd/MM/yyyy' }} ({{ playerAge }}
+            ans)
+          </li>
+          <li *ngIf="player.height != null && player.height != 0">
+            {{ player.height / 100 }} m
+          </li>
+          <li *ngIf="player.weight != null && player.weight != 0">
+            {{ player.weight }} kg
+          </li>
+          <li>{{ player.nationality }}</li>
         </ul>
       </div>
       <!--| number : '1.2-2' -->
     </div>
-    <div style="height: 30px; margin-top:5px" class="hidden-xs">
-      <b>Clubs précédents: </b> {{player.previousClubs}}
+    <div style="height: 50px; margin-top:5px" class="hidden-xs">
+      <b>Clubs précédents: </b> {{ player.previousClubs }}
     </div>
   </div>
 </div>

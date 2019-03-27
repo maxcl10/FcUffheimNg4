@@ -12,7 +12,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist",
-            "index": "src/index.fcb.html",
+            "index": "src/index.html",
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
@@ -84,14 +84,6 @@
                 {
                   "replace": "src/sitemap.xml",
                   "with": "src/sitemap.fcb.xml"
-                },
-                {
-                  "replace": "src/styles/bootstrap/css/styles.css",
-                  "with": "src/styles/bootstrap/css/fcb_styles.css"
-                },
-                {
-                  "replace": "src/styles/site.css",
-                  "with": "src/styles/fcb_site.css"
                 }
               ],
               "serviceWorker": true
