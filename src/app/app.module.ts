@@ -87,6 +87,7 @@ import { LeagueRankingsService } from './league-table/shared/league-table.servic
 import { TeamsService } from './teams/shared/teams.service';
 import { GuideComponent } from './style/guide/guide.component';
 import { OrganizationalChartComponent } from './club/organizational-chart/organizational-chart.component';
+import { BreadcrumbsModule } from 'ng6-breadcrumbs';
 
 // Application wide providers
 const APP_PROVIDERS = [...APP_RESOLVER_PROVIDERS, AppState];
@@ -150,6 +151,7 @@ export function initializeApp(appConfig: AppConfig) {
     BrowserModule,
     ChartsModule,
     EditorModule,
+    BreadcrumbsModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,

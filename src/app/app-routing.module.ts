@@ -40,11 +40,17 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    data: {
+      breadcrumb: 'Home'
+    }
   },
   {
     path: 'team/:id',
-    component: TeamComponent
+    component: TeamComponent,
+    data: {
+      breadcrumb: 'Home'
+    }
   },
   {
     path: 'club/history',
