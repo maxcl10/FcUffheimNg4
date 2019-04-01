@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Article, ArticlesService } from '../shared/index';
-import { AuthenticationService } from '../../shared/services/authentication.service';
+import { Article } from '../../shared/models/article.model';
+import { AuthenticationService } from '../../core/authentication.service';
 import { Title } from '@angular/platform-browser';
 import { AppConfig } from '../../app.config';
+import { ArticlesService } from '../../core/articles.service';
 
 @Component({
   selector: 'fws-article',

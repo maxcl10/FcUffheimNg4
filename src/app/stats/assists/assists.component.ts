@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { StatsService } from '../shared/stats.service';
+import { StatsService } from '../../core/stats.service';
 import { Stricker } from '../shared/stricker.model';
 
 @Component({

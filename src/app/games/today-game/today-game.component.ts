@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { GamesService } from '../shared/games.service';
-import { LogoService } from '../../shared/services/logo.service';
-import { Game } from '../shared/game.model';
+import { GamesService } from '../../core/games.service';
+import { LogoService } from '../../core/logo.service';
+import { Game } from '../../shared/models/game.model';
 
 @Component({
   selector: 'fws-today-game',

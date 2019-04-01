@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { GamesService } from '../shared/games.service';
-import { Game } from '../shared/game.model';
-import { LogoService } from '../../shared/services/logo.service';
+import { GamesService } from '../../core/games.service';
+import { Game } from '../../shared/models/game.model';
+import { LogoService } from '../../core/logo.service';
 
 @Component({
   selector: 'fws-next-game',

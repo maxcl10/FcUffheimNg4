@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { PlayersService } from '../../players/shared/players.service';
-import { TeamsService } from '../../teams/shared/teams.service';
-import { Player } from '../../players/shared/player.model';
+import { PlayersService } from '../../shared/services/players.service';
+import { TeamsService } from '../../core/teams.service';
+import { Player } from '../../shared/models/player.model';
 
 import { Title } from '@angular/platform-browser';
 import { AppConfig } from '../../app.config';

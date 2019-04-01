@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Player } from '../shared/player.model';
-import { FrDatePipeComponent } from '../../shared/pipes/fr-date-pipe';
+import { Player } from '../../shared/models/player.model';
 
 @Component({
   selector: 'fws-player-details-small',

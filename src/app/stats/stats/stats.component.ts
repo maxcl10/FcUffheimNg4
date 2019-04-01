@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { AppConfig } from '../../app.config';
-import { StatsService } from '../shared/stats.service';
+import { StatsService } from '../../core/stats.service';
 import { Stricker } from '../shared/stricker.model';
 import { Observable } from 'rxjs';
 

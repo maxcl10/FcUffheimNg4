@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 // import { CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass } from '@angular/common';
-import { StatsService } from '../../stats/shared/stats.service';
+import { StatsService } from '../../core/stats.service';
 import { RankingHistory } from '../shared/rankingHistory.model';
 
 @Component({

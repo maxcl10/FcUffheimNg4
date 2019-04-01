@@ -11,13 +11,21 @@
 </ul>
 
 <div class="tab-content">
-  <div id="articles" class="tab-pane fade  in active" *ngIf="articles$ | async as articles">
+  <div
+    id="articles"
+    class="tab-pane fade  in active"
+    *ngIf="(articles$ | async) as articles"
+  >
     <div class="panel panel-default">
       <div class="panel-heading">
-        <a class="btn btn-success pull-right" href="" [routerLink]="['newArticle']">
+        <a
+          class="btn btn-success pull-right"
+          href=""
+          [routerLink]="['newArticle']"
+        >
           <span class="glyphicon glyphicon-plus"></span> Article
         </a>
-        <h4>{{articles.length}} articles</h4>
+        <h4>{{ articles.length }} articles</h4>
       </div>
       <div class="panel-body">
         <table class="table table-hover table-clickable">
@@ -31,13 +39,13 @@
           <tbody>
             <tr *ngFor="let article of articles" (click)="onselect(article)">
               <td>
-                {{article.title}}
+                {{ article.title }}
               </td>
               <td>
-                {{article.publisher}}
+                {{ article.publisher }}
               </td>
               <td>
-                {{article.publishedDate | date:"dd/MM/yyyy"}}
+                {{ article.publishedDate | date: 'dd/MM/yyyy' }}
               </td>
             </tr>
           </tbody>
@@ -49,10 +57,14 @@
   <div id="players" class="tab-pane fade">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <a class="btn btn-success pull-right" href="" [routerLink]="['newPlayer']">
+        <a
+          class="btn btn-success pull-right"
+          href=""
+          [routerLink]="['newPlayer']"
+        >
           <span class="glyphicon glyphicon-plus"></span> Joueur
         </a>
-        <h4>{{players?.length}} joueurs</h4>
+        <h4>{{ players?.length }} joueurs</h4>
       </div>
       <div class="panel-body">
         <table class="table table-hover table-clickable">
@@ -67,16 +79,23 @@
           <tbody>
             <tr *ngFor="let player of players" (click)="onPlayerSelect(player)">
               <td>
-                <img [src]="'../../../assets/img/players/' + player.firstName + '_' + player.lastName + '.png'" style="height: 30px" />
+                <img
+                  [src]="
+                    '../../../assets/img/players/' +
+                    player.firstName +
+                    '_' +
+                    player.lastName +
+                    '.png'
+                  "
+                  style="height: 30px"
+                />
+              </td>
+              <td>{{ player.firstName }} {{ player.lastName }}</td>
+              <td>
+                {{ player.position }}
               </td>
               <td>
-                {{player.firstName}} {{player.lastName}}
-              </td>
-              <td>
-                {{player.position}}
-              </td>
-              <td>
-                {{player.dateOfBirth | date:'dd/MM/yyyy'}}
+                {{ player.dateOfBirth | date: 'dd/MM/yyyy' }}
               </td>
             </tr>
           </tbody>
@@ -93,13 +112,17 @@
     </div>
   </div>
 
-  <div id="games" class="tab-pane fade" *ngIf="games$ | async as games">
+  <div id="games" class="tab-pane fade" *ngIf="(games$ | async) as games">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <a class="btn btn-success pull-right" href="" [routerLink]="['newGame']">
+        <a
+          class="btn btn-success pull-right"
+          href=""
+          [routerLink]="['newGame']"
+        >
           <span class="glyphicon glyphicon-plus"></span> Matches
         </a>
-        <h4>{{games.length}} matches</h4>
+        <h4>{{ games.length }} matches</h4>
       </div>
       <div class="panel-body">
         <table class="table table-hover table-clickable">
@@ -113,23 +136,18 @@
           <tbody>
             <tr *ngFor="let game of games" (click)="onGameSelect(game)">
               <td>
-                {{game.HomeTeam}}
+                {{ game.HomeTeam }}
               </td>
               <td>
-                {{game.AwayTeam}}
+                {{ game.AwayTeam }}
               </td>
-              <td>
-                {{game.HomeTeamScore}} - {{game.AwayTeamScore}}
-              </td>
+              <td>{{ game.HomeTeamScore }} - {{ game.AwayTeamScore }}</td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-
-
   </div>
-
 
   <div id="ranking" class="tab-pane fade">
     <div class="panel panel-default">

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LeagueRankingsService } from '../../league-table/shared/league-table.service';
-import { TeamsService } from '../../teams/shared/teams.service';
+import { LeagueRankingsService } from '../../core/league-table.service';
+import { TeamsService } from '../../core/teams.service';
 import { Ranking } from '../../league-table/shared/league-table.model';
 
 @Component({

@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Player } from '../shared/player.model';
-import { PlayersService } from '../shared/players.service';
-import { FrDatePipeComponent } from '../../shared/pipes/fr-date-pipe';
-import { AuthenticationService } from '../../shared/services/authentication.service';
-import { SeoService } from '../../shared/services/seo.service';
+import { Player } from '../../shared/models/player.model';
+import { PlayersService } from '../../shared/services/players.service';
+import { AuthenticationService } from '../../core/authentication.service';
+import { SeoService } from '../../core/seo.service';
 import { AppConfig } from '../../app.config';
 
 @Component({

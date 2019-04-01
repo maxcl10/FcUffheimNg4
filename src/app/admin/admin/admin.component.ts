@@ -1,16 +1,17 @@
 import { Component, OnInit, Output, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Article, ArticlesService } from '../../articles/shared/index';
+import { Article } from '../../shared/models/article.model';
 
-import { PlayersService } from '../../players/shared/players.service';
-import { Player } from '../../players/shared/player.model';
+import { PlayersService } from '../../shared/services/players.service';
+import { Player } from '../../shared/models/player.model';
 
-import { GamesService } from '../../games/shared/games.service';
-import { Game } from '../../games/shared/game.model';
+import { GamesService } from '../../core/games.service';
+import { Game } from '../../shared/models/game.model';
 
-import { AuthenticationService } from '../../shared/services/authentication.service';
+import { AuthenticationService } from '../../core/authentication.service';
 import { Observable, Subscription } from 'rxjs';
+import { ArticlesService } from '../../core/articles.service';
 
 @Component({
   selector: 'fws-admin',
@@ -44,7 +45,7 @@ export class AdminComponent implements OnInit, OnDestroy {
 
   public ngOnInit() {
     if (!this.authenticationService.checkCredentials()) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['admin/login']);
     } else {
       this.playerSubscription = this.playersService
         .getplayers()

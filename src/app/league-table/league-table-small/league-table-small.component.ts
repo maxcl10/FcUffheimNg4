@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Ranking } from '../shared/league-table.model';
-import { LeagueRankingsService } from '../shared/league-table.service';
-import { TeamsService } from '../../teams/shared/teams.service';
+import { LeagueRankingsService } from '../../core/league-table.service';
+import { TeamsService } from '../../core/teams.service';
 
 @Component({
   selector: 'fws-league-table-small',

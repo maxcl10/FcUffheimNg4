@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ChartsModule } from 'ng2-charts';
-import { StatsService } from '../../stats/shared/stats.service';
+import { StatsService } from '../../core/stats.service';
 import { AppConfig } from '../../app.config';
 
 @Component({

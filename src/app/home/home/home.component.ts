@@ -1,8 +1,8 @@
 import { Component, Output, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Article } from '../../articles/shared/article.model';
-import { ArticlesService } from '../../articles/shared/articles.service';
+import { Article } from '../../shared/models/article.model';
+import { ArticlesService } from '../../core/articles.service';
 import { Title } from '@angular/platform-browser';
 import { AppConfig } from '../../app.config';
 

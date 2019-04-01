@@ -3,7 +3,7 @@ import { Component, Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'frDate'
 })
-export class FrDatePipeComponent implements PipeTransform {
+export class FrDatePipe implements PipeTransform {
   private timeSeparator = 'h';
 
   public transform(value, args) {
@@ -60,11 +60,10 @@ export class FrDatePipeComponent implements PipeTransform {
       );
     }
     if (args === 'month') {
-      return  this.getFrMonth(myDate.getMonth());
+      return this.getFrMonth(myDate.getMonth());
     }
     if (args === 'month/year') {
-      return  this.getFrMonth(myDate.getMonth()) +
-      ' ' + myDate.getFullYear();
+      return this.getFrMonth(myDate.getMonth()) + ' ' + myDate.getFullYear();
     }
     if (args === 'longDate') {
       return (

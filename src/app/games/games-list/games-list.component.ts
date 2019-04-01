@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { GamesService } from '../shared/games.service';
-import { Game } from '../shared/game.model';
-import { LogoService } from '../../shared/services/logo.service';
-import { SeoService } from '../../shared/services/seo.service';
-import { TeamsService } from '../../teams/shared/teams.service';
+import { GamesService } from '../../core/games.service';
+import { Game } from '../../shared/models/game.model';
+import { LogoService } from '../../core/logo.service';
+import { SeoService } from '../../core/seo.service';
+import { TeamsService } from '../../core/teams.service';
 import { AppConfig } from '../../app.config';
 
 import {
