@@ -23,9 +23,13 @@ export class EditArticleComponent implements OnInit {
   public tinyMceSettings = {
     inline: false,
     statusbar: false,
-    browser_spellcheck: true,
-    height: 320,
-    plugins: 'fullscreen'
+    browser_spellcheck: false,
+    height: 400,
+    plugins: `fullscreen advlist autolink lists link image charmap print preview anchor textcolor
+      searchreplace visualblocks code fullscreen insertdatetime media table contextmenu paste code help wordcount`,
+    toolbar: `formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter
+      | link image media pageembed | alignleft aligncenter alignright alignjustify  |
+      numlist bullist outdent indent | removeformat | addcomment`
   };
 
   public getArticle(id: string) {

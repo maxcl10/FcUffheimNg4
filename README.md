@@ -47,6 +47,7 @@ Change the id with the correct image ifd
 - fix FB integration => check if sharing os working
 - use route guard for securing the admin part
 - get ride of moment locale in vendor
+- set back footer
 
 ### Done
 

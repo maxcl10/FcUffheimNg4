@@ -78,7 +78,7 @@ export class PlayerComponent implements OnInit {
   }
 
   public goToEdit() {
-    this.router.navigate(['/editPlayer', this.player.id]);
+    this.router.navigate(['admin/editPlayer', this.player.id]);
   }
 
   public goBack() {

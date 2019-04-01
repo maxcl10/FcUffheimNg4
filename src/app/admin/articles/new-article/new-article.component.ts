@@ -23,7 +23,7 @@ export class NewArticleComponent {
   public tinyMceSettings = {
     inline: false,
     statusbar: false,
-    browser_spellcheck: true,
+    browser_spellcheck: false,
     height: 400,
     plugins: `fullscreen advlist autolink lists link image charmap print preview anchor textcolor
       searchreplace visualblocks code fullscreen insertdatetime media table contextmenu paste code help wordcount`,

@@ -61,7 +61,7 @@ export class ArticleComponent implements OnInit {
   }
 
   public goToEdit() {
-    this.router.navigate(['/editArticle', this.article.id]);
+    this.router.navigate(['/admin/editArticle', this.article.id]);
   }
 
   public goToAdmin() {
