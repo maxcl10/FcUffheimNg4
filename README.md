@@ -27,10 +27,33 @@ docker build --rm -f "Dockerfile" -t test .
 
 ### Tag the image
 
-- docker tag d70922b6c9ed maxcl10/football-web-site:test
+Change the id with the correct image ifd
+
+- docker tag c11381224b65 maxcl10/football-web-site:test
 
 ### Push the image in the reporsitory
 
 - docker push maxcl10/football-web-site:test
 
 ### Deploy to azure
+
+### Todos
+
+- Get Next Game must return the next game if today
+- Improve admin navigation
+- Add Pictures for organizational chart
+- move service to shared?
+- add cup assist in DB and UI
+- fix FB integration => check if sharing os working
+- use route guard for securing the admin part
+- get ride of moment locale in vendor
+
+### Done
+
+- make direct link work
+
+### Pricing
+
+docker container
+service app
+DB => free
