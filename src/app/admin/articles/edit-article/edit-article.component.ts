@@ -20,6 +20,14 @@ export class EditArticleComponent implements OnInit {
     this.article = new Article();
   }
 
+  public tinyMceSettings = {
+    inline: false,
+    statusbar: false,
+    browser_spellcheck: true,
+    height: 320,
+    plugins: 'fullscreen'
+  };
+
   public getArticle(id: string) {
     this.articlesService.getArticle(id).subscribe(
       article => {

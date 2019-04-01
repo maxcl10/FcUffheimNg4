@@ -52,6 +52,11 @@ Change the id with the correct image ifd
 
 - make direct link work
 
+# Tiny MCE
+
+maxime.matter@hotmail.fr
+Key x6kya91fxd4udiq2afldv6hr7u1oseggp245bsyzbtpysjey
+
 ### Pricing
 
 docker container
