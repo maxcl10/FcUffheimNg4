@@ -40,18 +40,20 @@ Change the id with the correct image ifd
 ### Todos
 
 - Get Next Game must return the next game if today
-- Improve admin navigation
+- Use caching services to avoid serice calls
 - Add Pictures for organizational chart
 - move service to shared?
 - add cup assist in DB and UI
 - fix FB integration => check if sharing os working
-- use route guard for securing the admin part
+
 - get ride of moment locale in vendor
 - set back footer
 
 ### Done
 
 - make direct link work
+- Improve admin navigation
+- use route guard for securing the admin part
 
 # Tiny MCE
 

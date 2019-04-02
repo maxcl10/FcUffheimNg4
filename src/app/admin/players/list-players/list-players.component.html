@@ -1,0 +1,58 @@
+<h2>Joueurs</h2>
+<div
+  class="panel panel-default"
+  *ngIf="(players$ | async) as players; else loading"
+>
+  <div class="panel-heading">
+    <a
+      class="btn btn-success pull-right"
+      href=""
+      [routerLink]="['/admin/newPlayer']"
+    >
+      <span class="glyphicon glyphicon-plus"></span> Joueur
+    </a>
+    <h4>{{ players?.length }} joueurs</h4>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover table-clickable">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Joueur</th>
+          <th>Poste</th>
+          <th class="hidden-xs">Date de naissance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let player of (players$ | async)"
+          (click)="onPlayerSelect(player)"
+        >
+          <td>
+            <img
+              [src]="
+                '../../../assets/img/players/' +
+                player.firstName +
+                '_' +
+                player.lastName +
+                '.png'
+              "
+              style="height: 30px"
+              class="img-circle"
+            />
+          </td>
+          <td>{{ player.firstName }} {{ player.lastName }}</td>
+          <td>
+            {{ player.position }}
+          </td>
+          <td class="hidden-xs">
+            {{ player.dateOfBirth | date: 'dd/MM/yyyy' }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<ng-template #loading>
+  Chargement des matches...
+</ng-template>

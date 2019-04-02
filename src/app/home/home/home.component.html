@@ -1,54 +1,153 @@
-<div class="row">
-  <div class="col-md-8 col-sm-12 col-xs-12">
-    <div class="panel">
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Carousel indicators -->
-        <ol class="carousel-indicators">
-          <li
-            data-target="#myCarousel"
-            *ngFor="let url of imageUrls; let i = index"
-            data-slide-to="i"
-            [ngClass]="i == 0 ? 'active' : ''"
-          ></li>
-        </ol>
-        <!-- Wrapper for carousel items -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-sm-12 col-xs-12">
+      <div class="panel">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <!-- Carousel indicators -->
+          <ol class="carousel-indicators">
+            <li
+              data-target="#myCarousel"
+              *ngFor="let url of imageUrls; let i = index"
+              data-slide-to="i"
+              [ngClass]="i == 0 ? 'active' : ''"
+            ></li>
+          </ol>
+          <!-- Wrapper for carousel items -->
 
-        <div class="carousel-inner ">
-          <div
-            *ngFor="let url of imageUrls; let i = index"
-            [ngClass]="i == 0 ? 'item active' : 'item'"
+          <div class="carousel-inner ">
+            <div
+              *ngFor="let url of imageUrls; let i = index"
+              [ngClass]="i == 0 ? 'item active' : 'item'"
+            >
+              <img class="img-thumbnail" src="{{ url }}" alt="Team Slide" />
+            </div>
+          </div>
+          <!-- Carousel controls -->
+          <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a
+            class="carousel-control right"
+            href="#myCarousel"
+            data-slide="next"
           >
-            <img class="img-thumbnail" src="{{ url }}" alt="Team Slide" />
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div>
+      </div>
+
+      <div *ngIf="loaded == false">
+        <img
+          src="../../../assets/img/loader_gif.gif"
+          width="150px"
+          class="center-block"
+        />
+        <p class="text-center">Chargement...</p>
+      </div>
+
+      <fws-today-game></fws-today-game>
+
+      <div class="visible-xs ">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4><a href="" [routerLink]="['/games']">Prochain match</a></h4>
+          </div>
+          <div class="panel-body">
+            <fws-next-game></fws-next-game>
           </div>
         </div>
-        <!-- Carousel controls -->
-        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="carousel-control right" href="#myCarousel" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4><a href="" [routerLink]="['/games']">Dernier match</a></h4>
+          </div>
+          <div class="panel-body">
+            <fws-last-game></fws-last-game>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="loaded == true" class="animated fadeIn">
+        <h2 class="visible-xs">News</h2>
+        <article
+          *ngFor="let article of articles"
+          style="margin-top: 15px"
+          class="partialHidden"
+        >
+          <div class="panel panel-default ">
+            <div class="panel-heading">
+              <div
+                class="fb-share-button pull-right"
+                data-href="https://fcbartenheim.com"
+                data-layout="button_count"
+                data-size="small"
+                data-mobile-iframe="true"
+              >
+                <a
+                  class="fb-xfbml-parse-ignore"
+                  target="_blank"
+                  [href]="
+                    'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F.fcbartenheim.com/article/' +
+                    article.id +
+                    '%2F&amp;src=sdkpreparse'
+                  "
+                  >Partager</a
+                >
+              </div>
+              <h4>
+                <a href="" [routerLink]="['/article', article.id]">{{
+                  article.title
+                }}</a>
+              </h4>
+            </div>
+            <div
+              class="
+          panel-body"
+            >
+              <span [innerHTML]="article.body"></span>
+              <!--{{article.body}}-->
+            </div>
+            <!--<div class="panel-footer" style="text-align: right">
+                <label>Publié le {{article.publishedDate | date:"dd MMMM yyyy" }} par {{article.publisher}}</label>
+            </div>-->
+            <a
+              href=""
+              [routerLink]="['/article', article.id]"
+              style="position: absolute; bottom: 10px; right: 10px; z-index: 99999"
+              class="pull-right"
+              >Suite...</a
+            >
+          </div>
+        </article>
       </div>
     </div>
 
-    <div *ngIf="loaded == false">
-      <img
-        src="../../../assets/img/loader_gif.gif"
-        width="150px"
-        class="center-block"
-      />
-      <p class="text-center">Chargement...</p>
-    </div>
-
-    <fws-today-game></fws-today-game>
-
-    <div class="visible-xs ">
+    <!-- Side -->
+    <div class="col-md-4 col-sm-3 hidden-xs hidden-sm ">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h4><a href="" [routerLink]="['/games']">Prochain match</a></h4>
+          <h4><a href="" [routerLink]="['/games']">Prochains match</a></h4>
         </div>
         <div class="panel-body">
           <fws-next-game></fws-next-game>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4><a href="" [routerLink]="['/league-table']">Classement</a></h4>
+        </div>
+        <div class="panel-body">
+          <fws-league-table-small></fws-league-table-small>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4><a href="" [routerLink]="['/league-table']">Championnat</a></h4>
+        </div>
+        <div class="panel-body">
+          <fws-season-summary></fws-season-summary>
         </div>
       </div>
 
@@ -60,116 +159,23 @@
           <fws-last-game></fws-last-game>
         </div>
       </div>
-    </div>
 
-    <div *ngIf="loaded == true" class="animated fadeIn">
-      <h2 class="visible-xs">News</h2>
-      <article
-        *ngFor="let article of articles"
-        style="margin-top: 15px"
-        class="partialHidden"
-      >
-        <div class="panel panel-default ">
-          <div class="panel-heading">
-            <div
-              class="fb-share-button pull-right"
-              data-href="https://fcbartenheim.com"
-              data-layout="button_count"
-              data-size="small"
-              data-mobile-iframe="true"
-            >
-              <a
-                class="fb-xfbml-parse-ignore"
-                target="_blank"
-                [href]="
-                  'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F.fcbartenheim.com/article/' +
-                  article.id +
-                  '%2F&amp;src=sdkpreparse'
-                "
-                >Partager</a
-              >
-            </div>
-            <h4>
-              <a href="" [routerLink]="['/article', article.id]">{{
-                article.title
-              }}</a>
-            </h4>
-          </div>
-          <div
-            class="
-          panel-body"
-          >
-            <span [innerHTML]="article.body"></span>
-            <!--{{article.body}}-->
-          </div>
-          <!--<div class="panel-footer" style="text-align: right">
-                <label>Publié le {{article.publishedDate | date:"dd MMMM yyyy" }} par {{article.publisher}}</label>
-            </div>-->
-          <a
-            href=""
-            [routerLink]="['/article', article.id]"
-            style="position: absolute; bottom: 10px; right: 10px; z-index: 99999"
-            class="pull-right"
-            >Suite...</a
-          >
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>Présentation joueur</h4>
         </div>
-      </article>
-    </div>
-  </div>
+        <div class="panel-body">
+          <fws-players-carousel></fws-players-carousel>
+        </div>
+      </div>
 
-  <!-- Side -->
-  <div class="col-md-4 col-sm-3 hidden-xs hidden-sm ">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4><a href="" [routerLink]="['/games']">Prochains match</a></h4>
-      </div>
-      <div class="panel-body">
-        <fws-next-game></fws-next-game>
-      </div>
-    </div>
-
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4><a href="" [routerLink]="['/league-table']">Classement</a></h4>
-      </div>
-      <div class="panel-body">
-        <fws-league-table-small></fws-league-table-small>
-      </div>
-    </div>
-
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4><a href="" [routerLink]="['/league-table']">Championnat</a></h4>
-      </div>
-      <div class="panel-body">
-        <fws-season-summary></fws-season-summary>
-      </div>
-    </div>
-
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4><a href="" [routerLink]="['/games']">Dernier match</a></h4>
-      </div>
-      <div class="panel-body">
-        <fws-last-game></fws-last-game>
-      </div>
-    </div>
-
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4>Présentation joueur</h4>
-      </div>
-      <div class="panel-body">
-        <fws-players-carousel></fws-players-carousel>
-      </div>
-    </div>
-
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4><a href="" [routerLink]="['/stats']">Stats</a></h4>
-      </div>
-      <div class="panel-body">
-        <fws-games-pie-chart></fws-games-pie-chart>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4><a href="" [routerLink]="['/stats']">Stats</a></h4>
+        </div>
+        <div class="panel-body">
+          <fws-games-pie-chart></fws-games-pie-chart>
+        </div>
       </div>
     </div>
   </div>

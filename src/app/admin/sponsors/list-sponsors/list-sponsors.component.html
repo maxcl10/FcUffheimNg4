@@ -1,0 +1,30 @@
+<h2>
+  Partenaires
+</h2>
+<div class="panel panel-default" *ngIf="(sponsors$ | async) as sponsors">
+  <div class="panel-heading">
+    <a
+      class="btn btn-success pull-right"
+      href=""
+      [routerLink]="['/admin/newSponsor']"
+    >
+      <span class="glyphicon glyphicon-plus"></span> Partenaire
+    </a>
+    <h4>{{ sponsors.length }} Partenaires</h4>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <tr *ngFor="let sponsor of sponsors">
+        <td>
+          <img
+            style="width: 100px"
+            class="img-responsive"
+            src="../../../assets/img/sponsors/{{ sponsor.logoUrl }}"
+          />
+        </td>
+        <td>{{ sponsor.name }}</td>
+        <td>{{ sponsor.siteUrl }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

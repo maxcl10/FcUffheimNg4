@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Sponsor } from '../../shared/models/sponsor.model';
-import { SponsorsService } from '../../core/sponsors.service';
+import { Sponsor } from '../../../shared/models/sponsor.model';
+import { SponsorsService } from '../../../core/sponsors.service';
 
 @Component({
   selector: 'fws-new-sponsor',

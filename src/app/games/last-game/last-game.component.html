@@ -1,24 +1,4 @@
 <span *ngIf="game != null">
-  <!-- <div>
-    <span>
-      <img [src]="game.homeTeamLogoUrl" [title]="game.HomeTeam"> <span class="hidden-sm">{{game.HomeTeam}}</span>
-    </span>
-    <span class="pull-right">
-      <span class="hidden-sm">{{game.AwayTeam}}</span><img [src]="game.awayTeamLogoUrl" [title]="game.AwayTeam">
-    </span>
-  </div>
-  <div class="text-center emphasize">
-    {{game.HomeTeamScore}} - {{game.AwayTeamScore}}
-  </div>
-  <div>
-    <label class="hidden-sm">
-      {{game.MatchDate | frDate:"longDate"}}
-
-    </label>
-    <label class="pull-right">
-      {{game.Championship}}
-    </label>
-  </div> -->
   <div class="text-center help-block">
     <b> {{ game.MatchDate | frDate: 'longDate' }}</b>
   </div>
@@ -35,56 +15,8 @@
       </div>
     </div>
     <div class="text-center align-middle">
-      <span
-        style="margin-top: 10px; margin-bottom: 5px"
-        *ngIf="game.HomeTeamScore != null && game.AwayTeamScore != null"
-        class="badge"
-        [ngClass]="{
-          'badge-success':
-            (game.HomeTeamScore > game.AwayTeamScore &&
-              game.HomeTeam == homeTeam) ||
-            (game.HomeTeamScore < game.AwayTeamScore &&
-              game.AwayTeam == homeTeam) ||
-            (game.HomeExtraTimeScore > game.AwayExtraTimeScore &&
-              game.HomeTeam == homeTeam) ||
-            (game.HomeExtraTimeScore < game.AwayExtraTimeScore &&
-              game.AwayTeam == homeTeam) ||
-            (game.HomePenaltyScore > game.AwayPenaltyScore &&
-              game.HomeTeam == homeTeam) ||
-            (game.HomePenaltyScore < game.AwayPenaltyScore &&
-              game.AwayTeam == homeTeam),
-
-          'badge-danger':
-            (game.HomeTeamScore < game.AwayTeamScore &&
-              game.HomeTeam == homeTeam) ||
-            (game.HomeTeamScore > game.AwayTeamScore &&
-              game.AwayTeam == homeTeam) ||
-            (game.HomeExtraTimeScore < game.AwayExtraTimeScore &&
-              game.HomeTeam == homeTeam) ||
-            (game.HomeExtraTimeScore > game.AwayExtraTimeScore &&
-              game.AwayTeam == homeTeam) ||
-            (game.HomePenaltyScore < game.AwayPenaltyScore &&
-              game.HomeTeam == homeTeam) ||
-            (game.HomePenaltyScore > game.AwayPenaltyScore &&
-              game.AwayTeam == homeTeam),
-
-          'badge-default':
-            game.HomeTeamScore == game.AwayTeamScore &&
-            !game.AwayPenaltyScore &&
-            !game.HomePenaltyScore &&
-            !game.HomeExtraTimeScore &&
-            !game.AwayExtraTimeScore
-        }"
-      >
-        <span style="font-size: 18px;"
-          >{{ game.HomeTeamScore }} - {{ game.AwayTeamScore }}</span
-        >
-        <div
-          style="margin-top: 5px"
-          *ngIf="game.HomePenaltyScore != null && game.AwayPenaltyScore != null"
-        >
-          tab {{ game.HomePenaltyScore }} - {{ game.AwayPenaltyScore }}
-        </div>
+      <span style="margin-top: 10px; margin-bottom: 5px">
+        <fws-game-score [game]="game"></fws-game-score>
       </span>
     </div>
   </div>

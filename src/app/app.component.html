@@ -111,18 +111,15 @@
 </nav>
 <!-- Not too much sense <breadcrumb [allowBootstrap]="true"></breadcrumb> -->
 <!--Body-->
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <!-- <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''"> -->
-      <main>
-        <router-outlet #o="outlet"></router-outlet>
-      </main>
-    </div>
-  </div>
-  <!--Footer-->
-  <!-- <footer class="footer" style="margin-top: 20px">
-    <div class="container-fluid">
+
+<!-- <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''"> -->
+<main>
+  <router-outlet #o="outlet"></router-outlet>
+</main>
+
+<!--Footer-->
+<!-- <footer class="footer" style="margin-top: 20px">
+    <div class="container">
       <div style="margin-top: 10px">
         <a href="" [routerLink]="['admin']">Admin</a>
         <span class="pull-right">
@@ -134,4 +131,4 @@
       </div>
     </div>
   </footer> -->
-</div>
+

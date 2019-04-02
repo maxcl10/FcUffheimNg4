@@ -7,6 +7,7 @@ import { AppConfig } from '../app.config';
 @Injectable()
 export class AuthenticationService {
   private playerUrl = AppConfig.settings.apiServer.url + '/authentication';
+  redirectUrl: string;
 
   constructor(private http: HttpClient) {}
 
@@ -17,11 +18,11 @@ export class AuthenticationService {
     sessionStorage.removeItem('user');
   }
 
-  public getLoggedUserId() {
-    return sessionStorage.getItem('user');
+  public getLoggedUser(): User {
+    return JSON.parse(sessionStorage.getItem('user'));
   }
 
-  public checkCredentials() {
+  public isLoggedIn() {
     if (sessionStorage.getItem('user') === null) {
       return false;
     }

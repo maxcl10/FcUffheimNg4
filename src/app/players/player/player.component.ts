@@ -37,7 +37,7 @@ export class PlayerComponent implements OnInit {
       const id = params['id'];
       this.getPlayer(id);
     });
-    this.isAuthenticated = this.authenticationService.checkCredentials();
+    this.isAuthenticated = this.authenticationService.isLoggedIn();
   }
 
   public getPlayer(id: string) {

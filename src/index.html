@@ -41,9 +41,12 @@
     <script>
       $(document).ready(function() {
         //fix the top bar when scrolling
+
         $(document).scroll(function(e) {
+          var navbar = document.getElementById('nav');
           var scrollTop = $(document).scrollTop();
-          if (scrollTop > 70) {
+          // alert(scrollTop);
+          if (scrollTop > navbar.offsetTop) {
             $('.navbar')
               .removeClass('navbar-static-top')
               .addClass('navbar-fixed-top')

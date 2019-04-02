@@ -35,7 +35,7 @@ export class ArticleComponent implements OnInit {
       const id = params['id']; // (+) converts string 'id' to a number
       this.getArticle(id);
     });
-    this.isAuthenticated = this.authenticationService.checkCredentials();
+    this.isAuthenticated = this.authenticationService.isLoggedIn();
   }
 
   public getArticle(id: string) {

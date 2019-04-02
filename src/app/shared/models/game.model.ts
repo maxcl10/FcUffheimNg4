@@ -15,4 +15,5 @@ export class Game {
   public AwayPenaltyScore: number;
   public homeTeamLogoUrl: string;
   public awayTeamLogoUrl: string;
+  public Result: string;
 }

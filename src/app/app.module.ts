@@ -66,6 +66,7 @@ import { SeasonSummaryComponent } from './stats/season-summary/season-summary.co
 
 import { GuideComponent } from './style/guide/guide.component';
 import { OrganizationalChartComponent } from './club/organizational-chart/organizational-chart.component';
+import { LoginComponent } from './login/login.component';
 
 // Application wide providers
 const APP_PROVIDERS = [...APP_RESOLVER_PROVIDERS, AppState];
@@ -106,7 +107,8 @@ export function initializeApp(appConfig: AppConfig) {
     AssistsComponent,
     SeasonSummaryComponent,
     GuideComponent,
-    OrganizationalChartComponent
+    OrganizationalChartComponent,
+    LoginComponent
   ],
   imports: [
     // import Angular's modules

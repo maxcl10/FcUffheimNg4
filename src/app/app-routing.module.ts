@@ -13,12 +13,15 @@ import { SponsorComponent } from './sponsors/sponsor/sponsor.component';
 import { GamesComponent } from './games/games-list/games-list.component';
 import { StatsComponent } from './stats/stats/stats.component';
 import { GuideComponent } from './style/guide/guide.component';
+import { LoginComponent } from './login/login.component';
 import { OrganizationalChartComponent } from './club/organizational-chart/organizational-chart.component';
+import { AuthGuard } from './user/auth.guard';
 
 const routes: Routes = [
   {
     path: 'admin',
-    loadChildren: './admin/admin.module#AdminModule'
+    loadChildren: './admin/admin.module#AdminModule',
+    canActivate: [AuthGuard]
   },
   {
     path: '',
@@ -80,6 +83,10 @@ const routes: Routes = [
   {
     path: 'guide',
     component: GuideComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ];
 

@@ -1,24 +1,23 @@
-<h3>Mise à jour du classement</h3>
+<h2>Classement</h2>
 
-<!-- <h4>Import</h4>
-<p>Cliquez sur browse et sélectionez le fichier Json à charger.</p> -->
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div *ngIf="success" class="alert alert-success">
+      Le classement a été mis à jour avec succès.
+    </div>
 
-<!--<div class="panel-body" *ngIf="success==false">
-    <input type="file" [ng-file-select]="options" (onUpload)="handleUpload($event)">
-    <input type="file" ngFileSelect [options]="options" (onUpload)="handleUpload($event)">
-</div>-->
-<div *ngIf="success" class="alert alert-success">
-  Le classement a été mis à jour avec succès.
-</div>
+    <div *ngIf="errorMessage != null" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
 
-<div *ngIf="errorMessage != null" class="alert alert-danger">
-  {{errorMessage}}
-</div>
-
-<!-- <div *ngIf="error" class="alert alert-warning">
+    <!-- <div *ngIf="error" class="alert alert-warning">
     {{ uploadFile | json }}
 </div> -->
 
-<!-- <h4>Mise à jour du Classement par la lafa</h4> -->
-<p>Les données seront mises à jour par le biais du site de la LGEF.</p>
-<button (click)="updateRankingFromLafa()" class="btn btn-success">Mettre à jour</button>
+    <!-- <h4>Mise à jour du Classement par la lafa</h4> -->
+    <p>Les données seront mises à jour par le biais du site de la LGEF.</p>
+    <button (click)="updateRankingFromLafa()" class="btn btn-success">
+      Mettre à jour
+    </button>
+  </div>
+</div>

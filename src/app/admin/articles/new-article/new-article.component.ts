@@ -44,7 +44,7 @@ export class NewArticleComponent {
   }
 
   public saveArticle() {
-    this.article.userId = this.authenticationService.getLoggedUserId();
+    this.article.userId = this.authenticationService.getLoggedUser().userId;
     this.articlesService.createArticle(this.article).subscribe(
       article => {
         this.goBack();

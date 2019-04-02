@@ -3,6 +3,7 @@ import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { Player } from '../../../shared/models/player.model';
 import { TeamsService } from '../../../core/teams.service';
 import { Team } from '../../../shared/models/team.model';
+import { PlayersService } from '../../../shared/services/players.service';
 
 // import { DragulaService } from 'ng2-dragula/ng2-dragula';
 
@@ -12,15 +13,6 @@ import { Team } from '../../../shared/models/team.model';
   providers: [TeamsService]
 })
 export class EditTeamComponent implements OnInit {
-  @Input()
-  set allPlayers(players: Player[]) {
-    if (this.selectedTeam === undefined) {
-      this.selectedTeam = 'b8bc86da-9eea-4820-a5d5-c9f57b3b7d80';
-    }
-    this.allPlayersPool = players;
-    this.updateList(players);
-  }
-
   public allPlayersPool: Player[];
   public poolPlayers: Player[];
   public teamPlayers: Player[];
@@ -29,7 +21,18 @@ export class EditTeamComponent implements OnInit {
   public selectedTeam: string;
   public query: string;
 
-  constructor(private teamService: TeamsService) {}
+  constructor(
+    private teamService: TeamsService,
+    private playersService: PlayersService
+  ) {
+    this.playersService.getplayers().subscribe(players => {
+      if (this.selectedTeam === undefined) {
+        this.selectedTeam = 'b8bc86da-9eea-4820-a5d5-c9f57b3b7d80';
+      }
+      this.allPlayersPool = players;
+      this.updateList(players);
+    });
+  }
 
   private updateList(players: Player[]) {
     this.teamService.getPlayers(this.selectedTeam).subscribe(
