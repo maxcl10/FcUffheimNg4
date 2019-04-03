@@ -39,8 +39,6 @@ Change the id with the correct image id
 
 ### Todos
 
-- Get Next Game must return the next game if today
-- Use caching services to avoid serice calls
 - Add Pictures for organizational chart
 - move service to shared?
 - move app env to normal env.
@@ -61,8 +59,10 @@ Change the id with the correct image id
 ### Done
 
 - make direct link work
+- Use caching services to avoid serive calls
 - Improve admin navigation
 - use route guard for securing the admin part
+- Get Next Game must return the next game if today
 
 # Tiny MCE
 
