@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule, Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 // Shared
 import { SharedModule } from '../shared/shared.module';

@@ -27,9 +27,9 @@ docker build --rm -f "Dockerfile" -t test .
 
 ### Tag the image
 
-Change the id with the correct image ifd
+Change the id with the correct image id
 
-- docker tag c11381224b65 maxcl10/football-web-site:test
+- docker tag 4f8cc01d8bcd maxcl10/football-web-site:test
 
 ### Push the image in the reporsitory
 
@@ -43,11 +43,20 @@ Change the id with the correct image ifd
 - Use caching services to avoid serice calls
 - Add Pictures for organizational chart
 - move service to shared?
+- move app env to normal env.
 - add cup assist in DB and UI
 - fix FB integration => check if sharing os working
-
+- Improve games method performance
+- improve page header in xs
+- move guard in core or shared?
+- improve toogle dashboard button
 - get ride of moment locale in vendor
 - set back footer
+- use following code to set the title
+  ngOnInit() {
+  if (document.getElementById('pagetitle')) {
+  document.getElementById('pagetitle').innerHTML = '<h2>Addresses & Contacts</h2>';
+  }
 
 ### Done
 

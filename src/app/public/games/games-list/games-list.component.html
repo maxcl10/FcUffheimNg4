@@ -1,0 +1,35 @@
+<div class="container">
+  <h2 class="pageHeader">Calendrier</h2>
+  <div *ngFor="let month of gamesPerMonth">
+    <a
+      [attr.href]="'#' + month[0].MatchDate | slice: 0:8"
+      [class]="
+        (month[0].MatchDate | slice: 0:7) == currentMonth
+          ? 'accordion-toggle help-block'
+          : 'accordion-toggle collapsed help-block'
+      "
+      data-toggle="collapse"
+      >{{ month[0].MatchDate | frDate: 'month/year' | uppercase }}</a
+    >
+
+    <hr />
+    <div
+      [attr.id]="month[0].MatchDate | slice: 0:7"
+      class=""
+      [class]="
+        (month[0].MatchDate | slice: 0:7) >= currentMonth
+          ? 'collapse in'
+          : 'collapse'
+      "
+    >
+      <div
+        class="panel panel-default "
+        *ngFor="let game of month; let i = index"
+      >
+        <div class="panel-body">
+          <fws-game [game]="game"></fws-game>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

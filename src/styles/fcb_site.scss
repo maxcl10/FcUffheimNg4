@@ -286,6 +286,20 @@ article img {
   transition: all 0.5s ease;
 }
 
+.pageHeader {
+  margin-top: -80px;
+  color: $white-1;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 767px) {
+  .pageHeader {
+    margin-top: 0;
+    color: inherit;
+    margin-bottom: 20px;
+  }
+}
+
 #wrapper.toggled {
   padding-left: 250px;
 }

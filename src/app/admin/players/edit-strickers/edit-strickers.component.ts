@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Player } from '../../../shared/models/player.model';
-import { Stricker } from '../../../stats/shared/stricker.model';
+import { Stricker } from '../../../shared/models/stricker.model';
 import { StatsService } from '../../../core/stats.service';
 import { TeamsService } from '../../../core/teams.service';
 

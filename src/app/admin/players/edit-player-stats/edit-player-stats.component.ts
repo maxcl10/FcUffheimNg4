@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Stricker } from '../../../stats/shared/stricker.model';
+import { Stricker } from '../../../shared/models/stricker.model';
 import { StatsService } from '../../../core/stats.service';
 import { ActivatedRoute } from '@angular/router';
 

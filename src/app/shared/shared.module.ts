@@ -5,6 +5,7 @@ import { FrDatePipe } from './pipes/fr-date-pipe';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { GameComponent } from './components/game/game.component';
 import { GameScoreComponent } from './components/game-score/game-score.component';
+import { GuideComponent } from './components/guide/guide.component';
 
 @NgModule({
   imports: [CommonModule],
@@ -13,7 +14,8 @@ import { GameScoreComponent } from './components/game-score/game-score.component
     FrDatePipe,
     LoadingSpinnerComponent,
     GameComponent,
-    GameScoreComponent
+    GameScoreComponent,
+    GuideComponent
   ],
   exports: [
     CommonModule,

@@ -3,7 +3,7 @@ import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { Player } from '../../../shared/models/player.model';
 import { TeamsService } from '../../../core/teams.service';
 import { Team } from '../../../shared/models/team.model';
-import { PlayersService } from '../../../shared/services/players.service';
+import { PlayersService } from '../../../core/players.service';
 
 // import { DragulaService } from 'ng2-dragula/ng2-dragula';
 

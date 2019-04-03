@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PlayersService } from '../../shared/services/players.service';
+import { PlayersService } from '../../core/players.service';
 import { GamesService } from '../../core/games.service';
 import { AuthenticationService } from '../../core/authentication.service';
 import { ArticlesService } from '../../core/articles.service';
@@ -25,7 +25,7 @@ export class AdminComponent implements OnInit {
 
   public ngOnInit() {}
 
-  private _toggleSidebar() {
+  public _toggleSidebar() {
     $('#wrapper').toggleClass('toggled');
   }
 }

@@ -2,8 +2,8 @@ import { throwError as observableThrowError, Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { RankingHistory } from '../stats/shared/rankingHistory.model';
-import { Stricker } from '../stats/shared/stricker.model';
+import { RankingHistory } from '../shared/models/rankingHistory.model';
+import { Stricker } from '../shared/models/stricker.model';
 import { AppConfig } from '../app.config';
 
 const httpOptions = {

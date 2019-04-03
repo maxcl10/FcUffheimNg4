@@ -14,7 +14,7 @@ import { AppConfig } from './app.config';
 import * as jQuery from 'jquery';
 
 import { ClubService } from './core/club.service';
-import { Club } from './club/shared/club.model';
+import { Club } from './shared/models/club.model';
 declare let ga: any;
 
 /*
