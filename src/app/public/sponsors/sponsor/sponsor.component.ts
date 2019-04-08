@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { SponsorsService } from '../../../core/sponsors.service';
+import { SponsorsService } from '../../../core/services/sponsors.service';
 import { Sponsor } from '../../../shared/models/sponsor.model';
 import { AppConfig } from '../../../app.config';
 import { Observable } from 'rxjs';

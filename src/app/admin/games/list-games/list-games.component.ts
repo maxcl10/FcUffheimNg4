@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Game } from '../../../shared/models/game.model';
-import { GamesService } from '../../../core/games.service';
+import { GamesService } from '../../../core/services/games.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -23,6 +23,6 @@ export class ListGamesComponent implements OnInit {
   }
 
   public goToEditGame(game: Game) {
-    this.router.navigate(['/admin/editGame', game.Id]);
+    this.router.navigate(['/admin/games', game.Id, 'edit']);
   }
 }

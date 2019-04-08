@@ -6,6 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { SharedModule } from '../shared/shared.module';
 
+// Routing
+import { AdminRoutingModule } from './public-routing.module';
+
 // My components
 import { HomeComponent } from './home/home/home.component';
 import { TeamComponent } from './teams/team/team.component';
@@ -33,6 +36,7 @@ import { AssistsComponent } from './stats/assists/assists.component';
 import { SeasonSummaryComponent } from './stats/season-summary/season-summary.component';
 import { OrganizationalChartComponent } from './club/organizational-chart/organizational-chart.component';
 import { LoginComponent } from './login/login.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -63,7 +67,14 @@ import { LoginComponent } from './login/login.component';
     OrganizationalChartComponent,
     LoginComponent
   ],
-  imports: [ChartsModule, RouterModule, SharedModule, FormsModule],
+  imports: [
+    AdminRoutingModule,
+    ChartsModule,
+    RouterModule,
+    SharedModule,
+    FormsModule,
+    CommonModule
+  ],
   exports: [RouterModule]
 })
 export class PublicModule {}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Stricker } from '../../../shared/models/stricker.model';
-import { StatsService } from '../../../core/stats.service';
+import { StatsService } from '../../../core/services/stats.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

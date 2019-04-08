@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
-import { User } from '../shared/models/user.model';
-import { AppConfig } from '../app.config';
+import { User } from '../../shared/models/user.model';
+import { AppConfig } from '../../app.config';
 
 @Injectable()
 export class AuthenticationService {

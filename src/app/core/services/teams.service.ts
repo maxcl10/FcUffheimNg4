@@ -2,9 +2,9 @@ import { throwError as observableThrowError, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { Team } from '../shared/models/team.model';
-import { Player } from '../shared/models/player.model';
-import { AppConfig } from '../app.config';
+import { Team } from '../../shared/models/team.model';
+import { Player } from '../../shared/models/player.model';
+import { AppConfig } from '../../app.config';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -39,6 +39,16 @@ export class TeamsService {
 
   public createTeam(team: Team): Observable<Team> {
     return this.http.post<Team>(this.teamsUrl, team, httpOptions);
+  }
+
+  public updateTeam(team: Team): Observable<Team> {
+    const url = this.teamsUrl + '/' + team.id;
+    return this.http.put<Team>(url, team, httpOptions);
+  }
+
+  public deleteTeam(team: Team): Observable<Team> {
+    const url = this.teamsUrl + '/' + team.id;
+    return this.http.delete<Team>(url, httpOptions);
   }
 
   public addPlayerInTeam(playerId: string, teamId: string) {

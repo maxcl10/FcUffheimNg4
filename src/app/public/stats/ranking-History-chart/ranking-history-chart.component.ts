@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 // import { CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass } from '@angular/common';
-import { StatsService } from '../../../core/stats.service';
+import { StatsService } from '../../../core/services/stats.service';
 
 @Component({
   selector: 'fws-ranking-history-chart',

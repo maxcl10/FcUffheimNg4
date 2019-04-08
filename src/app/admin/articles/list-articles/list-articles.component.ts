@@ -1,6 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ArticlesService } from '../../../core/articles.service';
+import { ArticlesService } from '../../../core/services/articles.service';
 import { Article } from '../../../shared/models/article.model';
 import { Router } from '@angular/router';
 
@@ -29,6 +29,6 @@ export class ListArticlesComponent implements OnInit {
   }
 
   public goToDetails(article: Article) {
-    this.router.navigate(['/article', article.id]);
+    this.router.navigate(['admin/articles', article.id, 'edit']);
   }
 }

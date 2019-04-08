@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LeagueRankingsService } from '../../core/league-table.service';
+import { LeagueRankingsService } from '../../core/services/league-table.service';
 
 @Component({
   selector: 'fws-upload-ranking',

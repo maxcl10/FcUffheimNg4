@@ -6,42 +6,47 @@
     <ul class="sidebar-nav">
       <li>
         <a href="" [routerLink]="['dashboard']">
-          <span class="fa fa-desktop"></span> Dashboard</a
+          <span class="fa fa-dashboard"></span>Dashboard</a
         >
       </li>
       <li>
         <a href="" [routerLink]="['articles']">
-          <span class="fa fa-comment"> </span> Articles</a
+          <span class="fa fa-comment"> </span>Articles</a
         >
       </li>
       <li>
         <a href="" [routerLink]="['players']">
-          <span class="fa fa-user"></span> Joueurs</a
+          <span class="fa fa-user"></span>Joueurs</a
+        >
+      </li>
+      <li>
+        <a href="" [routerLink]="['players/stats']"
+          ><span class="glyphicon glyphicon-stats"></span>Stats Joueurs</a
         >
       </li>
       <li>
         <a href="" [routerLink]="['games']">
-          <span class="fa fa-calendar"></span> Matches</a
+          <span class="fa fa-calendar"></span>Matches</a
         >
       </li>
       <li>
-        <a href="" [routerLink]="['editTeams']"
-          ><span class="fa fa-group"></span> Equipes</a
+        <a href="" [routerLink]="['teams/edit']"
+          ><span class="fa fa-group"></span>Equipes</a
         >
       </li>
       <li>
-        <a href="" [routerLink]="['uploadRanking']"
-          ><span class="fa fa-sort-amount-asc"></span> Classement</a
+        <a href="" [routerLink]="['clubs']"
+          ><span class="fa fa-home"></span>Clubs</a
         >
       </li>
       <li>
-        <a href="" [routerLink]="['strickers']"
-          ><span class="fa fa-dashboard"></span> Stats Saison</a
+        <a href="" [routerLink]="['ranking']"
+          ><span class="fa fa-sort-amount-asc"></span>Classement</a
         >
       </li>
       <li>
         <a href="" [routerLink]="['sponsors']"
-          ><span class="fa fa-thumbs-up"></span> Partenaires</a
+          ><span class="fa fa-thumbs-up"></span>Partenaires</a
         >
       </li>
     </ul>
@@ -50,13 +55,13 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12">
-          <button
+          <!-- <button
             class="btn btn-default"
             id="menu-toggle"
             (click)="_toggleSidebar()"
           >
             Toggle Menu
-          </button>
+          </button> -->
           <router-outlet> </router-outlet>
         </div>
       </div>

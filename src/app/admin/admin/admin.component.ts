@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PlayersService } from '../../core/players.service';
-import { GamesService } from '../../core/games.service';
-import { AuthenticationService } from '../../core/authentication.service';
-import { ArticlesService } from '../../core/articles.service';
+import { PlayersService } from '../../core/services/players.service';
+import { GamesService } from '../../core/services/games.service';
+import { AuthenticationService } from '../../core/services/authentication.service';
+import { ArticlesService } from '../../core/services/articles.service';
 import { User } from '../../shared/models/user.model';
 
 @Component({

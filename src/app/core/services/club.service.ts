@@ -6,9 +6,9 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { Club } from '../shared/models/club.model';
-import { AppConfig } from '../app.config';
-import { OrganizationalItem } from '../shared/models/organizational-item.model';
+import { Club } from '../../shared/models/club.model';
+import { AppConfig } from '../../app.config';
+import { OrganizationalItem } from '../../shared/models/organizational-item.model';
 
 const httpOptions = {
   headers: new HttpHeaders({

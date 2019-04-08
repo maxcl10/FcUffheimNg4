@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ClubService } from '../../../core/club.service';
+import { ClubService } from '../../../core/services/club.service';
 import { OrganizationalItem } from '../../../shared/models/organizational-item.model';
 import { Observable } from 'rxjs';
 

@@ -346,18 +346,23 @@ a.thumbnail.active {
 
 .btn-success {
   background-color: $mono-green-4;
-  border: $mono-green-4;
+  border-color: $mono-green-4;
+}
+
+.btn-danger {
+  background-color: $red-1;
+  border-color: $red-1;
 }
 
 .btn-success:hover {
   background-color: lighten($mono-green-4, 5%);
-  border: lighten($mono-green-4, 5%);
+  border-color: lighten($mono-green-4, 5%);
 }
 
 .btn-default {
   background-color: $white-background;
-  border: $mono-green-4;
-  color: $green-default;
+  border-color: $mono-green-4;
+  color: $mono-green-4;
 }
 
 hr {

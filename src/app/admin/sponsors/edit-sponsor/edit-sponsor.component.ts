@@ -1,72 +1,71 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Sponsor } from '../../../shared/models/sponsor.model';
+import { SponsorsService } from '../../../core/services/sponsors.service';
 import { ActivatedRoute } from '@angular/router';
-
-import { PlayersService } from '../../../core/services/players.service';
-import { Player } from '../../../shared/models/player.model';
+import { splitNsName } from '@angular/compiler';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
-  selector: 'fws-edit-player',
-  templateUrl: './edit-player.component.html',
-  providers: [PlayersService]
+  selector: 'fws-edit-sponsor',
+  templateUrl: './edit-sponsor.component.html'
 })
-export class EditPlayerComponent implements OnInit {
-  public player: Player;
-  public errorMessage: string;
+export class EditSponsorComponent implements OnInit {
+  sponsor: Sponsor;
+  errorMessage: string;
   title: string;
   modalRef: BsModalRef;
 
   constructor(
-    private playersService: PlayersService,
+    private sponsorService: SponsorsService,
     private route: ActivatedRoute,
     private modalService: BsModalService
   ) {}
 
-  public ngOnInit() {
+  ngOnInit(): void {
     this.route.params.subscribe(params => {
       const id = params['id'];
       if (id !== '0') {
         this.title = 'Editer';
-        this.getPlayer(id);
+        this.getSponsor(id);
       } else {
         this.title = 'Ajouter';
-        this.player = new Player();
+        this.sponsor = new Sponsor();
       }
     });
   }
 
-  public getPlayer(id: string) {
-    this.playersService.getplayer(id).subscribe(
-      player => {
-        this.player = player;
+  getSponsor(id: string): void {
+    this.sponsorService.getSponsor(id).subscribe(
+      sponsor => {
+        this.sponsor = sponsor;
       },
       error => (this.errorMessage = <any>error)
     );
   }
 
-  public savePlayer() {
-    this.playersService.updateplayer(this.player).subscribe(
-      player => {
+  public createSponsor() {
+    this.sponsorService.createSponsor(this.sponsor).subscribe(
+      sponsor => {
         this.goBack();
       },
       error => (this.errorMessage = <any>error)
     );
   }
 
-  public createPlayer() {
-    this.playersService.createplayer(this.player).subscribe(
-      player => {
+  public saveSponsor() {
+    this.sponsorService.updateSponsor(this.sponsor).subscribe(
+      sponsor => {
         this.goBack();
       },
       error => (this.errorMessage = <any>error)
     );
   }
 
-  public deletePlayer() {
-    this.playersService.deleteplayer(this.player.id).subscribe(
-      result => {
-        this.goBack();
+  public deleteSponsor() {
+    this.sponsorService.deleteSponsor(this.sponsor).subscribe(
+      sponsor => {
         this.modalRef.hide();
+        this.goBack();
       },
       error => (this.errorMessage = <any>error)
     );

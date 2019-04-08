@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { PublicModule } from './public/public.module';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 // App is our top level component
 import { AppComponent } from './app.component';
@@ -42,17 +43,15 @@ export function initializeApp(appConfig: AppConfig) {
     FormsModule,
     HttpClientModule,
     CommonModule,
-    AppRoutingModule,
+    ModalModule.forRoot(),
     // App modules
+    AppRoutingModule,
     CoreModule,
     SharedModule,
     PublicModule,
     // Service worker
     ServiceWorkerModule.register('/ngsw-worker.js', {
-      enabled:
-        environment.name === 'production' ||
-        environment.name === 'fcb' ||
-        environment.name === 'fcu'
+      enabled: environment.production
     })
   ],
   providers: [

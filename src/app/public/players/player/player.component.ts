@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Player } from '../../../shared/models/player.model';
-import { PlayersService } from '../../../core/players.service';
-import { AuthenticationService } from '../../../core/authentication.service';
-import { SeoService } from '../../../core/seo.service';
+import { PlayersService } from '../../../core/services/players.service';
+import { AuthenticationService } from '../../../core/services/authentication.service';
+import { SeoService } from '../../../core/services/seo.service';
 import { AppConfig } from '../../../app.config';
 
 @Component({
@@ -68,17 +68,8 @@ export class PlayerComponent implements OnInit {
     return age;
   }
 
-  public deletePlayer() {
-    this.playerService
-      .deleteplayer(this.player.id)
-      .subscribe(
-        result => this.goBack(),
-        error => (this.errorMessage = <any>error)
-      );
-  }
-
   public goToEdit() {
-    this.router.navigate(['admin/editPlayer', this.player.id]);
+    this.router.navigate(['admin/players', this.player.id, 'edit']);
   }
 
   public goBack() {

@@ -1,6 +1,6 @@
 # Football Web Site
 
-This is a web site developped for local football clubs.
+This is an open soure web site developed for local football clubs. The project started few years ago, when I needed to learn Angular 2. I was looking for a simple project is order to practice. At that time, I was playing for the FC Uffheim footabll team and therefore decided to create a website.
 
 ## Multi tenant
 
@@ -29,7 +29,7 @@ docker build --rm -f "Dockerfile" -t test .
 
 Change the id with the correct image id
 
-- docker tag 4f8cc01d8bcd maxcl10/football-web-site:test
+- docker tag 8eedcf20ff0b maxcl10/football-web-site:test
 
 ### Push the image in the reporsitory
 
@@ -39,30 +39,42 @@ Change the id with the correct image id
 
 ### Todos
 
+- Fix service workiner issue (workarrounf in main.ts)
 - Add Pictures for organizational chart
-- move service to shared?
 - move app env to normal env.
 - add cup assist in DB and UI
 - fix FB integration => check if sharing os working
-- Improve games method performance
-- improve page header in xs
 - move guard in core or shared?
 - improve toogle dashboard button
 - get ride of moment locale in vendor
-- set back footer
+- Use bootstrap 4
 - use following code to set the title
   ngOnInit() {
   if (document.getElementById('pagetitle')) {
   document.getElementById('pagetitle').innerHTML = '<h2>Addresses & Contacts</h2>';
   }
 
+  - delete player
+  - player details (shared)
+  - article details (shared)
+  - game details (shared)
+  - sponsor details (shared)
+  - teams details (shared)
+  - extract article list from home component
+
 ### Done
 
 - make direct link work
+- move service to shared? No because service must be under Core or at component level
 - Use caching services to avoid serive calls
 - Improve admin navigation
 - use route guard for securing the admin part
 - Get Next Game must return the next game if today
+- set back footer
+- improve page header in xs
+- Improve games method performance
+- merge new with edit/0 (article, game, player, sponsors)
+- fix delete popup background issue (article, player, game, sponsor)
 
 # Tiny MCE
 

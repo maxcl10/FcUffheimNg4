@@ -7,13 +7,13 @@ import { AppState } from './app.service';
 import { Router, Event, NavigationEnd } from '@angular/router';
 import { fadeAnimation } from './shared/animations/animation';
 
-import { TeamsService } from './core/teams.service';
+import { TeamsService } from './core/services/teams.service';
 import { Team } from './shared/models/team.model';
 import { AppConfig } from './app.config';
 
 import * as jQuery from 'jquery';
 
-import { ClubService } from './core/club.service';
+import { ClubService } from './core/services/club.service';
 import { Club } from './shared/models/club.model';
 declare let ga: any;
 

@@ -2,8 +2,8 @@ import { throwError as observableThrowError, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { Ranking } from '../shared/models/league-table.model';
-import { AppConfig } from '../app.config';
+import { Ranking } from '../../shared/models/league-table.model';
+import { AppConfig } from '../../app.config';
 
 @Injectable()
 export class LeagueRankingsService {

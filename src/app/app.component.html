@@ -2,7 +2,9 @@
 <div style="background-color: #FFF">
   <div class="container">
     <div class="header">
-      <img id="logo" *ngIf="club" src="{{ club.logoUrl }}" />
+      <a href="" [routerLink]="['/admin']">
+        <img id="logo" *ngIf="club" src="{{ club.logoUrl }}" />
+      </a>
       <div class="header-title siteTitle">
         <div class="hidden-xs">
           <div
@@ -110,7 +112,7 @@
   </div>
 </nav>
 <div style="margin-top: -20px; margin-bottom: 20px;">
-  <img src="../../../assets/img/ban.png" />
+  <img src="../../../assets/img/ban.png" class="img-responsive" />
 </div>
 <!-- Not too much sense <breadcrumb [allowBootstrap]="true"></breadcrumb> -->
 <!--Body-->

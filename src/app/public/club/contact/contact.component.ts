@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title, DomSanitizer } from '@angular/platform-browser';
-import { ClubService } from '../../../core/club.service';
+import { ClubService } from '../../../core/services/club.service';
 import { Club } from '../../../shared/models/club.model';
 import { AppConfig } from '../../../app.config';
 

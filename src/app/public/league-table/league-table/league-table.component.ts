@@ -1,8 +1,8 @@
 import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 
-import { LeagueRankingsService } from '../../../core/league-table.service';
-import { LogoService } from '../../../core/logo.service';
-import { TeamsService } from '../../../core/teams.service';
+import { LeagueRankingsService } from '../../../core/services/league-table.service';
+import { LogoService } from '../../../core/services/logo.service';
+import { TeamsService } from '../../../core/services/teams.service';
 import { Subscription } from 'rxjs';
 import { Ranking } from '../../../shared/models/league-table.model';
 

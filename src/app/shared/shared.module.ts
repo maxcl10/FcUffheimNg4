@@ -17,13 +17,7 @@ import { GuideComponent } from './components/guide/guide.component';
     GameScoreComponent,
     GuideComponent
   ],
-  exports: [
-    CommonModule,
-    SearchPipe,
-    FrDatePipe,
-    GameComponent,
-    GameScoreComponent
-  ]
+  exports: [SearchPipe, FrDatePipe, GameComponent, GameScoreComponent]
 })
 
 // Contains components, directives and pipes that are shared accross the modules

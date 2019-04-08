@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
-import { PlayersService } from '../../../core/players.service';
-import { TeamsService } from '../../../core/teams.service';
+import { PlayersService } from '../../../core/services/players.service';
+import { TeamsService } from '../../../core/services/teams.service';
 import { Player } from '../../../shared/models/player.model';
 
 import { AppConfig } from '../../../app.config';

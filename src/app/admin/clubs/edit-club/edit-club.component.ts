@@ -1,70 +1,68 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Team } from '../../../shared/models/team.model';
+import { TeamsService } from '../../../core/services/teams.service';
 import { ActivatedRoute } from '@angular/router';
-
-import { PlayersService } from '../../../core/services/players.service';
-import { Player } from '../../../shared/models/player.model';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
-  selector: 'fws-edit-player',
-  templateUrl: './edit-player.component.html',
-  providers: [PlayersService]
+  selector: 'fws-edit-club',
+  templateUrl: './edit-club.component.html',
+  styleUrls: ['./edit-club.component.scss']
 })
-export class EditPlayerComponent implements OnInit {
-  public player: Player;
-  public errorMessage: string;
+export class EditClubComponent implements OnInit {
+  team: Team;
+  errorMessage: string;
   title: string;
   modalRef: BsModalRef;
 
   constructor(
-    private playersService: PlayersService,
+    private teamsService: TeamsService,
     private route: ActivatedRoute,
     private modalService: BsModalService
   ) {}
 
-  public ngOnInit() {
+  ngOnInit(): void {
     this.route.params.subscribe(params => {
       const id = params['id'];
       if (id !== '0') {
+        this.getTeam(id);
         this.title = 'Editer';
-        this.getPlayer(id);
       } else {
+        this.team = new Team();
         this.title = 'Ajouter';
-        this.player = new Player();
       }
     });
   }
-
-  public getPlayer(id: string) {
-    this.playersService.getplayer(id).subscribe(
-      player => {
-        this.player = player;
+  getTeam(id: any): any {
+    this.teamsService.getTeams().subscribe(
+      teams => {
+        this.team = teams.filter(o => o.id === id)[0];
       },
       error => (this.errorMessage = <any>error)
     );
   }
 
-  public savePlayer() {
-    this.playersService.updateplayer(this.player).subscribe(
-      player => {
+  createTeam() {
+    this.teamsService.createTeam(this.team).subscribe(
+      team => {
         this.goBack();
       },
       error => (this.errorMessage = <any>error)
     );
   }
 
-  public createPlayer() {
-    this.playersService.createplayer(this.player).subscribe(
-      player => {
+  saveTeam() {
+    this.teamsService.updateTeam(this.team).subscribe(
+      team => {
         this.goBack();
       },
       error => (this.errorMessage = <any>error)
     );
   }
 
-  public deletePlayer() {
-    this.playersService.deleteplayer(this.player.id).subscribe(
-      result => {
+  deleteTeam() {
+    this.teamsService.deleteTeam(this.team).subscribe(
+      team => {
         this.goBack();
         this.modalRef.hide();
       },

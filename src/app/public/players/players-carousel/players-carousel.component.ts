@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Player } from '../../../shared/models/player.model';
-import { TeamsService } from '../../../core/teams.service';
+import { TeamsService } from '../../../core/services/teams.service';
 
 @Component({
   selector: 'fws-players-carousel',

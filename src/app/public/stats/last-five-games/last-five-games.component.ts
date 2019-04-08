@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StatsService } from '../../../core/stats.service';
+import { StatsService } from '../../../core/services/stats.service';
 
 @Component({
   selector: 'fws-last-five-games',

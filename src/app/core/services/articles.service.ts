@@ -2,8 +2,8 @@ import { throwError as observableThrowError, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { Article } from '../shared/models/article.model';
-import { AppConfig } from '../app.config';
+import { Article } from '../../shared/models/article.model';
+import { AppConfig } from '../../app.config';
 
 const httpOptions = {
   headers: new HttpHeaders({

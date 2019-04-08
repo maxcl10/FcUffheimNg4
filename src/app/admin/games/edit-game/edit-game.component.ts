@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { GamesService } from '../../../core/games.service';
+import { GamesService } from '../../../core/services/games.service';
 import { Game } from '../../../shared/models/game.model';
 import { Team } from '../../../shared/models/team.model';
-import { TeamsService } from '../../../core/teams.service';
+import { TeamsService } from '../../../core/services/teams.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'fws-edit-game',
@@ -14,14 +15,31 @@ export class EditGameComponent implements OnInit {
   public game: Game;
   public errorMessage: string;
   public teams: Team[];
-  private sub: any;
+  public saving: boolean;
+  public title: string;
+  modalRef: BsModalRef;
 
   constructor(
     private gamesService: GamesService,
     private teamsService: TeamsService,
-    private route: ActivatedRoute
-  ) {
-    this.game = new Game();
+    private route: ActivatedRoute,
+    private modalService: BsModalService
+  ) {}
+
+  public ngOnInit() {
+    this.getTeams();
+    this.route.params.subscribe(params => {
+      const id = params['id'];
+      if (id !== '0') {
+        this.getGame(id);
+        this.title = 'Editer';
+      } else {
+        this.game = new Game();
+        this.game.HomeTeamId = '';
+        this.game.AwayTeamId = '';
+        this.title = 'Ajouter';
+      }
+    });
   }
 
   public getGame(id: string) {
@@ -30,6 +48,22 @@ export class EditGameComponent implements OnInit {
         this.game = game;
       },
       error => (this.errorMessage = <any>error)
+    );
+  }
+
+  public createGame() {
+    this.saving = true;
+    this.gamesService.createGame(this.game).subscribe(
+      game => {
+        this.goBack();
+      },
+      error => {
+        this.errorMessage = 'An error occured.';
+        this.saving = false;
+      },
+      () => {
+        this.saving = false;
+      }
     );
   }
 
@@ -54,21 +88,22 @@ export class EditGameComponent implements OnInit {
   public deleteGame() {
     this.gamesService.deleteGame(this.game.Id).subscribe(
       article => {
+        this.modalRef.hide();
         this.goBack();
       },
       error => (this.errorMessage = <any>error)
     );
   }
 
-  public goBack() {
-    window.history.back();
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
   }
 
-  public ngOnInit() {
-    this.getTeams();
-    this.sub = this.route.params.subscribe(params => {
-      const id = params['id']; // (+) converts string 'id' to a number
-      this.getGame(id);
-    });
+  public cancel() {
+    this.modalRef.hide();
+  }
+
+  public goBack() {
+    window.history.back();
   }
 }

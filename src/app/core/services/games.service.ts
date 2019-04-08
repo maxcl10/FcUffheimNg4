@@ -6,8 +6,8 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { Game } from '../shared/models/game.model';
-import { AppConfig } from '../app.config';
+import { Game } from '../../shared/models/game.model';
+import { AppConfig } from '../../app.config';
 
 const httpOptions = {
   headers: new HttpHeaders({

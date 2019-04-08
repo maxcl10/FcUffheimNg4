@@ -6,15 +6,15 @@
     <a
       class="btn btn-success pull-right"
       href=""
-      [routerLink]="['/admin/newSponsor']"
+      [routerLink]="['/admin/sponsors/0/edit']"
     >
       <span class="glyphicon glyphicon-plus"></span> Partenaire
     </a>
     <h4>{{ sponsors.length }} Partenaires</h4>
   </div>
   <div class="panel-body">
-    <table class="table">
-      <tr *ngFor="let sponsor of sponsors">
+    <table class="table table-clickable table-hover">
+      <tr *ngFor="let sponsor of sponsors" (click)="onSponsorSelect(sponsor)">
         <td>
           <img
             style="width: 100px"

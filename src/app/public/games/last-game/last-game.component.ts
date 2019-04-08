@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { GamesService } from '../../../core/games.service';
+import { GamesService } from '../../../core/services/games.service';
 import { Game } from '../../../shared/models/game.model';
 
-import { LogoService } from '../../../core/logo.service';
-import { TeamsService } from '../../../core/teams.service';
+import { LogoService } from '../../../core/services/logo.service';
+import { TeamsService } from '../../../core/services/teams.service';
 
 @Component({
   selector: 'fws-last-game',

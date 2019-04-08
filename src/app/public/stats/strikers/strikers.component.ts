@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Stricker } from '../../../shared/models/stricker.model';
-import { StatsService } from '../../../core/stats.service';
+import { StatsService } from '../../../core/services/stats.service';
 
 @Component({
   selector: 'fws-strikers',

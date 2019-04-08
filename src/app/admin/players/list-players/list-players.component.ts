@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { PlayersService } from '../../../core/players.service';
+import { PlayersService } from '../../../core/services/players.service';
 import { Player } from '../../../shared/models/player.model';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'fws-list-players',
-  templateUrl: './list-players.component.html',
-  styleUrls: ['./list-players.component.scss']
+  templateUrl: './list-players.component.html'
 })
 export class ListPlayersComponent implements OnInit {
   public players$: Observable<Player[]>;
@@ -22,6 +21,6 @@ export class ListPlayersComponent implements OnInit {
   }
 
   public goToPlayerDetails(player: Player) {
-    this.router.navigate(['/player', player.id]);
+    this.router.navigate(['/admin/players', player.id, 'edit']);
   }
 }

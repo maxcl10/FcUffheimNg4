@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import { Article } from '../../../shared/models/article.model';
-import { ArticlesService } from '../../../core/articles.service';
+import { ArticlesService } from '../../../core/services/articles.service';
 
 import { AppConfig } from '../../../app.config';
 

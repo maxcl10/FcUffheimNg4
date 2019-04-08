@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Article } from '../../../shared/models/article.model';
-import { AuthenticationService } from '../../../core/authentication.service';
+import { AuthenticationService } from '../../../core/services/authentication.service';
 import { Title } from '@angular/platform-browser';
 import { AppConfig } from '../../../app.config';
-import { ArticlesService } from '../../../core/articles.service';
+import { ArticlesService } from '../../../core/services/articles.service';
 
 @Component({
   selector: 'fws-article',
@@ -48,20 +48,8 @@ export class ArticleComponent implements OnInit {
     );
   }
 
-  public deleteArticle() {
-    // todo: find workarround
-    // $('#myModal').modal('hide')
-
-    this.articleService
-      .deleteArticle(this.article.id)
-      .subscribe(
-        result => this.goToAdmin(),
-        error => (this.errorMessage = <any>error)
-      );
-  }
-
   public goToEdit() {
-    this.router.navigate(['/admin/editArticle', this.article.id]);
+    this.router.navigate(['/admin/articles', this.article.id, 'edit']);
   }
 
   public goToAdmin() {

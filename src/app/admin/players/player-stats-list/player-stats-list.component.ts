@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Player } from '../../../shared/models/player.model';
 import { Stricker } from '../../../shared/models/stricker.model';
-import { StatsService } from '../../../core/stats.service';
-import { TeamsService } from '../../../core/teams.service';
+import { StatsService } from '../../../core/services/stats.service';
+import { TeamsService } from '../../../core/services/teams.service';
 
 @Component({
-  selector: 'fws-strickers-editor',
-  templateUrl: './edit-strickers.component.html'
+  selector: 'fws-player-stats-list',
+  templateUrl: './player-stats-list.component.html'
 })
-export class EditStrickerComponent implements OnInit {
+export class PlayerStatsListComponent implements OnInit {
   public players: Player[];
   public strickers: Stricker[];
   constructor(
