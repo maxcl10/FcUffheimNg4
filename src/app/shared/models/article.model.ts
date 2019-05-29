@@ -6,4 +6,5 @@ export class Article {
   public publishedDate: boolean;
   public publisher: string;
   public userId: string;
+  public gameId: string;
 }

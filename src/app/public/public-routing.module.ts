@@ -14,6 +14,7 @@ import { GamesComponent } from './games/games-list/games-list.component';
 import { StatsComponent } from './stats/stats/stats.component';
 import { LoginComponent } from './login/login.component';
 import { OrganizationalChartComponent } from './club/organizational-chart/organizational-chart.component';
+import { GameDetailsComponent } from './games/game-details/game-details.component';
 
 const routes: Routes = [
   {
@@ -63,6 +64,10 @@ const routes: Routes = [
   {
     path: 'games',
     component: GamesComponent
+  },
+  {
+    path: 'game/:id',
+    component: GameDetailsComponent
   },
   {
     path: 'league-table',

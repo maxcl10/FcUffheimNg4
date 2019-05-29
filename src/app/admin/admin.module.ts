@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 // Shared
 import { SharedModule } from '../shared/shared.module';
@@ -26,9 +27,10 @@ import { ListPlayersComponent } from './players/list-players/list-players.compon
 import { ListGamesComponent } from './games/list-games/list-games.component';
 import { ListSponsorsComponent } from './sponsors/list-sponsors/list-sponsors.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { CommonModule } from '@angular/common';
+
 import { ClubsListComponent } from './clubs/clubs-list/clubs-list.component';
 import { EditClubComponent } from './clubs/edit-club/edit-club.component';
+import { EditGamePlayersComponent } from './games/edit-game-players/edit-game-players.component';
 
 @NgModule({
   imports: [
@@ -54,7 +56,8 @@ import { EditClubComponent } from './clubs/edit-club/edit-club.component';
     ListSponsorsComponent,
     DashboardComponent,
     ClubsListComponent,
-    EditClubComponent
+    EditClubComponent,
+    EditGamePlayersComponent
   ],
   exports: [RouterModule]
 })

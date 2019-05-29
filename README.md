@@ -54,16 +54,18 @@ Change the id with the correct image id
   document.getElementById('pagetitle').innerHTML = '<h2>Addresses & Contacts</h2>';
   }
 
-  - delete player
-  - player details (shared)
-  - article details (shared)
-  - game details (shared)
-  - sponsor details (shared)
-  - teams details (shared)
-  - extract article list from home component
+* player details (shared)
+* article details (shared)
+* game details (shared)
+* sponsor details (shared)
+* teams details (shared)
+* extract article list from home component
+* Article in container + button style
+* edit stat buttons
 
 ### Done
 
+- delete player
 - make direct link work
 - move service to shared? No because service must be under Core or at component level
 - Use caching services to avoid serive calls

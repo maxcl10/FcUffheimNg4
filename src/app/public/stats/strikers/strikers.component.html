@@ -2,6 +2,7 @@
   <table class="table hidden-xs">
     <tr>
       <td></td>
+      <td></td>
       <td title="Total">Tot</td>
       <td title="Championnat">Champ</td>
       <td title="Coupe de France">CDF</td>
@@ -13,6 +14,9 @@
         <a href="" [routerLink]="['/player', stricker.playerId]">{{
           stricker.playerName
         }}</a>
+      </td>
+      <td>
+        {{ stricker.totalGames }}
       </td>
       <td>
         <b>{{ stricker.totalGoals }}</b>

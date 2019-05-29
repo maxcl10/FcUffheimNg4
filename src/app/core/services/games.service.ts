@@ -8,6 +8,9 @@ import { Injectable } from '@angular/core';
 
 import { Game } from '../../shared/models/game.model';
 import { AppConfig } from '../../app.config';
+import { Event } from '../../shared/models/event.model';
+import { GamePlayer } from '../../shared/models/game-player.model';
+import { Article } from '../../shared/models/article.model';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -51,6 +54,36 @@ export class GamesService {
   public deleteGame(id: string) {
     console.log('Delete Game ' + id);
     return this.http.delete(this.gameUrl + '/' + id);
+  }
+
+  public getGamePlayers(gameId: string): Observable<GamePlayer[]> {
+    return this.http.get<GamePlayer[]>(
+      this.gameUrl + '/' + gameId + '/players'
+    );
+  }
+
+  public getGameArticle(gameId: string): Observable<Article> {
+    return this.http.get<Article>(this.gameUrl + '/' + gameId + '/articles');
+  }
+
+  public getGameEvents(gameId: string): Observable<Event[]> {
+    return this.http.get<Event[]>(this.gameUrl + '/' + gameId + '/events');
+  }
+
+  public addGamePlayer(
+    gameId: string,
+    player: GamePlayer
+  ): Observable<GamePlayer> {
+    return this.http.post<GamePlayer>(
+      this.gameUrl + '/' + gameId + '/players',
+      player
+    );
+  }
+
+  public deleteGamePlayer(gameId: string, playerId: string) {
+    return this.http.delete(
+      this.gameUrl + '/' + gameId + '/players/' + playerId
+    );
   }
 
   // private handleError(error: HttpErrorResponse) {

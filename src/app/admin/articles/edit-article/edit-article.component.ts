@@ -4,6 +4,8 @@ import { Article } from '../../../shared/models/article.model';
 import { ArticlesService } from '../../../core/services/articles.service';
 import { AuthenticationService } from '../../../core/services/authentication.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { Game } from '../../../shared/models/game.model';
+import { GamesService } from '../../../core/services/games.service';
 
 @Component({
   selector: 'fws-edit-article',
@@ -15,6 +17,7 @@ export class EditArticleComponent implements OnInit {
   public errorMessage: string;
   public title: string;
   modalRef: BsModalRef;
+  public games: Game[];
 
   public tinyMceSettings = {
     inline: false,
@@ -32,7 +35,8 @@ export class EditArticleComponent implements OnInit {
     private articlesService: ArticlesService,
     private route: ActivatedRoute,
     private authenticationService: AuthenticationService,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private gameService: GamesService
   ) {}
 
   public ngOnInit() {
@@ -45,6 +49,10 @@ export class EditArticleComponent implements OnInit {
         this.title = 'Ajouter';
         this.article = new Article();
       }
+    });
+
+    this.gameService.getGames().subscribe(games => {
+      this.games = games;
     });
   }
 

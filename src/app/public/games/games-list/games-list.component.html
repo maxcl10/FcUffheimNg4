@@ -26,8 +26,10 @@
         class="panel panel-default "
         *ngFor="let game of month; let i = index"
       >
-        <div class="panel-body">
-          <fws-game [game]="game"></fws-game>
+        <div class="panel-body game-summary ">
+          <a [routerLink]="['/game', game.Id]">
+            <fws-game [game]="game"></fws-game>
+          </a>
         </div>
       </div>
     </div>

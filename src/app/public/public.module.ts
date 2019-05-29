@@ -37,6 +37,7 @@ import { SeasonSummaryComponent } from './stats/season-summary/season-summary.co
 import { OrganizationalChartComponent } from './club/organizational-chart/organizational-chart.component';
 import { LoginComponent } from './login/login.component';
 import { CommonModule } from '@angular/common';
+import { GameDetailsComponent } from './games/game-details/game-details.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { CommonModule } from '@angular/common';
     AssistsComponent,
     SeasonSummaryComponent,
     OrganizationalChartComponent,
-    LoginComponent
+    LoginComponent,
+    GameDetailsComponent
   ],
   imports: [
     AdminRoutingModule,

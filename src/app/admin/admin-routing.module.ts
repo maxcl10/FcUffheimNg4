@@ -16,6 +16,7 @@ import { ListSponsorsComponent } from './sponsors/list-sponsors/list-sponsors.co
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClubsListComponent } from './clubs/clubs-list/clubs-list.component';
 import { EditClubComponent } from './clubs/edit-club/edit-club.component';
+import { EditGamePlayersComponent } from './games/edit-game-players/edit-game-players.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,10 @@ const routes: Routes = [
       {
         path: 'games/:id/edit',
         component: EditGameComponent
+      },
+      {
+        path: 'games/:id/players',
+        component: EditGamePlayersComponent
       },
       {
         path: 'players',

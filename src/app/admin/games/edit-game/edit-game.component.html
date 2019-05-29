@@ -122,6 +122,12 @@
     <button (click)="goBack()" class="btn btn-default ">
       <span class="glyphicon glyphicon-arrow-left"></span> Retour
     </button>
+    <a
+      href=""
+      [routerLink]="['/admin/games', game.Id, 'players']"
+      class="btn btn-default"
+      >Edit Players</a
+    >
     <div class="pull-right btn-toolbar">
       <button
         (click)="openModal(template)"

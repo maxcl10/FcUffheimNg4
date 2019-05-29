@@ -16,6 +16,7 @@ import { LeagueRankingsService } from './services/league-table.service';
 import { TeamsService } from './services/teams.service';
 import { CacheInterceptor } from './interceptors/cache-interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { EventsService } from './services/events.service';
 
 // This module contains all the services and all the top level app components
 @NgModule({
@@ -34,6 +35,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     SponsorsService,
     StatsService,
     LeagueRankingsService,
+    EventsService,
     TeamsService,
     { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true }
   ]

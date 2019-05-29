@@ -7,6 +7,7 @@ export interface Stricker {
   nationalCupGoals: number;
   regionalCupGoals: number;
   otherCupGoals: number;
+  totalGames: number;
   totalGoals: number;
   championshipAssists: number;
 }

@@ -65,6 +65,12 @@ article * table {
   font-size: 11px;
 }
 
+.heading {
+  color: $grey-5;
+  font-weight: bold;
+  font-size: 20px;
+}
+
 .bold {
   font-weight: bold;
 }
@@ -210,7 +216,7 @@ article img {
   transform: rotate(180deg);
 }
 
-.heading {
+div.heading {
   background-color: $green-3;
   font-weight: bold;
   color: $white-1;
@@ -218,7 +224,7 @@ article img {
   padding: 5px;
 }
 
-.heading a {
+div.heading a {
   color: $white-1;
 }
 
@@ -269,6 +275,14 @@ article img {
 
 .rankingLine {
   width: max-content;
+}
+
+.game-summary a {
+  color: $black-1;
+}
+
+.panel-body.game-summary a:hover {
+  color: $green-3;
 }
 
 .titleStat {
