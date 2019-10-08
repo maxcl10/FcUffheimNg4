@@ -5,6 +5,7 @@ import { Game } from '../../../shared/models/game.model';
 import { Team } from '../../../shared/models/team.model';
 import { TeamsService } from '../../../core/services/teams.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { Competition } from '../../../shared/models/competition.model';
 
 @Component({
   selector: 'fws-edit-game',
@@ -16,6 +17,7 @@ export class EditGameComponent implements OnInit {
   public errorMessage: string;
   public teams: Team[];
   public saving: boolean;
+  public competitions: Competition[];
   public title: string;
   modalRef: BsModalRef;
 
@@ -28,6 +30,8 @@ export class EditGameComponent implements OnInit {
 
   public ngOnInit() {
     this.getTeams();
+    this.getCompetitions();
+
     this.route.params.subscribe(params => {
       const id = params['id'];
       if (id !== '0') {
@@ -42,6 +46,14 @@ export class EditGameComponent implements OnInit {
     });
   }
 
+  public getCompetitions() {
+    this.gamesService.getCompetitions().subscribe(
+      competitions => {
+        this.competitions = competitions;
+      },
+      error => (this.errorMessage = <any>error)
+    );
+  }
   public getGame(id: string) {
     this.gamesService.getGame(id).subscribe(
       game => {

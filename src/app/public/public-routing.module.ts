@@ -15,6 +15,7 @@ import { StatsComponent } from './stats/stats/stats.component';
 import { LoginComponent } from './login/login.component';
 import { OrganizationalChartComponent } from './club/organizational-chart/organizational-chart.component';
 import { GameDetailsComponent } from './games/game-details/game-details.component';
+import { GamePosterComponent } from './games/game-poster/game-poster.component';
 
 const routes: Routes = [
   {
@@ -64,6 +65,10 @@ const routes: Routes = [
   {
     path: 'games',
     component: GamesComponent
+  },
+  {
+    path: 'poster',
+    component: GamePosterComponent
   },
   {
     path: 'game/:id',

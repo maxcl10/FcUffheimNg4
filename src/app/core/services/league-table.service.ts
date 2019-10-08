@@ -4,12 +4,16 @@ import { Injectable } from '@angular/core';
 
 import { Ranking } from '../../shared/models/league-table.model';
 import { AppConfig } from '../../app.config';
+import { Competition } from '../../shared/models/competition.model';
 
 @Injectable()
 export class LeagueRankingsService {
   private rankingUrl = AppConfig.settings.apiServer.url + '/ranking';
   private updateLafaRankingUrl =
     AppConfig.settings.apiServer.url + '/UpdateRankingFromLafa';
+
+  private championshipDataUrl =
+    AppConfig.settings.apiServer.url + '/championship';
 
   constructor(private http: HttpClient) {}
 
@@ -23,6 +27,9 @@ export class LeagueRankingsService {
     return this.http.get<Ranking[]>(this.rankingUrl);
   }
 
+  public getChampionshipData(): Observable<Competition> {
+    return this.http.get<Competition>(this.championshipDataUrl);
+  }
   public updateRankingFromLafa() {
     return this.http.get(this.updateLafaRankingUrl);
   }

@@ -10,4 +10,8 @@ export interface Stricker {
   totalGames: number;
   totalGoals: number;
   championshipAssists: number;
+  nationalCupAssists: number;
+  regionalCupAssists: number;
+  otherCupAssists: number;
+  totalAssists: number;
 }

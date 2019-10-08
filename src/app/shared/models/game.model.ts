@@ -5,6 +5,9 @@ export class Game {
   public MatchDate: Date;
   public SeasonId: string;
   public Championship: string;
+  public CompetitionId: string;
+  public Competition: string;
+  public CompetitionShort: string;
   public HomeTeam: string;
   public AwayTeam: string;
   public HomeTeamScore: number;

@@ -55,13 +55,6 @@ export class GamesComponent implements OnInit {
 
   public getGames() {
     this.gamesPerMonth = new Array();
-    // this.gamesService
-    //   .getGames()
-    //   .pipe(
-    //     map(games => games.filter(o => (o.homeTeamLogoUrl = 'Bartenheim F.C.'))),
-    //     groupBy(o=> o.)
-    //   )
-    //   .subscribe(res => console.log(res));
 
     this.gamesService.getGames().subscribe(
       games => {

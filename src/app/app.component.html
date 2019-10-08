@@ -26,7 +26,7 @@
           <div
             class="fb-like pull-right"
             style="margin-bottom: 5px; margin-right: 10px"
-            data-href="https://https://fcbartenheim.com/"
+            data-href="https://fcbartenheim.com/"
             data-layout="button_count"
             data-action="like"
             data-size="large"
@@ -111,7 +111,11 @@
     </div>
   </div>
 </nav>
-<div style="margin-top: -20px; margin-bottom: 20px;">
+
+<div
+  style="margin-top: -20px; margin-bottom: 20px;"
+  *ngIf="club && club.name == 'F.C Bartenheim'"
+>
   <img src="../../../assets/img/ban.png" class="img-responsive" />
 </div>
 <!-- Not too much sense <breadcrumb [allowBootstrap]="true"></breadcrumb> -->
@@ -121,7 +125,6 @@
 <main>
   <router-outlet #o="outlet"></router-outlet>
 </main>
-
 <footer class="footer">
   <div class="container">
     <div style="margin-top: 10px">

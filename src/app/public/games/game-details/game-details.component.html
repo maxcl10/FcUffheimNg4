@@ -10,11 +10,11 @@
       </div>
       <div class="col-md-4 text-center align-bottom">
         <div class="help-block">
-          {{ game.MatchDate | frDate: 'shortDateTime' }}
+          {{ game.MatchDate | frDate: 'longDateTime' }}
         </div>
         <div><fws-game-score [game]="game"></fws-game-score></div>
         <div class="help-block">
-          {{ game.Championship }}
+          <fws-competition [game]="game"></fws-competition>
         </div>
       </div>
       <div class="col-md-4">
@@ -27,13 +27,23 @@
 <div style="margin-top: 20px;">
   <div class="container" *ngIf="goals?.length > 0">
     <h4><i class="fa fa-soccer-ball-o"></i> But(s)</h4>
-    <ul class="list-inline">
+    <!-- <ul class="list-inline">
       <li *ngFor="let event of goals" style="margin-left: 10px;">
         {{ event.playerFirstName.slice(0, 1) }}. {{ event.playerLastName }} :
         {{ event.time }}'
       </li>
     </ul>
+    <h3>Test</h3> -->
+    <ul class="list-inline" *ngIf="groupByPlayer">
+      <li *ngFor="let player of groupByPlayer" style="margin-left: 10px;">
+        {{ player.firstName.slice(0, 1) }}. {{ player.lastName }}
+        <span *ngFor="let event of player.goals" class="text-muted">
+          {{ event.time }}'
+        </span>
+      </li>
+    </ul>
   </div>
+
   <!-- <div class="container">
     <div *ngIf="article" class="panel-body">
       <span [innerHTML]="article.body"></span>
@@ -42,11 +52,6 @@
 
   <div class="container" *ngIf="players">
     <h4><i class="fa fa-bars"></i> Composition</h4>
-
-    Bartenheim:
-    <span *ngFor="let player of players"
-      >{{ player.playerFirstName.slice(0, 1) }}. {{ player.playerLastName }},
-    </span>
     <div class="row">
       <div class="col-md-4">
         <div *ngIf="players">
@@ -107,5 +112,6 @@
         </div>
       </div>
     </div>
+    <button (click)="goBack()" class="btn btn-default">Retour</button>
   </div>
 </div>

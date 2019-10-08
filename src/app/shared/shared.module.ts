@@ -6,18 +6,32 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
 import { GameComponent } from './components/game/game.component';
 import { GameScoreComponent } from './components/game-score/game-score.component';
 import { GuideComponent } from './components/guide/guide.component';
+import { CompetitionComponent } from './components/competition/competition.component';
+import { TeamNamePipe } from './pipes/team-name';
+import { PitchComponent } from '../shared/components/pitch/pitch.component';
 
 @NgModule({
   imports: [CommonModule],
   declarations: [
     SearchPipe,
     FrDatePipe,
+    TeamNamePipe,
     LoadingSpinnerComponent,
     GameComponent,
     GameScoreComponent,
-    GuideComponent
+    GuideComponent,
+    CompetitionComponent,
+    PitchComponent
   ],
-  exports: [SearchPipe, FrDatePipe, GameComponent, GameScoreComponent]
+  exports: [
+    SearchPipe,
+    FrDatePipe,
+    TeamNamePipe,
+    GameComponent,
+    GameScoreComponent,
+    CompetitionComponent,
+    PitchComponent
+  ]
 })
 
 // Contains components, directives and pipes that are shared accross the modules

@@ -1,6 +1,18 @@
-<div class="container">
-  <img src="../../../assets/img/R3.png" class="pull-right" />
-  <h2 class="pageHeader">Classement Regional 3 - Poule Q</h2>
+<div class="container" *ngIf="competition">
+  <h2 class="pageHeader">
+    <img
+      style="margin-top: -8px"
+      src="../../../assets/img/{{ competition.ShortName }}.png"
+    />
+    <span class="hidden-xs">
+      Classement {{ competition.Name }} - Poule {{ competition.Group }} -
+      {{ competition.Season }}
+    </span>
+
+    <span class="visible-xs">
+      Classement
+    </span>
+  </h2>
 
   <div class="panel panel-default">
     <div class="panel-body">

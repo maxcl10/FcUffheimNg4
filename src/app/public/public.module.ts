@@ -38,6 +38,9 @@ import { OrganizationalChartComponent } from './club/organizational-chart/organi
 import { LoginComponent } from './login/login.component';
 import { CommonModule } from '@angular/common';
 import { GameDetailsComponent } from './games/game-details/game-details.component';
+import { GamePosterComponent } from './games/game-poster/game-poster.component';
+import { GamePosterGeneratorComponent } from './games/game-poster-generator/game-poster-generator.component';
+import { PosterBaseComponent } from './games/poster-base/poster-base.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +70,10 @@ import { GameDetailsComponent } from './games/game-details/game-details.componen
     SeasonSummaryComponent,
     OrganizationalChartComponent,
     LoginComponent,
-    GameDetailsComponent
+    GameDetailsComponent,
+    GamePosterComponent,
+    GamePosterGeneratorComponent,
+    PosterBaseComponent
   ],
   imports: [
     AdminRoutingModule,

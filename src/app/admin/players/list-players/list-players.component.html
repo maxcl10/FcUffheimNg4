@@ -1,7 +1,7 @@
 <h2>Joueurs</h2>
 <div
   class="panel panel-default"
-  *ngIf="(players$ | async) as players; else loading"
+  *ngIf="players$ | async as players; else loading"
 >
   <div class="panel-heading">
     <a
@@ -25,7 +25,7 @@
       </thead>
       <tbody>
         <tr
-          *ngFor="let player of (players$ | async)"
+          *ngFor="let player of players$ | async"
           (click)="onPlayerSelect(player)"
         >
           <td>
@@ -41,7 +41,7 @@
               class="img-circle"
             />
           </td>
-          <td>{{ player.firstName }} {{ player.lastName }}</td>
+          <td>{{ player.lastName }} {{ player.firstName }}</td>
           <td>
             {{ player.position }}
           </td>

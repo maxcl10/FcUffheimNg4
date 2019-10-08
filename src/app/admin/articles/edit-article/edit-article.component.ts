@@ -6,6 +6,7 @@ import { AuthenticationService } from '../../../core/services/authentication.ser
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Game } from '../../../shared/models/game.model';
 import { GamesService } from '../../../core/services/games.service';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'fws-edit-article',
@@ -96,6 +97,11 @@ export class EditArticleComponent implements OnInit {
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
+  }
+
+  onFileChanged(event) {
+    const file = event.target.files[0];
+    alert(JSON.stringify(file));
   }
 
   public cancel() {

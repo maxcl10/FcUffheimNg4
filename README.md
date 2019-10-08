@@ -7,6 +7,7 @@ This is an open soure web site developed for local football clubs. The project s
 Currently this website is provided for two different clubs. In order to build it for the correct club, you need to set the correct configuration
 ng build --configuration=fcb --buildOptimizer=true
 ng build --configuration=fcu
+http-server dist
 
 git push origin master
 
@@ -29,7 +30,7 @@ docker build --rm -f "Dockerfile" -t test .
 
 Change the id with the correct image id
 
-- docker tag 8eedcf20ff0b maxcl10/football-web-site:test
+- docker tag e853b62a1849 maxcl10/football-web-site:test
 
 ### Push the image in the reporsitory
 
@@ -42,7 +43,7 @@ Change the id with the correct image id
 - Fix service workiner issue (workarrounf in main.ts)
 - Add Pictures for organizational chart
 - move app env to normal env.
-- add cup assist in DB and UI
+
 - fix FB integration => check if sharing os working
 - move guard in core or shared?
 - improve toogle dashboard button
@@ -73,6 +74,7 @@ Change the id with the correct image id
 - use route guard for securing the admin part
 - Get Next Game must return the next game if today
 - set back footer
+- add cup assist in DB and UI
 - improve page header in xs
 - Improve games method performance
 - merge new with edit/0 (article, game, player, sponsors)

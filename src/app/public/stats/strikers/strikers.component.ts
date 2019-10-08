@@ -18,7 +18,7 @@ export class StrikersComponent implements OnInit {
   @Input()
   set playerStats(playerStats: Stricker[]) {
     if (playerStats) {
-      this._strickers = playerStats;
+      this._strickers = playerStats.filter(o => o.totalGoals > 0);
 
       this.strickers.forEach(element => {
         this.totalGoals += element.totalGoals;

@@ -38,6 +38,7 @@ export class LogoService {
       case 'Sierentz F.C.':
         return baseUrl + 'Sierentz/sierentz_' + size + 'x' + size + '.png';
       case 'Koetzingue A.S.L.':
+      case 'Koetzingue A.S.L. 2':
         return baseUrl + 'Koetzingue/koetzingue_' + size + 'x' + size + '.png';
       case 'Sundhoffen A.S.':
         return baseUrl + 'Sundhoffen/sundhoffen_' + size + 'x' + size + '.png';
@@ -157,7 +158,37 @@ export class LogoService {
       case 'Steinbrunn F.C.':
         return baseUrl + 'Steinbrunn/steinbrunn_' + size + 'x' + size + '.png';
       case 'Biesheim A.S.C.':
+      case 'Biesheim A.S.C. 2':
         return baseUrl + 'Biesheim/biesheim_' + size + 'x' + size + '.png';
+      case 'Mulhouse F.C. 2':
+      case 'Mulhouse F.C.':
+        return (
+          baseUrl + 'Fc_mulhouse/fc_mulhouse_' + size + 'x' + size + '.png'
+        );
+      case 'Florival A.G.I.I.R':
+        return (
+          baseUrl +
+          'AGIIR_florival/agiir_florival_' +
+          size +
+          'x' +
+          size +
+          '.png'
+        );
+      case 'Vagney A.S.':
+        return baseUrl + 'Vagney/vagney_' + size + 'x' + size + '.png';
+      case 'Hausgauen A.S.':
+        return baseUrl + 'Hausgauen/hausgauen_' + size + 'x' + size + '.png';
+      case 'Brunstatt F.C.':
+        return baseUrl + 'Brunstatt/brunstatt_' + size + 'x' + size + '.png';
+      case 'Mulhouse Mouloudia':
+        return (
+          baseUrl +
+          'Mulhouse_Mouloudia/mulhouse_mouloudia_' +
+          size +
+          'x' +
+          size +
+          '.png'
+        );
       default:
         break;
     }

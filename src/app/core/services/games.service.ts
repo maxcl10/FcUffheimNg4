@@ -11,6 +11,7 @@ import { AppConfig } from '../../app.config';
 import { Event } from '../../shared/models/event.model';
 import { GamePlayer } from '../../shared/models/game-player.model';
 import { Article } from '../../shared/models/article.model';
+import { Competition } from '../../shared/models/competition.model';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -21,6 +22,8 @@ const httpOptions = {
 @Injectable()
 export class GamesService {
   private gameUrl = AppConfig.settings.apiServer.url + '/games';
+  private competitionsUrl =
+    AppConfig.settings.apiServer.url + '/games/competitions';
   private nextGameUrl = AppConfig.settings.apiServer.url + '/nextgame';
   private lastGameUrl = AppConfig.settings.apiServer.url + '/previousgame';
 
@@ -28,6 +31,10 @@ export class GamesService {
 
   public getGame(id: string): Observable<Game> {
     return this.http.get<Game>(this.gameUrl + '/' + id);
+  }
+
+  public getCompetitions(): Observable<Competition[]> {
+    return this.http.get<Competition[]>(this.competitionsUrl);
   }
 
   public getGames(): Observable<Game[]> {
@@ -68,6 +75,10 @@ export class GamesService {
 
   public getGameEvents(gameId: string): Observable<Event[]> {
     return this.http.get<Event[]>(this.gameUrl + '/' + gameId + '/events');
+  }
+
+  public getNextGames(): Observable<Game[]> {
+    return this.http.get<Game[]>(this.gameUrl + '/lgef');
   }
 
   public addGamePlayer(

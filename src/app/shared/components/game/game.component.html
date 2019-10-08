@@ -6,7 +6,7 @@
       <span class="glyphicon glyphicon-time"></span>
       {{ game.MatchDate | frDate: 'time' }} <br /><br />
       <div class="help-block">
-        {{ game.Championship }}
+        <fws-competition [game]="game"></fws-competition>
       </div>
     </div>
     <div class="col-md-4 col-sm-4 text-center">
@@ -35,7 +35,7 @@
     ></span>
     {{ game.MatchDate | frDate: 'time' }}
     <div class="help-block">
-      {{ game.Championship }}
+      <fws-competition [game]="game"></fws-competition>
     </div>
     <div class="row">
       <div class="col-xs-6 text-center">

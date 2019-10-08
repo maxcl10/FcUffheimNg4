@@ -1,44 +1,50 @@
-<article>
-  <div class="panel panel-default ">
-    <div class=" panel-heading">
-      <div
-        class="fb-share-button pull-right"
-        data-href="https://fcbartenheim.com"
-        data-layout="button_count"
-        data-size="small"
-        data-mobile-iframe="true"
-      >
-        <a
-          class="fb-xfbml-parse-ignore"
-          target="_blank"
-          [href]="
-            'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F.' +
-            appUrl +
-            '/article/' +
-            article.id +
-            '%2F&amp;src=sdkpreparse'
-          "
-          >Partager</a
+<div class="container">
+  <article>
+    <div class="panel panel-default ">
+      <div class=" panel-heading">
+        <div
+          class="fb-share-button pull-right"
+          data-href="https://fcbartenheim.com"
+          data-layout="button_count"
+          data-size="small"
+          data-mobile-iframe="true"
         >
+          <a
+            class="fb-xfbml-parse-ignore"
+            target="_blank"
+            [href]="
+              'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F.' +
+              appUrl +
+              '/article/' +
+              article.id +
+              '%2F&amp;src=sdkpreparse'
+            "
+            >Partager</a
+          >
+        </div>
+        <h2>{{ article.title }}</h2>
       </div>
-      <h2>{{ article.title }}</h2>
+      <div class="panel-body">
+        <span [innerHTML]="article.body"></span>
+      </div>
+      <div class="panel-footer">
+        <span *ngIf="article.publishedDate">
+          {{ article.publishedDate | date: 'dd/MM/yyyy' }} -
+          {{ article.publisher }}
+        </span>
+        <span *ngIf="!article.publishedDate">
+          Non publié - {{ article.publisher }}
+        </span>
+      </div>
     </div>
-    <div class="panel-body">
-      <span [innerHTML]="article.body"></span>
-    </div>
-    <div class="panel-footer">
-      <span *ngIf="article.publishedDate">
-        {{ article.publishedDate | date: 'dd/MM/yyyy' }} -
-        {{ article.publisher }}
-      </span>
-      <span *ngIf="!article.publishedDate">
-        Non publié - {{ article.publisher }}
-      </span>
-    </div>
-  </div>
 
-  <button (click)="goBack()" class="btn btn-default">Retour</button>
-  <button *ngIf="isAuthenticated" (click)="goToEdit()" class="btn btn-success">
-    Editer
-  </button>
-</article>
+    <button (click)="goBack()" class="btn btn-default">Retour</button>
+    <button
+      *ngIf="isAuthenticated"
+      (click)="goToEdit()"
+      class="btn btn-success"
+    >
+      Editer
+    </button>
+  </article>
+</div>

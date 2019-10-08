@@ -1,8 +1,5 @@
 <h2>Matches</h2>
-<div
-  class="panel panel-default"
-  *ngIf="(games$ | async) as games; else loading"
->
+<div class="panel panel-default" *ngIf="games$ | async as games; else loading">
   <div class="panel-heading">
     <a
       class="btn btn-success pull-right"
@@ -36,9 +33,7 @@
           <td>
             {{ game.AwayTeam }}
           </td>
-          <td>
-            {{ game.Championship }}
-          </td>
+          <td><fws-competition [game]="game"></fws-competition></td>
           <td>{{ game.HomeTeamScore }} - {{ game.AwayTeamScore }}</td>
         </tr>
       </tbody>

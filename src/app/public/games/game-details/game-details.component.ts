@@ -6,6 +6,9 @@ import { GamePlayer } from '../../../shared/models/game-player.model';
 import { LogoService } from '../../../core/services/logo.service';
 import { Event } from '../../../shared/models/event.model';
 import { Article } from '../../../shared/models/article.model';
+import { from } from 'rxjs';
+import * as _ from 'lodash';
+import { PlayerEvents } from '../../../shared/models/player-event.model';
 
 @Component({
   selector: 'fws-game-details',
@@ -17,6 +20,7 @@ export class GameDetailsComponent implements OnInit {
   players: GamePlayer[];
   goals: Event[];
   article: Article;
+  groupByPlayer: PlayerEvents[];
 
   constructor(
     private gameService: GamesService,
@@ -33,20 +37,25 @@ export class GameDetailsComponent implements OnInit {
     'DCC',
     'ALD',
     'ALG',
+    'MDC',
     'MDG',
+    'MRG',
     'MG',
-    'MOD',
     'MC',
     'MDD',
+    'MRD',
     'MD',
     'MOG',
+    'MOD',
     'MOC',
     'AVD',
     'AVC',
     'AVG',
     'R1',
     'R2',
-    'R3'
+    'R3',
+    'R4',
+    'R5'
   ];
 
   ngOnInit() {
@@ -75,7 +84,37 @@ export class GameDetailsComponent implements OnInit {
         });
       });
 
+      this.groupByPlayer = new Array();
+
       this.gameService.getGameEvents(id).subscribe(events => {
+        events
+          .filter(o => o.eventTypeId === 0)
+          .sort((a, b) => {
+            return a.time - b.time;
+          })
+          .forEach(event => {
+            const item = this.groupByPlayer.find(
+              o => o.playerId === event.playerId
+            );
+            if (item) {
+              item.goals.push(event);
+            } else {
+              const newItem = new PlayerEvents();
+              newItem.playerId = event.playerId;
+              newItem.firstName = event.playerFirstName;
+              newItem.lastName = event.playerLastName;
+              newItem.goals = [event];
+
+              this.groupByPlayer.push(newItem);
+            }
+          });
+        // this.groupByPlayer = _.chain(events)
+        //   .groupBy('playerId')
+        //   .map(function(el) {
+        //     let playerEvent = new PlayerEvents();
+        //     playerEvent.playerId = el
+        //   });
+
         this.goals = events
           .filter(o => o.eventTypeId === 0)
           .sort((a, b) => {
@@ -87,5 +126,9 @@ export class GameDetailsComponent implements OnInit {
         });
       });
     });
+  }
+
+  public goBack() {
+    window.history.back();
   }
 }

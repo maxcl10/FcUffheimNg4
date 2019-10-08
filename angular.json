@@ -34,7 +34,8 @@
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/html2canvas/dist/html2canvas.min.js"
             ]
           },
           "configurations": {
@@ -108,6 +109,18 @@
                 {
                   "replace": "src/index.html",
                   "with": "src/index.fcu.html"
+                },
+                {
+                  "replace": "src/styles/fcb_site.scss",
+                  "with": "src/styles/fcu_site.scss"
+                },
+                {
+                  "replace": "src/assets/fcb_organigramme.json",
+                  "with": "src/assets/fcu_organigramme.json"
+                },
+                {
+                  "replace": "src/assets/img/players/default.png",
+                  "with": "src/assets/img/players/default_fcu.png"
                 }
               ],
               "serviceWorker": true

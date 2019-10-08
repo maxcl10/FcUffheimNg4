@@ -7,4 +7,5 @@ export class Article {
   public publisher: string;
   public userId: string;
   public gameId: string;
+  public image: string;
 }

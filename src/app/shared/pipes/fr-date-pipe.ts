@@ -87,6 +87,19 @@ export class FrDatePipe implements PipeTransform {
         this.padStr(myDate.getMinutes().toString())
       );
     }
+    if (args === 'longDateTimeSep') {
+      return (
+        this.getFrDay(myDate.getDay()) +
+        ' ' +
+        this.padStr(myDate.getDate()) +
+        ' ' +
+        this.getFrMonth(myDate.getMonth()) +
+        ' | ' +
+        this.padStr(myDate.getHours()) +
+        this.timeSeparator +
+        this.padStr(myDate.getMinutes().toString())
+      );
+    }
     if (args === 'longDateTime') {
       return (
         this.getFrDay(myDate.getDay()) +

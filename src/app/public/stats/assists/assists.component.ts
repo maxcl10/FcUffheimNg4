@@ -13,7 +13,7 @@ export class AssistsComponent {
   set playerStats(playerStats: Stricker[]) {
     if (playerStats) {
       this._assists = playerStats
-        .filter(o => o.championshipAssists > 0)
+        .filter(o => o.totalAssists > 0)
         .sort((n1, n2) => n2.championshipAssists - n1.championshipAssists);
     }
   }

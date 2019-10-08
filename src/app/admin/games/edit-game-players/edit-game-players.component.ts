@@ -43,10 +43,12 @@ export class EditGamePlayersComponent implements OnInit {
     'ALG',
     'MDC',
     'MDG',
+    'MRG',
     'MD',
     'MOD',
     'MC',
     'MDD',
+    'MRD',
     'MG',
     'MOG',
     'MOC',
@@ -55,7 +57,9 @@ export class EditGamePlayersComponent implements OnInit {
     'AVG',
     'R1',
     'R2',
-    'R3'
+    'R3',
+    'R4',
+    'R5'
   ];
 
   ngOnInit() {
@@ -126,16 +130,30 @@ export class EditGamePlayersComponent implements OnInit {
     this.eventsService.addEvent(this.newEvent).subscribe(result => {
       this.events.push(result);
       this.selectedGamePlayerEvents.push(result);
+
+      this.gamePlayers
+        .find(o => o.playerId === this.selectedGamePlayer.playerId)
+        .events.push(result);
     });
   }
 
   delete(event: Event) {
     this.eventsService.deleteEvent(event).subscribe(() => {
-      const index = this.events.indexOf(event);
+      // Remove from the event list
+      let index = this.events.indexOf(event);
       this.events.splice(index, 1);
 
-      const index2 = this.selectedGamePlayerEvents.indexOf(event);
-      this.selectedGamePlayerEvents.splice(index2, 1);
+      // Remove from the selected list
+      index = this.selectedGamePlayerEvents.indexOf(event);
+      this.selectedGamePlayerEvents.splice(index, 1);
+
+      // Remove from the table
+      const selectedGamePlayer = this.gamePlayers.find(
+        o => o.playerId === this.selectedGamePlayer.playerId
+      );
+
+      index = selectedGamePlayer.events.indexOf(event);
+      selectedGamePlayer.events.splice(index, 1);
     });
   }
 }

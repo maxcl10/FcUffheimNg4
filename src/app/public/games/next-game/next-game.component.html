@@ -20,7 +20,7 @@
     </div>
   </div>
   <div class="help-block text-center">
-    {{ game.Championship }}
+    <fws-competition [game]="game"></fws-competition>
   </div>
 </span>
 <span *ngIf="game == null">
