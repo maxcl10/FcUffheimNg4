@@ -1,16 +1,17 @@
-import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
-import { GamesService } from "../../../core/services/games.service";
-import { LogoService } from "../../../core/services/logo.service";
-import { Game } from "../../../shared/models/game.model";
-import { Event } from "../../../shared/models/event.model";
-import { GamePlayer } from "../../../shared/models/game-player.model";
-//import * as html2Canvas from 'html2canvas';
-const html2canvas = require("../../../../../node_modules/html2canvas");
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { GamesService } from '../../../core/services/games.service';
+import { LogoService } from '../../../core/services/logo.service';
+import { Game } from '../../../shared/models/game.model';
+import { Event } from '../../../shared/models/event.model';
+import { GamePlayer } from '../../../shared/models/game-player.model';
+// import { html2canvas } from '../../../../../node_modules/html2canvas';
+
+declare let html2canvas: any;
 
 @Component({
-  selector: "fws-game-poster",
-  templateUrl: "./game-poster.component.html",
-  styleUrls: ["./game-poster.component.scss"]
+  selector: 'fws-game-poster',
+  templateUrl: './game-poster.component.html',
+  styleUrls: ['./game-poster.component.scss']
 })
 export class GamePosterComponent implements OnInit {
   public nextgame: Game;
@@ -21,10 +22,10 @@ export class GamePosterComponent implements OnInit {
   players: GamePlayer[];
   game: Game;
 
-  @ViewChild("lastGameDiv", { static: false }) lastGameDiv: ElementRef;
-  @ViewChild("nextGameDiv", { static: false }) nextGameDiv: ElementRef;
-  @ViewChild("scheduleDiv", { static: false }) scheduleDiv: ElementRef;
-  @ViewChild("groupeDiv", { static: false }) groupeDiv: ElementRef;
+  @ViewChild('lastGameDiv', { static: false }) lastGameDiv: ElementRef;
+  @ViewChild('nextGameDiv', { static: false }) nextGameDiv: ElementRef;
+  @ViewChild('scheduleDiv', { static: false }) scheduleDiv: ElementRef;
+  @ViewChild('groupeDiv', { static: false }) groupeDiv: ElementRef;
 
   // @ViewChild('canvas') canvas: ElementRef;
   // @ViewChild('downloadLink') downloadLink: ElementRef;
@@ -39,18 +40,18 @@ export class GamePosterComponent implements OnInit {
     this.getLastGame();
     this.getNextGames();
 
-    this.getGame("0c0d815c-e690-4602-8425-9842161827b1");
+    this.getGame('0c0d815c-e690-4602-8425-9842161827b1');
   }
 
   public downloadScheduleImage() {
     const matchDate = new Date(this.lastgame.MatchDate);
     const name =
       matchDate.getFullYear() +
-      "" +
-      ("0" + matchDate.getMonth()).slice(-2) +
-      "" +
-      ("0" + matchDate.getDate()).slice(-2) +
-      "_Resulat";
+      '' +
+      ('0' + matchDate.getMonth()).slice(-2) +
+      '' +
+      ('0' + matchDate.getDate()).slice(-2) +
+      '_Resulat';
     this.downloadImage(this.scheduleDiv, name);
   }
 
@@ -58,11 +59,11 @@ export class GamePosterComponent implements OnInit {
     const matchDate = new Date(this.lastgame.MatchDate);
     const name =
       matchDate.getFullYear() +
-      "" +
-      ("0" + matchDate.getMonth()).slice(-2) +
-      "" +
-      ("0" + matchDate.getDate()).slice(-2) +
-      "_Resulat";
+      '' +
+      ('0' + matchDate.getMonth()).slice(-2) +
+      '' +
+      ('0' + matchDate.getDate()).slice(-2) +
+      '_Resulat';
 
     this.downloadImage(this.lastGameDiv, name);
   }
@@ -70,10 +71,10 @@ export class GamePosterComponent implements OnInit {
     const matchDate = new Date(this.nextgame.MatchDate);
     const name =
       matchDate.getFullYear() +
-      "" +
-      ("0" + matchDate.getMonth()).slice(-2) +
-      "" +
-      ("0" + matchDate.getDate()).slice(-2);
+      '' +
+      ('0' + matchDate.getMonth()).slice(-2) +
+      '' +
+      ('0' + matchDate.getDate()).slice(-2);
 
     this.downloadImage(this.nextGameDiv, name);
   }
@@ -82,10 +83,10 @@ export class GamePosterComponent implements OnInit {
     const matchDate = new Date(this.nextgame.MatchDate);
     const name =
       matchDate.getFullYear() +
-      "" +
-      ("0" + matchDate.getMonth()).slice(-2) +
-      "" +
-      ("0" + matchDate.getDate()).slice(-2);
+      '' +
+      ('0' + matchDate.getMonth()).slice(-2) +
+      '' +
+      ('0' + matchDate.getDate()).slice(-2);
 
     this.downloadImage(this.groupeDiv, name);
   }
@@ -97,11 +98,11 @@ export class GamePosterComponent implements OnInit {
       // Works only with chrome
       canvas.toBlob(function(blob) {
         // To download directly on browser default 'downloads' location
-        const link = document.createElement("a");
-        link.download = fileName + ".png";
+        const link = document.createElement('a');
+        link.download = fileName + '.png';
         link.href = URL.createObjectURL(blob);
         link.click();
-      }, "image/png");
+      }, 'image/png');
     });
   }
 
