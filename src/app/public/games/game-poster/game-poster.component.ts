@@ -1,15 +1,16 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { GamesService } from '../../../core/services/games.service';
-import { LogoService } from '../../../core/services/logo.service';
-import { Game } from '../../../shared/models/game.model';
-import { Event } from '../../../shared/models/event.model';
-import { GamePlayer } from '../../../shared/models/game-player.model';
-import * as html2Canvas from 'html2canvas';
+import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
+import { GamesService } from "../../../core/services/games.service";
+import { LogoService } from "../../../core/services/logo.service";
+import { Game } from "../../../shared/models/game.model";
+import { Event } from "../../../shared/models/event.model";
+import { GamePlayer } from "../../../shared/models/game-player.model";
+//import * as html2Canvas from 'html2canvas';
+const html2canvas = require("../../../../../node_modules/html2canvas");
 
 @Component({
-  selector: 'fws-game-poster',
-  templateUrl: './game-poster.component.html',
-  styleUrls: ['./game-poster.component.scss']
+  selector: "fws-game-poster",
+  templateUrl: "./game-poster.component.html",
+  styleUrls: ["./game-poster.component.scss"]
 })
 export class GamePosterComponent implements OnInit {
   public nextgame: Game;
@@ -20,7 +21,11 @@ export class GamePosterComponent implements OnInit {
   players: GamePlayer[];
   game: Game;
 
-  @ViewChild('screen', { static: false }) screen: ElementRef;
+  @ViewChild("lastGameDiv", { static: false }) lastGameDiv: ElementRef;
+  @ViewChild("nextGameDiv", { static: false }) nextGameDiv: ElementRef;
+  @ViewChild("scheduleDiv", { static: false }) scheduleDiv: ElementRef;
+  @ViewChild("groupeDiv", { static: false }) groupeDiv: ElementRef;
+
   // @ViewChild('canvas') canvas: ElementRef;
   // @ViewChild('downloadLink') downloadLink: ElementRef;
 
@@ -34,12 +39,69 @@ export class GamePosterComponent implements OnInit {
     this.getLastGame();
     this.getNextGames();
 
-    this.getGame('0c0d815c-e690-4602-8425-9842161827b1');
+    this.getGame("0c0d815c-e690-4602-8425-9842161827b1");
   }
 
-  public downloadImage() {
-    html2canvas(this.screen.nativeElement).then(function(canvas) {
-      document.body.appendChild(canvas);
+  public downloadScheduleImage() {
+    const matchDate = new Date(this.lastgame.MatchDate);
+    const name =
+      matchDate.getFullYear() +
+      "" +
+      ("0" + matchDate.getMonth()).slice(-2) +
+      "" +
+      ("0" + matchDate.getDate()).slice(-2) +
+      "_Resulat";
+    this.downloadImage(this.scheduleDiv, name);
+  }
+
+  public downloadPreviousGameImage() {
+    const matchDate = new Date(this.lastgame.MatchDate);
+    const name =
+      matchDate.getFullYear() +
+      "" +
+      ("0" + matchDate.getMonth()).slice(-2) +
+      "" +
+      ("0" + matchDate.getDate()).slice(-2) +
+      "_Resulat";
+
+    this.downloadImage(this.lastGameDiv, name);
+  }
+  public downloadNextGameImage() {
+    const matchDate = new Date(this.nextgame.MatchDate);
+    const name =
+      matchDate.getFullYear() +
+      "" +
+      ("0" + matchDate.getMonth()).slice(-2) +
+      "" +
+      ("0" + matchDate.getDate()).slice(-2);
+
+    this.downloadImage(this.nextGameDiv, name);
+  }
+
+  public downloadGroupImage() {
+    const matchDate = new Date(this.nextgame.MatchDate);
+    const name =
+      matchDate.getFullYear() +
+      "" +
+      ("0" + matchDate.getMonth()).slice(-2) +
+      "" +
+      ("0" + matchDate.getDate()).slice(-2);
+
+    this.downloadImage(this.groupeDiv, name);
+  }
+
+  public downloadImage(elementRef: ElementRef, fileName: string) {
+    html2canvas(elementRef.nativeElement).then(function(canvas) {
+      // document.body.appendChild(canvas);
+
+      // Works only with chrome
+      canvas.toBlob(function(blob) {
+        // To download directly on browser default 'downloads' location
+        const link = document.createElement("a");
+        link.download = fileName + ".png";
+        link.href = URL.createObjectURL(blob);
+        link.click();
+      }, "image/png");
     });
   }
 

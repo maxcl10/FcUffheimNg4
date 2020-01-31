@@ -2,11 +2,22 @@
   @import url('https://fonts.googleapis.com/css?family=Lexend+Tera|Montserrat&display=swap');
 </style>
 <div class="container">
-  <fws-game-poster-generator></fws-game-poster-generator>
-  <br />
-  <button (click)="downloadImage()">Download</button>
+  <!-- <fws-game-poster-generator></fws-game-poster-generator>
+  <br /> -->
+  <button (click)="downloadNextGameImage()" class="btn btn-default">
+    Prochain match
+  </button>
+  <button (click)="downloadPreviousGameImage()" class="btn btn-default">
+    Match précédent
+  </button>
+  <button (click)="downloadScheduleImage()" class="btn btn-default">
+    Programme
+  </button>
+  <button (click)="downloadGroupImage()" class="btn btn-default">
+    Groupe
+  </button>
 
-  <ng-container #screen>
+  <div style="width: 800px;" #nextGameDiv>
     <fws-poster-base *ngIf="nextgame != null">
       <div class="text-center part subInfo">
         {{ nextgame.MatchDate | frDate: 'longDateTimeSep' | uppercase }}
@@ -43,12 +54,12 @@
         <fws-competition [game]="nextgame"></fws-competition>
       </div>
     </fws-poster-base>
-  </ng-container>
+  </div>
   <br />
 
-  <fws-poster-base *ngIf="game != null">
-    <!-- <div class="text-center title">TIRAGE COUPE DE FRANCE</div> -->
-    <div class="text-center part subInfo">
+  <!-- <fws-poster-base *ngIf="game != null">-->
+  <!-- <div class="text-center title">TIRAGE COUPE DE FRANCE</div> -->
+  <!-- <div class="text-center part subInfo">
       {{ game.MatchDate | frDate: 'longDateTimeSep' | uppercase }}
     </div>
 
@@ -76,82 +87,85 @@
       <img src="../../../../assets/img/{{ game.CompetitionShort }}.png" />
       <fws-competition [game]="game"></fws-competition>
     </div>
-  </fws-poster-base>
+  </fws-poster-base>  -->
 
   <br />
-
-  <fws-poster-base *ngIf="lastgame != null">
-    <!-- <div class="text-center title">
+  <div #lastGameDiv style="width: 800px">
+    <fws-poster-base *ngIf="lastgame != null">
+      <!-- <div class="text-center title">
       FIN DU MATCH
     </div> -->
 
-    <div class="row">
-      <div class="col-md-6  text-center">
-        <img
-          [src]="lastgame.homeTeamLogoUrl"
-          [title]="lastgame.HomeTeam"
-        /><br />
-      </div>
+      <div class="row">
+        <div class="col-md-6  text-center">
+          <img
+            [src]="lastgame.homeTeamLogoUrl"
+            [title]="lastgame.HomeTeam"
+          /><br />
+        </div>
 
-      <div class="col-md-6  text-center">
-        <img
-          [src]="lastgame.awayTeamLogoUrl"
-          [title]="lastgame.AwayTeam"
-        /><br />
+        <div class="col-md-6  text-center">
+          <img
+            [src]="lastgame.awayTeamLogoUrl"
+            [title]="lastgame.AwayTeam"
+          /><br />
+        </div>
       </div>
-    </div>
-    <div class="row" style="margin-top: 20px">
-      <div class="col-md-12 text-center teamName">
-        <span class="hidden-sm bold">{{
-          lastgame.HomeTeam | teamName | uppercase
-        }}</span>
-        /
-        <span class="hidden-sm bold">{{
-          lastgame.AwayTeam | teamName | uppercase
-        }}</span>
+      <div class="row" style="margin-top: 20px">
+        <div class="col-md-12 text-center teamName">
+          <span class="hidden-sm bold">{{
+            lastgame.HomeTeam | teamName | uppercase
+          }}</span>
+          /
+          <span class="hidden-sm bold">{{
+            lastgame.AwayTeam | teamName | uppercase
+          }}</span>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12 text-center score">
-        <fws-game-score [game]="lastgame"></fws-game-score>
+      <div class="row">
+        <div class="col-md-12 text-center score">
+          <fws-game-score [game]="lastgame"></fws-game-score>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <ul>
-        <li *ngFor="let goal of goals">
-          {{ goal.playerLastName }} {{ goal.playerFirstName.slice(0, 1) }}.
-          <span class="subInfo"> {{ goal.time }}'</span>
-        </li>
-      </ul>
-    </div>
-    <div class="gameChampionship text-center">
-      <img src="../../../../assets/img/{{ lastgame.CompetitionShort }}.png" />
-      <fws-competition [game]="lastgame"></fws-competition>
-    </div>
-  </fws-poster-base>
+      <div class="row">
+        <ul>
+          <li *ngFor="let goal of goals">
+            {{ goal.playerLastName }} {{ goal.playerFirstName.slice(0, 1) }}.
+            <span class="subInfo"> {{ goal.time }}'</span>
+          </li>
+        </ul>
+      </div>
+      <div class="gameChampionship text-center">
+        <img src="../../../../assets/img/{{ lastgame.CompetitionShort }}.png" />
+        <fws-competition [game]="lastgame"></fws-competition>
+      </div>
+    </fws-poster-base>
+  </div>
 
   <br />
 
-  <fws-poster-base *ngIf="nextgames != null">
-    <!-- <div class="text-center title">
+  <div #scheduleDiv style="width: 800px">
+    <fws-poster-base *ngIf="nextgames != null">
+      <!-- <div class="text-center title">
       PROGRAMME DU WEEK-END
     </div> -->
-    <div
-      *ngFor="let game of nextgames"
-      class="row"
-      style="margin-bottom: 20px;"
-    >
-      <div class="col-md-4">
-        {{ game.CompetitionShort }}
+      <div
+        *ngFor="let game of nextgames"
+        class="row"
+        style="margin-bottom: 20px;"
+      >
+        <div class="col-md-4">
+          {{ game.CompetitionShort }}
+        </div>
+        <div class="col-md-8">
+          {{ game.HomeTeam }} / {{ game.AwayTeam }} <br />
+          <span class="subInfo">
+            {{ game.MatchDate | frDate: 'longDateTimeSep' | uppercase }}
+          </span>
+        </div>
       </div>
-      <div class="col-md-8">
-        {{ game.HomeTeam }} / {{ game.AwayTeam }} <br />
-        <span class="subInfo">
-          {{ game.MatchDate | frDate: 'longDateTimeSep' | uppercase }}
-        </span>
-      </div>
-    </div>
-  </fws-poster-base>
+    </fws-poster-base>
+  </div>
 
   <!-- <br /> -->
   <!-- <fws-poster-base>
@@ -193,13 +207,14 @@
   </fws-poster-base> -->
 
   <br />
-  <fws-poster-base *ngIf="nextgame != null">
-    <div class="text-center title">LE GROUPE</div>
-    <div class="text-center part subInfo">
-      {{ nextgame.MatchDate | frDate: 'longDateTimeSep' | uppercase }}
-    </div>
+  <div #groupeDiv style="width: 800px">
+    <fws-poster-base *ngIf="nextgame != null">
+      <div class="text-center title">LE GROUPE</div>
+      <div class="text-center part subInfo">
+        {{ nextgame.MatchDate | frDate: 'longDateTimeSep' | uppercase }}
+      </div>
 
-    <!-- <div class="row">
+      <!-- <div class="row">
         <div class="col-md-6  text-center">
           <img
             [src]="nextgame.homeTeamLogoUrl"
@@ -214,69 +229,70 @@
           /><br />
         </div>
       </div> -->
-    <div class="row part" style="margin-top: 20px">
-      <div class="col-md-12 text-center teamName">
-        <span class="hidden-sm bold">{{
-          nextgame.HomeTeam | teamName | uppercase
-        }}</span>
-        /
-        <span class="hidden-sm bold">{{
-          nextgame.AwayTeam | teamName | uppercase
-        }}</span>
+      <div class="row part" style="margin-top: 20px">
+        <div class="col-md-12 text-center teamName">
+          <span class="hidden-sm bold">{{
+            nextgame.HomeTeam | teamName | uppercase
+          }}</span>
+          /
+          <span class="hidden-sm bold">{{
+            nextgame.AwayTeam | teamName | uppercase
+          }}</span>
+        </div>
       </div>
-    </div>
-    <div *ngIf="players" class="row">
-      <div class="col-md-6">
-        <ul>
-          <li *ngFor="let player of players.slice(0, 7)">
-            <img
-              width="40px"
-              style="display: inline-block"
-              [src]="
-                '../../../assets/img/players/' +
-                player.playerFirstName +
-                '_' +
-                player.playerLastName +
-                '.png'
-              "
-              class="img-responsive img-circle "
-              onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
-            />
-            <span style="font-size: 18px">
-              {{ player.playerLastName }}
-              {{ player.playerFirstName.slice(0, 1) }}.
-            </span>
-          </li>
-        </ul>
+      <div *ngIf="players" class="row">
+        <div class="col-md-6">
+          <ul>
+            <li *ngFor="let player of players.slice(0, 7)">
+              <img
+                width="40px"
+                style="display: inline-block"
+                [src]="
+                  '../../../assets/img/players/' +
+                  player.playerFirstName +
+                  '_' +
+                  player.playerLastName +
+                  '.png'
+                "
+                class="img-responsive img-circle "
+                onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
+              />
+              <span style="font-size: 18px">
+                {{ player.playerLastName }}
+                {{ player.playerFirstName.slice(0, 1) }}.
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <ul>
+            <li *ngFor="let player of players.slice(7)">
+              <img
+                width="40px"
+                style="display: inline-block"
+                [src]="
+                  '../../../assets/img/players/' +
+                  player.playerFirstName +
+                  '_' +
+                  player.playerLastName +
+                  '.png'
+                "
+                class="img-responsive img-circle"
+                onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
+              />
+              <span style="font-size: 18px">
+                {{ player.playerLastName }}
+                {{ player.playerFirstName.slice(0, 1) }}.
+              </span>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="col-md-6">
-        <ul>
-          <li *ngFor="let player of players.slice(7)">
-            <img
-              width="40px"
-              style="display: inline-block"
-              [src]="
-                '../../../assets/img/players/' +
-                player.playerFirstName +
-                '_' +
-                player.playerLastName +
-                '.png'
-              "
-              class="img-responsive img-circle"
-              onerror="this.onerror=null;this.src='../../../assets/img/players/default.png'"
-            />
-            <span style="font-size: 18px">
-              {{ player.playerLastName }}
-              {{ player.playerFirstName.slice(0, 1) }}.
-            </span>
-          </li>
-        </ul>
+      <div class="gameChampionship text-center">
+        <img src="../../../../assets/img/{{ nextgame.CompetitionShort }}.png" />
+        <fws-competition [game]="nextgame"></fws-competition>
       </div>
-    </div>
-    <div class="gameChampionship text-center">
-      <img src="../../../../assets/img/{{ nextgame.CompetitionShort }}.png" />
-      <fws-competition [game]="nextgame"></fws-competition>
-    </div>
-  </fws-poster-base>
+    </fws-poster-base>
+  </div>
   <br />
 </div>
